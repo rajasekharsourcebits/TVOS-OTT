@@ -1,0 +1,6 @@
+framework module Pods_TVOS_OTT_TVOS_OTTUITests {
+  umbrella header "Pods-TVOS-OTT-TVOS-OTTUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

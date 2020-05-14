@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'TVOS-OTT' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'ReachabilitySwift'
+
+  # Pods for TVOS-OTT
+
+  target 'TVOS-OTTTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TVOS-OTTUITests' do
+    # Pods for testing
+  end
+
+end
