@@ -16,6 +16,7 @@ class BannerViewController: UIViewController, UICollectionViewDataSource, UIColl
     var index:Int = 0
     var bannerTimer: Timer?
     var dataCount: Int = 10
+    
     @IBAction func scrollToNext(_ sender: Any) {
         if index < bannerPageControl.numberOfPages - 1 {
             index = index + 1
@@ -39,7 +40,7 @@ class BannerViewController: UIViewController, UICollectionViewDataSource, UIColl
         super.viewDidLoad()
         bannerPageControl.numberOfPages = dataCount
         bannerPageControl.currentPage = 0
-        bannerTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+//        bannerTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
     
     @objc func runTimedCode() {
