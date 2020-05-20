@@ -8,20 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		818CB7536086FE69669AD2A3 /* Pods_TVOS_OTTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527CD16CDF6F249DD540CA08 /* Pods_TVOS_OTTTests.framework */; };
-		9D6059E92472637B004E6BD9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6059E82472637B004E6BD9 /* HomeViewController.swift */; };
-		9D6059EB2472638E004E6BD9 /* TVShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6059EA2472638E004E6BD9 /* TVShowsViewController.swift */; };
-		9D6059ED2472639D004E6BD9 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6059EC2472639D004E6BD9 /* MoviesViewController.swift */; };
-		9D6059EF247263B3004E6BD9 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6059EE247263B3004E6BD9 /* FavouritesViewController.swift */; };
-		9D6059F1247263BF004E6BD9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6059F0247263BF004E6BD9 /* SearchViewController.swift */; };
-		9D6059F324726A8D004E6BD9 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6059F224726A8D004E6BD9 /* ItemTableViewCell.swift */; };
-		9D6059F524726AD1004E6BD9 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6059F424726AD1004E6BD9 /* ItemCollectionViewCell.swift */; };
-		9D6059F724728E29004E6BD9 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6059F624728E29004E6BD9 /* BannerTableViewCell.swift */; };
 		9DD25BEC246D7DB500427850 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD25BEB246D7DB500427850 /* AppDelegate.swift */; };
 		9DD25BF3246D7DB500427850 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD25BF1246D7DB500427850 /* Main.storyboard */; };
 		9DD25BF5246D7DB600427850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD25BF4246D7DB600427850 /* Assets.xcassets */; };
 		9DD25BF8246D7DB600427850 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD25BF6246D7DB600427850 /* LaunchScreen.storyboard */; };
 		9DD25C03246D7DB600427850 /* TVOS_OTTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD25C02246D7DB600427850 /* TVOS_OTTTests.swift */; };
 		9DD25C0E246D7DB600427850 /* TVOS_OTTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD25C0D246D7DB600427850 /* TVOS_OTTUITests.swift */; };
+		9FF1E2C5247294660033A291 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E2C4247294660033A291 /* BannerViewController.swift */; };
+		9FF1E2C7247294740033A291 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E2C6247294740033A291 /* BannerCollectionViewCell.swift */; };
+		9FF1E2C924729A2C0033A291 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E2C824729A2C0033A291 /* BannerModel.swift */; };
+		9FF1E31A247412EF0033A291 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E315247412EF0033A291 /* SearchViewController.swift */; };
+		9FF1E31B247412EF0033A291 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E316247412EF0033A291 /* MoviesViewController.swift */; };
+		9FF1E31C247412EF0033A291 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E317247412EF0033A291 /* HomeViewController.swift */; };
+		9FF1E31D247412EF0033A291 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E318247412EF0033A291 /* FavouritesViewController.swift */; };
+		9FF1E31E247412EF0033A291 /* TVShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E319247412EF0033A291 /* TVShowsViewController.swift */; };
+		9FF1E3212474F2330033A291 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E3202474F2330033A291 /* ItemTableViewCell.swift */; };
+		9FF1E3232474F2450033A291 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E3222474F2450033A291 /* ItemCollectionViewCell.swift */; };
+		9FF1E3252475056F0033A291 /* ButtonFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1E3242475056F0033A291 /* ButtonFocus.swift */; };
 		A204D8E08FAB45C8917AF837 /* Pods_TVOS_OTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2E17ADAE2160E89621D48F /* Pods_TVOS_OTT.framework */; };
 		CD7E7F85C6DDAB503F887F73 /* Pods_TVOS_OTT_TVOS_OTTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99F5EE75A30E2F95C3DAC55 /* Pods_TVOS_OTT_TVOS_OTTUITests.framework */; };
 /* End PBXBuildFile section */
@@ -51,14 +54,6 @@
 		5455FEE2FCA7377FA1EDFB69 /* Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig"; path = "Target Support Files/Pods-TVOS-OTT-TVOS-OTTUITests/Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig"; sourceTree = "<group>"; };
 		54E7D63444E518E8E08A70EF /* Pods-TVOS-OTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOS-OTT.release.xcconfig"; path = "Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT.release.xcconfig"; sourceTree = "<group>"; };
 		9D2E17ADAE2160E89621D48F /* Pods_TVOS_OTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVOS_OTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D6059E82472637B004E6BD9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		9D6059EA2472638E004E6BD9 /* TVShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsViewController.swift; sourceTree = "<group>"; };
-		9D6059EC2472639D004E6BD9 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
-		9D6059EE247263B3004E6BD9 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
-		9D6059F0247263BF004E6BD9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		9D6059F224726A8D004E6BD9 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = "TVOS-OTT/Cell/TableViewCell/ItemTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		9D6059F424726AD1004E6BD9 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemCollectionViewCell.swift; path = "TVOS-OTT/Cell/CollectionCell/ItemCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		9D6059F624728E29004E6BD9 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		9DD25BE8246D7DB500427850 /* TVOS-OTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TVOS-OTT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD25BEB246D7DB500427850 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD25BF2246D7DB500427850 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +66,17 @@
 		9DD25C09246D7DB600427850 /* TVOS-OTTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TVOS-OTTUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD25C0D246D7DB600427850 /* TVOS_OTTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOS_OTTUITests.swift; sourceTree = "<group>"; };
 		9DD25C0F246D7DB600427850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FF1E2C4247294660033A291 /* BannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
+		9FF1E2C6247294740033A291 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BannerCollectionViewCell.swift; path = "TVOS-OTT/Controller/BannerCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		9FF1E2C824729A2C0033A291 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BannerModel.swift; path = "TVOS-OTT/Controller/BannerModel.swift"; sourceTree = SOURCE_ROOT; };
+		9FF1E315247412EF0033A291 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9FF1E316247412EF0033A291 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		9FF1E317247412EF0033A291 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9FF1E318247412EF0033A291 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		9FF1E319247412EF0033A291 /* TVShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowsViewController.swift; sourceTree = "<group>"; };
+		9FF1E3202474F2330033A291 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		9FF1E3222474F2450033A291 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		9FF1E3242475056F0033A291 /* ButtonFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonFocus.swift; path = "TVOS-OTT/Cell/CollectionCell/ButtonFocus.swift"; sourceTree = SOURCE_ROOT; };
 		BC78CAAD003158F64714D981 /* Pods-TVOS-OTT-TVOS-OTTUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOS-OTT-TVOS-OTTUITests.debug.xcconfig"; path = "Target Support Files/Pods-TVOS-OTT-TVOS-OTTUITests/Pods-TVOS-OTT-TVOS-OTTUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C99F5EE75A30E2F95C3DAC55 /* Pods_TVOS_OTT_TVOS_OTTUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVOS_OTT_TVOS_OTTUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,18 +109,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9D6059E72472635A004E6BD9 /* TabsItems */ = {
-			isa = PBXGroup;
-			children = (
-				9D6059E82472637B004E6BD9 /* HomeViewController.swift */,
-				9D6059EA2472638E004E6BD9 /* TVShowsViewController.swift */,
-				9D6059EC2472639D004E6BD9 /* MoviesViewController.swift */,
-				9D6059EE247263B3004E6BD9 /* FavouritesViewController.swift */,
-				9D6059F0247263BF004E6BD9 /* SearchViewController.swift */,
-			);
-			path = TabsItems;
-			sourceTree = "<group>";
-		};
 		9DD25BDF246D7DB500427850 = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +171,8 @@
 		9DD25C1B246D7EAC00427850 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9D6059E72472635A004E6BD9 /* TabsItems */,
+				9FF1E314247412EF0033A291 /* TabsItems */,
+				9FF1E2C4247294660033A291 /* BannerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,6 +213,7 @@
 		9DD25C20246D7EFF00427850 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9FF1E3242475056F0033A291 /* ButtonFocus.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -241,6 +237,7 @@
 		9DD25C23246D7F7E00427850 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9FF1E2C824729A2C0033A291 /* BannerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,7 +266,8 @@
 		9DD25C27246D7FEA00427850 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				9D6059F424726AD1004E6BD9 /* ItemCollectionViewCell.swift */,
+				9FF1E3222474F2450033A291 /* ItemCollectionViewCell.swift */,
+				9FF1E2C6247294740033A291 /* BannerCollectionViewCell.swift */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -277,10 +275,21 @@
 		9DD25C28246D7FF900427850 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9D6059F224726A8D004E6BD9 /* ItemTableViewCell.swift */,
-				9D6059F624728E29004E6BD9 /* BannerTableViewCell.swift */,
+				9FF1E3202474F2330033A291 /* ItemTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		9FF1E314247412EF0033A291 /* TabsItems */ = {
+			isa = PBXGroup;
+			children = (
+				9FF1E315247412EF0033A291 /* SearchViewController.swift */,
+				9FF1E316247412EF0033A291 /* MoviesViewController.swift */,
+				9FF1E317247412EF0033A291 /* HomeViewController.swift */,
+				9FF1E318247412EF0033A291 /* FavouritesViewController.swift */,
+				9FF1E319247412EF0033A291 /* TVShowsViewController.swift */,
+			);
+			path = TabsItems;
 			sourceTree = "<group>";
 		};
 		A8C572D8D85D2D8A32B132F6 /* Pods */ = {
@@ -545,15 +554,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D6059F1247263BF004E6BD9 /* SearchViewController.swift in Sources */,
-				9D6059EB2472638E004E6BD9 /* TVShowsViewController.swift in Sources */,
+				9FF1E3252475056F0033A291 /* ButtonFocus.swift in Sources */,
+				9FF1E31A247412EF0033A291 /* SearchViewController.swift in Sources */,
+				9FF1E3232474F2450033A291 /* ItemCollectionViewCell.swift in Sources */,
 				9DD25BEC246D7DB500427850 /* AppDelegate.swift in Sources */,
-				9D6059F724728E29004E6BD9 /* BannerTableViewCell.swift in Sources */,
-				9D6059E92472637B004E6BD9 /* HomeViewController.swift in Sources */,
-				9D6059EF247263B3004E6BD9 /* FavouritesViewController.swift in Sources */,
-				9D6059F524726AD1004E6BD9 /* ItemCollectionViewCell.swift in Sources */,
-				9D6059F324726A8D004E6BD9 /* ItemTableViewCell.swift in Sources */,
-				9D6059ED2472639D004E6BD9 /* MoviesViewController.swift in Sources */,
+				9FF1E3212474F2330033A291 /* ItemTableViewCell.swift in Sources */,
+				9FF1E31E247412EF0033A291 /* TVShowsViewController.swift in Sources */,
+				9FF1E2C5247294660033A291 /* BannerViewController.swift in Sources */,
+				9FF1E2C924729A2C0033A291 /* BannerModel.swift in Sources */,
+				9FF1E31C247412EF0033A291 /* HomeViewController.swift in Sources */,
+				9FF1E2C7247294740033A291 /* BannerCollectionViewCell.swift in Sources */,
+				9FF1E31D247412EF0033A291 /* FavouritesViewController.swift in Sources */,
+				9FF1E31B247412EF0033A291 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
