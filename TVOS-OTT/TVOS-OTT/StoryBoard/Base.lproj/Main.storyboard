@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -367,7 +367,7 @@
                                 <color key="pageIndicatorTintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfB-cc-JDO">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfB-cc-JDO">
                                 <rect key="frame" x="1728" y="215" width="192" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="86" id="Swz-jV-yBb"/>
@@ -379,7 +379,7 @@
                                     <action selector="scrollToNext:" destination="VrK-Ys-4fa" eventType="primaryActionTriggered" id="fxQ-LI-OVt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vP-N2-3FX">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vP-N2-3FX">
                                 <rect key="frame" x="0.0" y="215" width="192" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="86" id="Nn1-wO-G1r"/>
@@ -422,11 +422,11 @@
             <point key="canvasLocation" x="8525" y="-817"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="CXm-XR-sPk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Banner" width="1920" height="980"/>
         <image name="demo" width="674" height="1000"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="CXm-XR-sPk"/>
-    </inferredMetricsTieBreakers>
 </document>

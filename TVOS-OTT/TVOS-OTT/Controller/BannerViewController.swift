@@ -40,7 +40,7 @@ class BannerViewController: UIViewController, UICollectionViewDataSource, UIColl
         super.viewDidLoad()
         bannerPageControl.numberOfPages = dataCount
         bannerPageControl.currentPage = 0
-//        bannerTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        bannerTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
     
     @objc func runTimedCode() {
