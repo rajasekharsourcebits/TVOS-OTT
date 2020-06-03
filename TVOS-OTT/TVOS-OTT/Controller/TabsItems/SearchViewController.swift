@@ -8,23 +8,62 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-
+class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var searchCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 20, right: 10)
+        layout.itemSize = CGSize(width: view.frame.size.width/5, height: 300)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 100
+        searchCollectionView.collectionViewLayout = layout
+        view.layer.backgroundColor = UIColor.black.cgColor
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return  50
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell {
+            cell.layer.cornerRadius = 10.0
+            cell.clipsToBounds = true
+            return cell
+        } else {
+            return SearchCollectionViewCell()
+        }
+    }
 }
+
+extension SearchViewController {
+    
+    fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
+        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowOpacity = 1
+        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
+        context.nextFocusedView?.layer.shadowRadius = 5
+        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+    }
+    
+    fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
+        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
+        context.previouslyFocusedView?.layer.shadowOpacity = 0
+        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
+        context.previouslyFocusedView?.layer.shadowRadius = 0
+        context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        guard context.nextFocusedView != nil else {
+            return
+        }
+        setNextFocusUI(context)
+        setPrevioulyFocusedUI(context)
+    }
+}
+
