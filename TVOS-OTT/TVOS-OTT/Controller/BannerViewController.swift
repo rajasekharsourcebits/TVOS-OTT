@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BannerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class BannerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var bannerCollectioView: UICollectionView!
     @IBOutlet weak var bannerPageControl: UIPageControl!
@@ -40,7 +40,7 @@ class BannerViewController: UIViewController, UICollectionViewDataSource, UIColl
         super.viewDidLoad()
         bannerPageControl.numberOfPages = dataCount
         bannerPageControl.currentPage = 0
-        bannerTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+//        bannerTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
     
     @objc func runTimedCode() {
@@ -60,6 +60,13 @@ class BannerViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: indexPath) as! BannerCollectionViewCell
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        bannerCollectioView.isScrollEnabled = true
+        if let indexPath = context.nextFocusedIndexPath {
+            bannerPageControl.currentPage = [(indexPath[1])][0]
+        }
     }
     
 }
