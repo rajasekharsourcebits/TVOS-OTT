@@ -20,6 +20,8 @@
 		9DD25C03246D7DB600427850 /* TVOS_OTTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD25C02246D7DB600427850 /* TVOS_OTTTests.swift */; };
 		9DD25C0E246D7DB600427850 /* TVOS_OTTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD25C0D246D7DB600427850 /* TVOS_OTTUITests.swift */; };
 		9DD93CA0247BB04F001B710C /* CommonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD93C9F247BB04F001B710C /* CommonVC.swift */; };
+		9DDC92CD24920D8E00B249D1 /* FavouriteCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC92CC24920D8E00B249D1 /* FavouriteCollectionCell.swift */; };
+		9DDC92CF24920EC300B249D1 /* SubScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC92CE24920EC300B249D1 /* SubScreen.storyboard */; };
 		9FADC2A32486589A00E3FE3A /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FADC2A22486589A00E3FE3A /* SearchCollectionViewCell.swift */; };
 		9FADC2A62487718F00E3FE3A /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FADC2A52487718F00E3FE3A /* SearchModel.swift */; };
 		9FADC2A8248771FD00E3FE3A /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FADC2A7248771FD00E3FE3A /* ResponseProtocol.swift */; };
@@ -86,6 +88,8 @@
 		9DD25C0D246D7DB600427850 /* TVOS_OTTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOS_OTTUITests.swift; sourceTree = "<group>"; };
 		9DD25C0F246D7DB600427850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DD93C9F247BB04F001B710C /* CommonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonVC.swift; sourceTree = "<group>"; };
+		9DDC92CC24920D8E00B249D1 /* FavouriteCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteCollectionCell.swift; sourceTree = "<group>"; };
+		9DDC92CE24920EC300B249D1 /* SubScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubScreen.storyboard; sourceTree = "<group>"; };
 		9FADC2A22486589A00E3FE3A /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		9FADC2A52487718F00E3FE3A /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		9FADC2A7248771FD00E3FE3A /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		9DD25C1E246D7EE700427850 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				9DDC92CE24920EC300B249D1 /* SubScreen.storyboard */,
 				9DD25BF1246D7DB500427850 /* Main.storyboard */,
 			);
 			path = StoryBoard;
@@ -303,6 +308,7 @@
 		9DD25C27246D7FEA00427850 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
+				9DDC92CC24920D8E00B249D1 /* FavouriteCollectionCell.swift */,
 				9FF1E3222474F2450033A291 /* ItemCollectionViewCell.swift */,
 				9FF1E2C6247294740033A291 /* BannerCollectionViewCell.swift */,
 				9FADC2A22486589A00E3FE3A /* SearchCollectionViewCell.swift */,
@@ -475,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DD25BF8246D7DB600427850 /* LaunchScreen.storyboard in Resources */,
+				9DDC92CF24920EC300B249D1 /* SubScreen.storyboard in Resources */,
 				9DD25BF5246D7DB600427850 /* Assets.xcassets in Resources */,
 				9DD25BF3246D7DB500427850 /* Main.storyboard in Resources */,
 			);
@@ -606,6 +613,7 @@
 			files = (
 				9D5A5B11247CF359008ABC33 /* ApiManager.swift in Sources */,
 				9D5A5B0D247CF11B008ABC33 /* Reachability.swift in Sources */,
+				9DDC92CD24920D8E00B249D1 /* FavouriteCollectionCell.swift in Sources */,
 				9FF1E3252475056F0033A291 /* ButtonFocus.swift in Sources */,
 				9FF1E31A247412EF0033A291 /* SearchViewController.swift in Sources */,
 				9FF1E3232474F2450033A291 /* ItemCollectionViewCell.swift in Sources */,
