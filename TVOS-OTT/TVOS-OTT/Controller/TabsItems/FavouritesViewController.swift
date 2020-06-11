@@ -12,7 +12,9 @@ class FavouritesViewController: UIViewController {
     
     //Property
     @IBOutlet weak var playBtn: UIButton!
-    @IBOutlet weak var removeBtn: UIButton!
+    @IBOutlet weak var myView: UIView!
+    @IBOutlet weak var supersubView: UIView!
+    @IBOutlet weak var muyCollectionView: UICollectionView!
     
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
@@ -28,15 +30,16 @@ class FavouritesViewController: UIViewController {
         // Do any additional setup after loading the view.
 //                guard let watchNow = view.watchNowButton,
 //            let transparentView = bannerView.transparentView else { return }
+        //muyCollectionView.remembersLastFocusedIndexPath = false
 
         focusGuide.preferredFocusEnvironments = [playBtn]
 
         view.addLayoutGuide(focusGuide)
 
-        focusGuide.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        focusGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        focusGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        focusGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        focusGuide.topAnchor.constraint(equalTo: supersubView.topAnchor).isActive = true
+        focusGuide.bottomAnchor.constraint(equalTo: supersubView.bottomAnchor).isActive = true
+        focusGuide.leadingAnchor.constraint(equalTo: supersubView.leadingAnchor).isActive = true
+        focusGuide.widthAnchor.constraint(equalTo: supersubView.widthAnchor).isActive = true
     }
 
     /*
@@ -51,7 +54,7 @@ class FavouritesViewController: UIViewController {
 
 }
 
-extension FavouritesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension FavouritesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
@@ -62,10 +65,19 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouriteCollectionCell", for: indexPath) as? FavouriteCollectionCell {
             cell.layer.cornerRadius = 10
             cell.clipsToBounds = true
+            cell.layer.masksToBounds = true
             return cell
         } else {
             return FavouriteCollectionCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 300, height: 250)
+    }
+    
+    func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
+        return IndexPath(item: 0, section: 0)
     }
     
     
@@ -99,15 +111,9 @@ extension FavouritesViewController {
         }
         
         if previouslyFocusedView.contains("UITabBarButton") {
-           setPreferredFocus(view: playBtn)
+            setPreferredFocus(view: playBtn)
         }
-        
-        
-        if previouslyFocusedView.contains("UICollectionView") && nextFocusedView.contains("UITabBarButton") {
-           setPreferredFocus(view: playBtn)
-        }
-        
-        
+
         
         setNextFocusUI(context)
         setPrevioulyFocusedUI(context)
