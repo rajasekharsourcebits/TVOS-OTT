@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -138,33 +138,23 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="meh-qM-9If" kind="relationship" relationship="viewControllers" id="406-J3-CQ2"/>
-                        <segue destination="bma-Oe-igy" kind="relationship" relationship="viewControllers" id="0U6-36-z63"/>
-                        <segue destination="uZF-vQ-vfY" kind="relationship" relationship="viewControllers" id="PFY-uh-zOs"/>
+                        <segue destination="Cb4-ZM-jUc" kind="relationship" relationship="viewControllers" id="om1-G5-tmQ"/>
+                        <segue destination="uZF-vQ-vfY" kind="relationship" relationship="viewControllers" id="rBB-x8-GVd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3658" y="715"/>
         </scene>
-        <!--Favourites-->
-        <scene sceneID="PgL-zX-hfo">
+        <!--FavouritesViewController-->
+        <scene sceneID="TX6-AY-grG">
             <objects>
-                <viewController storyboardIdentifier="FavouritesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bma-Oe-igy" customClass="FavouritesViewController" customModule="TVOS_OTT" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1d6-b5-FMZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="bZO-bm-aWY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lGF-sL-wni">
-                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="qbB-x4-TFv"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favourites" id="znz-VR-H5b"/>
-                    <simulatedTabBarMetrics key="simulatedTopBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fW9-xf-mCG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="SubScreen" referencedIdentifier="FavouritesViewController" id="Cb4-ZM-jUc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="cdc-KB-teb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a2q-Mg-Twr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2268" y="3218"/>
+            <point key="canvasLocation" x="5051" y="2826"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="EWb-hj-LfT">
@@ -489,11 +479,11 @@
             <point key="canvasLocation" x="8525" y="-817"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="E4H-IZ-Lu4"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="demo" width="674" height="1000"/>
         <image name="test" width="1920" height="416"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="E4H-IZ-Lu4"/>
+    </inferredMetricsTieBreakers>
 </document>
