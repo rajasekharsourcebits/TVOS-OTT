@@ -9,10 +9,10 @@
 import UIKit
 
 class MoviesViewController: UIViewController {
-
+    let moviesViewModel = MoviesViewModel(provider: ServiceProvider<UserService>())
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        moviesViewModel.callApi(view: self.view)
         // Do any additional setup after loading the view.
     }
 
