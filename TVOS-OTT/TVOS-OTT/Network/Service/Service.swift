@@ -22,6 +22,7 @@ protocol Service {
     var path: String { get }
     var parameters: [String: Any]? { get }
     var method: ServiceMethod { get }
+    var expression: String { get }
 }
 
 extension Service {
@@ -38,7 +39,7 @@ extension Service {
     }
     
     private var url: URL? {
-        let url = URL(string: "\(baseUrl)\(path)")
+        let url = URL(string: "\(baseUrl)\(path)"+"/\(expression)")
         return url
     }
 }

@@ -11,6 +11,7 @@ import Foundation
 enum UserService {
     case top250movies
     case top250tvShow
+    case searchAll
 }
 
 extension UserService: Service {
@@ -23,7 +24,7 @@ extension UserService: Service {
     }
     
     var baseUrl: String {
-       return  Constants().baseUrl
+        return  Constants().baseUrl
     }
     
     var path: String {
@@ -31,8 +32,21 @@ extension UserService: Service {
         case .top250movies:
             return Constants.movies250 + Constants.key
         case .top250tvShow:
-            return "/5e4592e9d18e4016617819ff"
+            return Constants.tvshow250 + Constants.key
+        case .searchAll:
+            return Constants.searchAll + Constants.key
         }
         //return Constants.Holder.path
+    }
+    
+    var expression: String {
+        switch self {
+        case .top250movies:
+            return ""
+        case .top250tvShow:
+            return ""
+        case .searchAll:
+            return Constants.expression
+        }
     }
 }
