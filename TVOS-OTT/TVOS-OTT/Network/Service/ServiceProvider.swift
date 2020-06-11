@@ -31,16 +31,16 @@ class ServiceProvider<T: Service> {
     
     fileprivate func jsonToString(_ data: (Data)) -> Data?{
         do {
-
+            
             let convertedString = String(data: data, encoding: String.Encoding.utf8) // the data will be converted to the string
             let firstChar = Array(convertedString ?? "")[0]
             
             if firstChar == "[" {
-               let data = jsonAppend(convertedString)
+                let data = jsonAppend(convertedString)
                 return data
             }
             // let json = JSON(data: strData!)
-                       print(convertedString ?? "no data") // <-- here is ur string
+            print(convertedString ?? "no data") // <-- here is ur string
             return data
         } catch let myJSONError {
             print(myJSONError)
@@ -48,25 +48,25 @@ class ServiceProvider<T: Service> {
     }
     
     func load<U>(service: T, decodeType: U.Type, completion: @escaping (Result<U>) -> Void) where U: Decodable { call(service.urlRequest) { result in
-    switch result {
-    case .success(let data):
-
-      let dataobj =  self.jsonToString(data)
-        
-    let decoder = JSONDecoder()
-    do {
-        let resp = try decoder.decode(decodeType, from: dataobj!)
-        completion(.success(resp))
+        switch result {
+        case .success(let data):
+            
+            let dataobj =  self.jsonToString(data)
+            
+            let decoder = JSONDecoder()
+            do {
+                let resp = try decoder.decode(decodeType, from: dataobj!)
+                completion(.success(resp))
+            }
+            catch {
+                completion(.failure(error))
+            }
+        case .failure(let error):
+            completion(.failure(error))
+        case .empty:
+            completion(.empty)
         }
-    catch {
-        completion(.failure(error))
         }
-    case .failure(let error):
-        completion(.failure(error))
-    case .empty:
-        completion(.empty)
-    }
-    }
     }
 }
 

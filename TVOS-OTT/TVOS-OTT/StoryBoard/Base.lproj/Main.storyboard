@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -176,6 +176,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uZF-vQ-vfY" id="tfj-1n-kYJ"/>
+                                </connections>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PIm-bP-2q4">
                                 <rect key="frame" x="100" y="307" width="1720" height="713"/>
@@ -195,22 +198,36 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="vvb-Fp-djp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="490" height="341"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="500" height="291"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
                                                             <integer key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ps1-aZ-Imx">
+                                                    <rect key="frame" x="0.0" y="291" width="500" height="50"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="Ps1-aZ-Imx" firstAttribute="top" secondItem="vvb-Fp-djp" secondAttribute="bottom" id="7Ha-oC-9tC"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ps1-aZ-Imx" secondAttribute="trailing" id="GIm-fz-gX0"/>
                                             <constraint firstItem="vvb-Fp-djp" firstAttribute="leading" secondItem="c3H-aU-Kic" secondAttribute="leading" id="R5w-k4-2SP"/>
-                                            <constraint firstAttribute="trailing" secondItem="vvb-Fp-djp" secondAttribute="trailing" constant="10" id="dxt-hi-l7K"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ps1-aZ-Imx" secondAttribute="bottom" id="WzN-ea-y4J"/>
+                                            <constraint firstItem="Ps1-aZ-Imx" firstAttribute="leading" secondItem="c3H-aU-Kic" secondAttribute="leading" id="d7x-qm-Use"/>
+                                            <constraint firstAttribute="trailing" secondItem="vvb-Fp-djp" secondAttribute="trailing" id="dxt-hi-l7K"/>
                                             <constraint firstItem="vvb-Fp-djp" firstAttribute="top" secondItem="c3H-aU-Kic" secondAttribute="top" id="i1f-5Z-7aj"/>
-                                            <constraint firstAttribute="bottom" secondItem="vvb-Fp-djp" secondAttribute="bottom" id="ynM-6J-G5L"/>
+                                            <constraint firstAttribute="bottom" secondItem="vvb-Fp-djp" secondAttribute="bottom" constant="50" id="ynM-6J-G5L"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="banner" destination="vvb-Fp-djp" id="v8g-JU-grf"/>
+                                            <outlet property="name" destination="Ps1-aZ-Imx" id="2wM-G1-d00"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -318,6 +335,9 @@
                                                                 <constraint firstAttribute="bottom" secondItem="oFF-8z-ND3" secondAttribute="bottom" id="coK-Re-P1z"/>
                                                                 <constraint firstItem="oFF-8z-ND3" firstAttribute="top" secondItem="lg6-A2-ii9" secondAttribute="top" id="vYW-MP-8vm"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="itemImage" destination="oFF-8z-ND3" id="bI9-nS-CwS"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -479,11 +499,11 @@
             <point key="canvasLocation" x="8525" y="-817"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="E4H-IZ-Lu4"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="demo" width="674" height="1000"/>
         <image name="test" width="1920" height="416"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="E4H-IZ-Lu4"/>
-    </inferredMetricsTieBreakers>
 </document>
