@@ -26,9 +26,16 @@ struct Constants {
 extension Constants {
     
     static var key: String = "/k_Q0iHYBj6"
+    static var mostPopularMovies: String = "MostPopularMovies"
+    static var mostPopularTVs: String = "MostPopularTVs"
+    static var inTheaters: String = "InTheaters"
+    static var comingSoon: String = "ComingSoon"
+    static var boxOffice: String = "BoxOffice"
+    static var boxOfficeAllTime: String = "BoxOfficeAllTime"
     static var movies250: String = "Top250Movies"
     static var tvshow250: String = "Top250TVs"
     static var searchAll: String = "SearchAll"
     static var expression: String = ""
     static var noImageUrl: String = "https://imdb-api.com/images/original/nopicture.jpg"
 }
+

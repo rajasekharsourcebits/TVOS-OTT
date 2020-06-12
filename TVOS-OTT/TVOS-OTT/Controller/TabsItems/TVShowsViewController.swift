@@ -12,6 +12,6 @@ class TVShowsViewController: UIViewController {
     let viewModel = TVShowsViewModel(provider: ServiceProvider<UserService>())
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.callApi(view: self.view)
+//        viewModel.callApi(view: self.view)
     }
 }

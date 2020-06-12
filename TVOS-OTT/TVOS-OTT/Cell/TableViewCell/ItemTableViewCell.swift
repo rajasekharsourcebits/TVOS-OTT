@@ -9,9 +9,9 @@
 import UIKit
 
 class ItemTableViewCell: UITableViewCell {
-
+    var viewModel = CommonVCViewModel(provider: ServiceProvider<UserService>())
+    var model: [ListItems]?
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,21 +30,49 @@ class ItemTableViewCell: UITableViewCell {
 
 }
 
-extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return model?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as? ItemCollectionViewCell {
-            cell.layer.cornerRadius = 10.0
+            cell.itemImage.layer.cornerRadius = 10.0
             cell.clipsToBounds = true
+            configerCell(cell: cell, withIndex: indexPath.item)
             return cell
         } else {
             return ItemCollectionViewCell()
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: 400, height: 250)
+    }
     
+}
+
+extension ItemTableViewCell {
+     fileprivate func getPath(_ withIndex: Int) -> String{
+            if let path = model?[withIndex].image {
+                 return path
+            } else {
+                return Constants.noImageUrl
+            }
+        }
+        
+        fileprivate func setImage(_ withIndex: Int, _ cell: ItemCollectionViewCell) {
+            let path = getPath(withIndex)
+            if path == "" {
+               cell.itemImage.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
+            } else {
+                cell.itemImage.downloadImageFrom(url: path, contentMode: .scaleToFill)
+            }
+        }
+        
+        func configerCell(cell: ItemCollectionViewCell, withIndex: Int) {
+            setImage(withIndex, cell)
+        }
 }
