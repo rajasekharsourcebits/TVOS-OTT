@@ -10,32 +10,20 @@ import UIKit
 
 class CommonVC: UIViewController {
     
-    //Property
     @IBOutlet weak var tableView: UITableView!
-
+    var viewModel = CommonVCViewModel(provider: ServiceProvider<UserService>())
+    var delegate: CommonVCModelDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel.commonVCModelDelegate = self
+        viewModel.callApi(view: self.view, serviceType: .top250movies)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension CommonVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +34,22 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell {
             
+            if  indexPath.section == 0 {
+                cell.model = viewModel.data?.items
+            } else if  indexPath.section == 1 {
+                cell.model = viewModel.data?.items?.shuffled()
+            } else if  indexPath.section == 2 {
+                cell.model = viewModel.data?.items?.shuffled()
+            } else if  indexPath.section == 3 {
+                cell.model = viewModel.data?.items?.shuffled()
+            } else if  indexPath.section == 4 {
+                cell.model = viewModel.data?.items?.shuffled()
+            } else if  indexPath.section == 5 {
+                cell.model = viewModel.data?.items?.shuffled()
+            } else  {
+                cell.model = viewModel.data?.items
+            }
+            cell.collectionView.reloadData()
             return cell
         } else {
             return ItemTableViewCell()
@@ -54,20 +58,40 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 410
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Title"//"Indian \(section)"
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor.clear //UIColor.lightGray.withAlphaComponent(0.3)
-        (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor.white
+        return 416
+        
     }
     
     func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
         return false
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let myLabel = UILabel()
+        myLabel.frame = CGRect(x: 0, y: 10, width: 500, height: 50)
+        myLabel.font = UIFont(name: "Helvetica", size: 35)
+        switch section {
+        case 0:
+            myLabel.text = "Most Popular Movies"
+        case 1:
+            myLabel.text = "Most Popular TVShows"
+        case 2:
+            myLabel.text = "Coming Soon"
+        case 3:
+            myLabel.text = "Hollywood Movies"
+        case 4:
+            myLabel.text = "Bollywood Movies"
+        case 5:
+            myLabel.text = "Box Office"
+        default:
+            myLabel.text = ""
+        }
+        myLabel.textColor = UIColor.white
+        let headerView = UIView()
+        headerView.addSubview(myLabel)
+
+        return headerView
     }
     
 }
@@ -99,4 +123,12 @@ extension CommonVC {
         setPrevioulyFocusedUI(context)
         //removeChildIfNead()
     }
+}
+
+extension CommonVC: CommonVCModelDelegate {
+    func updateUI() {
+        tableView.reloadData()
+    }
+    
+    
 }

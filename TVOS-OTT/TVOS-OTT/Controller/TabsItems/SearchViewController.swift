@@ -21,7 +21,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 100
         searchCollectionView.collectionViewLayout = layout
-        view.layer.backgroundColor = UIColor.black.cgColor
+//        view.layer.backgroundColor = UIColor.black.cgColor
         searchCollectionView.remembersLastFocusedIndexPath = true
     }
     
@@ -45,8 +45,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       // uncomment this to clear the textfield
-//        textField.resignFirstResponder()
         Constants.expression = textField.text ?? ""
         viewModel.callApi(view: self.view)
         viewModel.searchViewModelDelegate = self

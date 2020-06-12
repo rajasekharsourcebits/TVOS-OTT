@@ -9,55 +9,10 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-    //Property
-    @IBOutlet weak var tableView: UITableView!
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-}
-
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell {
-            
-            return cell
-        } else {
-            return ItemTableViewCell()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 410
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Title"//"Indian \(section)"
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor.clear //UIColor.lightGray.withAlphaComponent(0.3)
-        (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor.white
-    }
-    
-    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
 }
 
 extension HomeViewController {
@@ -88,3 +43,4 @@ extension HomeViewController {
         //removeChildIfNead()
     }
 }
+
