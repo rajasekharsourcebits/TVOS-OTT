@@ -103,32 +103,52 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIR-wM-KCu">
-                                                <rect key="frame" x="53" y="356" width="310" height="90"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="90" id="G6V-rX-Ufk"/>
-                                                    <constraint firstAttribute="width" constant="310" id="ZqR-Pd-eeh"/>
-                                                </constraints>
-                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="11" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="-29" minY="-6" maxX="-21" maxY="-7"/>
-                                                <state key="normal" title="Watch Now">
-                                                    <color key="titleColor" red="0.1974210143" green="0.45357424019999998" blue="0.64708322289999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="46T-y8-NIl" kind="show" id="UcY-2z-Osc"/>
-                                                </connections>
-                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQG-DQ-0lj">
                                                 <rect key="frame" x="0.0" y="351" width="1920" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIR-wM-KCu">
+                                                        <rect key="frame" x="58" y="5" width="310" height="90"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="G6V-rX-Ufk"/>
+                                                            <constraint firstAttribute="width" constant="310" id="ZqR-Pd-eeh"/>
+                                                        </constraints>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="11" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="-29" minY="-6" maxX="-21" maxY="-7"/>
+                                                        <state key="normal" title="Watch Now">
+                                                            <color key="titleColor" red="0.1974210143" green="0.45357424019999998" blue="0.64708322289999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGU-p9-ZVG">
+                                                        <rect key="frame" x="428" y="7" width="310" height="86"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="310" id="1Ym-Gj-5eQ"/>
+                                                            <constraint firstAttribute="height" constant="86" id="pcW-uK-3NU"/>
+                                                        </constraints>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                        <state key="normal" title="Remove">
+                                                            <color key="titleColor" red="0.1974210143" green="0.45357424019999998" blue="0.64708322289999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="rGU-p9-ZVG" firstAttribute="leading" secondItem="TIR-wM-KCu" secondAttribute="trailing" constant="60" id="Zwb-fx-fLa"/>
+                                                    <constraint firstItem="TIR-wM-KCu" firstAttribute="centerY" secondItem="fQG-DQ-0lj" secondAttribute="centerY" id="eUg-kL-UrM"/>
+                                                    <constraint firstItem="TIR-wM-KCu" firstAttribute="leading" secondItem="fQG-DQ-0lj" secondAttribute="leading" constant="58" id="ggM-tU-bdv"/>
+                                                    <constraint firstItem="rGU-p9-ZVG" firstAttribute="centerY" secondItem="TIR-wM-KCu" secondAttribute="centerY" id="pjJ-JU-3bN"/>
                                                     <constraint firstAttribute="height" constant="100" id="tuM-Qw-o0V"/>
                                                 </constraints>
                                             </view>
@@ -153,29 +173,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGU-p9-ZVG">
-                                                <rect key="frame" x="411" y="358" width="310" height="86"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="310" id="1Ym-Gj-5eQ"/>
-                                                    <constraint firstAttribute="height" constant="86" id="pcW-uK-3NU"/>
-                                                </constraints>
-                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                <state key="normal" title="Remove">
-                                                    <color key="titleColor" red="0.1974210143" green="0.45357424019999998" blue="0.64708322289999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="haY-WN-AAT" firstAttribute="top" secondItem="9YU-i9-uf1" secondAttribute="top" id="45L-LB-imf"/>
                                             <constraint firstAttribute="bottom" secondItem="fQG-DQ-0lj" secondAttribute="bottom" constant="25" id="5oE-LW-x4E"/>
-                                            <constraint firstItem="rGU-p9-ZVG" firstAttribute="centerY" secondItem="fQG-DQ-0lj" secondAttribute="centerY" id="747-UR-aEg"/>
                                             <constraint firstAttribute="height" constant="476" id="CNA-5X-R3u"/>
                                             <constraint firstItem="yDi-hf-V2I" firstAttribute="leading" secondItem="V92-MP-KUY" secondAttribute="leading" constant="53" id="CWF-3H-9wa"/>
                                             <constraint firstAttribute="trailing" secondItem="fQG-DQ-0lj" secondAttribute="trailing" id="JLk-zu-WHs"/>
@@ -185,11 +187,8 @@
                                             <constraint firstItem="haY-WN-AAT" firstAttribute="leading" secondItem="V92-MP-KUY" secondAttribute="leading" constant="53" id="RzF-pU-QPP"/>
                                             <constraint firstItem="dwt-Dh-gTW" firstAttribute="leading" secondItem="V92-MP-KUY" secondAttribute="leading" id="ZcN-JQ-6J0"/>
                                             <constraint firstAttribute="bottom" secondItem="9YU-i9-uf1" secondAttribute="bottom" constant="18" id="exe-IJ-dgh"/>
-                                            <constraint firstItem="TIR-wM-KCu" firstAttribute="leading" secondItem="V92-MP-KUY" secondAttribute="leading" constant="53" id="fAj-3J-ft1"/>
-                                            <constraint firstItem="TIR-wM-KCu" firstAttribute="centerY" secondItem="fQG-DQ-0lj" secondAttribute="centerY" id="hIZ-rM-lKd"/>
                                             <constraint firstItem="yDi-hf-V2I" firstAttribute="top" secondItem="haY-WN-AAT" secondAttribute="bottom" constant="8" id="igH-TD-r5a"/>
                                             <constraint firstItem="9YU-i9-uf1" firstAttribute="top" secondItem="V92-MP-KUY" secondAttribute="top" constant="93" id="itY-qf-TFY"/>
-                                            <constraint firstItem="rGU-p9-ZVG" firstAttribute="leading" secondItem="TIR-wM-KCu" secondAttribute="trailing" constant="48" id="kDo-Is-XIc"/>
                                             <constraint firstAttribute="trailing" secondItem="dwt-Dh-gTW" secondAttribute="trailing" id="oHZ-qC-cKe"/>
                                         </constraints>
                                     </view>
@@ -226,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAF-uV-ucP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1" y="73"/>
+            <point key="canvasLocation" x="-550" y="73"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="5FE-Zr-Z14">
@@ -247,7 +246,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1920" height="657"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark" translatesAutoresizingMaskIntoConstraints="NO" id="skb-nl-oxq">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner" translatesAutoresizingMaskIntoConstraints="NO" id="skb-nl-oxq">
                                             <rect key="frame" x="0.0" y="-60" width="1920" height="717"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0L-D8-bsN">
@@ -274,7 +273,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-Gv-f83">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-Gv-f83">
                                             <rect key="frame" x="1424" y="10" width="456" height="637"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="456" id="Uuq-bn-iB6"/>
@@ -562,7 +561,6 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
     </scenes>
     <resources>
         <image name="Banner" width="1920" height="516"/>
-        <image name="dark" width="759" height="422"/>
         <image name="demo" width="674" height="1000"/>
     </resources>
 </document>

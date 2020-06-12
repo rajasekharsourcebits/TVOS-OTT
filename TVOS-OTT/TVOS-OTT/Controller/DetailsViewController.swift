@@ -14,6 +14,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var transparentView: UIView!
     
+    var viewModel = DetailViewModel()
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
     
@@ -36,17 +37,6 @@ class DetailsViewController: UIViewController {
         focusGuide.bottomAnchor.constraint(equalTo: transparentView.bottomAnchor).isActive = true
         focusGuide.leadingAnchor.constraint(equalTo: transparentView.leadingAnchor).isActive = true
         focusGuide.widthAnchor.constraint(equalTo: transparentView.widthAnchor).isActive = true
-    }
-
-
-    func initalSetup() {
-       watchNowBtn.layer.shadowColor = UIColor.black.cgColor
-       watchNowBtn.layer.shadowOpacity = 1
-       watchNowBtn.layer.shadowOffset = CGSize.zero
-       watchNowBtn.layer.shadowRadius = 5
-       watchNowBtn.backgroundColor = #colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1)
-       watchNowBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-       watchNowBtn.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
     }
 
 }
@@ -166,7 +156,7 @@ extension DetailsViewController {
         context.previouslyFocusedView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         //let value = context.previouslyFocusedView?.subviews.first
         if let button = context.previouslyFocusedView as? UIButton {
-          button.setTitleColor(#colorLiteral(red: 0.1824023128, green: 0.4893192053, blue: 0.9649513364, alpha: 1), for: .normal)
+          button.setTitleColor(#colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1), for: .normal)
         }
         //value?.setTitleColor(#colorLiteral(red: 0.1824023128, green: 0.4893192053, blue: 0.9649513364, alpha: 1), for: .normal)
         context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
