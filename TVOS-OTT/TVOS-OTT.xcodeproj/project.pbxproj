@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		818CB7536086FE69669AD2A3 /* Pods_TVOS_OTTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527CD16CDF6F249DD540CA08 /* Pods_TVOS_OTTTests.framework */; };
+		9D1D02D224937F860050F09F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D02D124937F860050F09F /* DetailViewModel.swift */; };
 		9D5A5B0D247CF11B008ABC33 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A5B0C247CF11B008ABC33 /* Reachability.swift */; };
 		9D5A5B0F247CF17F008ABC33 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A5B0E247CF17F008ABC33 /* NetworkConstants.swift */; };
 		9D5A5B11247CF359008ABC33 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A5B10247CF359008ABC33 /* ApiManager.swift */; };
@@ -75,6 +76,7 @@
 		527CD16CDF6F249DD540CA08 /* Pods_TVOS_OTTTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVOS_OTTTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5455FEE2FCA7377FA1EDFB69 /* Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig"; path = "Target Support Files/Pods-TVOS-OTT-TVOS-OTTUITests/Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig"; sourceTree = "<group>"; };
 		54E7D63444E518E8E08A70EF /* Pods-TVOS-OTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOS-OTT.release.xcconfig"; path = "Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT.release.xcconfig"; sourceTree = "<group>"; };
+		9D1D02D124937F860050F09F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = "TVOS-OTT/Cell/TableViewCell/DetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		9D2E17ADAE2160E89621D48F /* Pods_TVOS_OTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVOS_OTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5A5B0C247CF11B008ABC33 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = "TVOS-OTT/Controller/TabsItems/Reachability.swift"; sourceTree = SOURCE_ROOT; };
 		9D5A5B0E247CF17F008ABC33 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkConstants.swift; path = "TVOS-OTT/Controller/TabsItems/NetworkConstants.swift"; sourceTree = SOURCE_ROOT; };
@@ -245,6 +247,7 @@
 				9FB9642C2490A6F9007F042B /* MoviesViewModel.swift */,
 				9FB9642E2490A70C007F042B /* TVShowsViewModel.swift */,
 				9FB9643024921A15007F042B /* CommonVCViewModel.swift */,
+				9D1D02D124937F860050F09F /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				9FF1E2C5247294660033A291 /* BannerViewController.swift in Sources */,
 				9DD93CA0247BB04F001B710C /* CommonVC.swift in Sources */,
 				9FB9642B2490A56E007F042B /* TVShowsModel.swift in Sources */,
+				9D1D02D224937F860050F09F /* DetailViewModel.swift in Sources */,
 				9D5A5B15247CF5A4008ABC33 /* Service.swift in Sources */,
 				9DDC92D32492364B00B249D1 /* DetailTopTableViewCell.swift in Sources */,
 				9D5A5B16247CF5A4008ABC33 /* ServiceProvider.swift in Sources */,

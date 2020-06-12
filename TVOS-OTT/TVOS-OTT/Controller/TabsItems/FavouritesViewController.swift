@@ -82,6 +82,15 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
         return IndexPath(item: 0, section: 0)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("hello")
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+        vc?.viewModel.detailID = "Hello"
+        if let vc = vc {
+            self.present(vc , animated: true, completion: nil)
+        }
+    }
+    
     
 }
 
