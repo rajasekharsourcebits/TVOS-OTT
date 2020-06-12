@@ -11,6 +11,7 @@ import UIKit
 class CastCrewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var referenceVC: UIViewController?
     
     
     override func awakeFromNib() {
@@ -37,7 +38,7 @@ extension CastCrewTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCrewCollectionViewCell", for: indexPath) as? CastCrewCollectionViewCell {
-            cell.crewImage.layer.cornerRadius = 100
+            cell.crewImage.layer.cornerRadius = 125
             return cell
         } else {
             return CastCrewCollectionViewCell()
@@ -45,12 +46,22 @@ extension CastCrewTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 200)
+        return CGSize(width: 250, height: 316)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 40
 
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "CastCrewDetailViewController") as? CastCrewDetailViewController
+        //vc?.viewModel.detailID = "Hello"
+        if let vc = vc, let myVC = referenceVC {
+            myVC.present(vc , animated: true, completion: nil)
+        }
     }
     
     
