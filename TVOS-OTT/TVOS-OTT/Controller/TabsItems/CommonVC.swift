@@ -49,6 +49,7 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
             } else  {
                 cell.model = viewModel.data?.items
             }
+            cell.myVC = self
             cell.collectionView.reloadData()
             return cell
         } else {
@@ -73,17 +74,17 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
         myLabel.font = UIFont(name: "Helvetica", size: 35)
         switch section {
         case 0:
-            myLabel.text = "Most Popular Movies"
+            myLabel.text = "MOST POPULAR MOVIES"
         case 1:
-            myLabel.text = "Most Popular TVShows"
+            myLabel.text = "MOST POPULAR TVSHOWS"
         case 2:
-            myLabel.text = "Coming Soon"
+            myLabel.text = "COMING SOON"
         case 3:
-            myLabel.text = "Hollywood Movies"
+            myLabel.text = "HOLLYWOOD MOVIES"
         case 4:
-            myLabel.text = "Bollywood Movies"
+            myLabel.text = "BOLLYWOOD MOVIES"
         case 5:
-            myLabel.text = "Box Office"
+            myLabel.text = "BOX OFFICE"
         default:
             myLabel.text = ""
         }
