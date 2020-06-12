@@ -10,4 +10,5 @@ import UIKit
 
 class FavouriteCollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var imgView: UIImageView!
 }

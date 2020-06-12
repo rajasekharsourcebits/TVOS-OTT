@@ -15,6 +15,8 @@ class FavouritesViewController: UIViewController {
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var supersubView: UIView!
     @IBOutlet weak var muyCollectionView: UICollectionView!
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var removeItemBtn: UIButton!
     
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
@@ -63,9 +65,9 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
         
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouriteCollectionCell", for: indexPath) as? FavouriteCollectionCell {
-            cell.layer.cornerRadius = 10
-            cell.clipsToBounds = true
-            cell.layer.masksToBounds = true
+            cell.imgView.layer.cornerRadius = 10
+            //cell.clipsToBounds = true
+            //cell.layer.masksToBounds = true
             return cell
         } else {
             return FavouriteCollectionCell()
@@ -73,7 +75,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 250)
+        return CGSize(width: (collectionView.frame.size.width/4) - 20, height: 340)
     }
     
     func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
@@ -102,6 +104,33 @@ extension FavouritesViewController {
         context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
     }
     
+    fileprivate func setButtonNextFocusUI(_ context: UIFocusUpdateContext) {
+        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowOpacity = 1
+        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
+        context.nextFocusedView?.layer.shadowRadius = 5
+        context.nextFocusedView?.backgroundColor = #colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1)
+        //let value = context.previouslyFocusedView?.subviews.first
+        
+        if let button = context.nextFocusedView as? UIButton {
+          button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        }
+        //value?.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+    }
+    
+    fileprivate func setButtonPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
+        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
+        context.previouslyFocusedView?.layer.shadowOpacity = 0
+        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
+        context.previouslyFocusedView?.layer.shadowRadius = 0
+        context.previouslyFocusedView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        //let value = context.previouslyFocusedView?.subviews.first
+        if let button = context.previouslyFocusedView as? UIButton {
+          button.setTitleColor(#colorLiteral(red: 0.1824023128, green: 0.4893192053, blue: 0.9649513364, alpha: 1), for: .normal)
+        }
+    }
+    
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         let nextFocusedView = String(describing: context.nextFocusedView)
@@ -112,6 +141,18 @@ extension FavouritesViewController {
         
         if previouslyFocusedView.contains("UITabBarButton") {
             setPreferredFocus(view: playBtn)
+        }
+        
+        if nextFocusedView.contains("UIButton") {
+            setButtonNextFocusUI(context)
+        } else {
+           setNextFocusUI(context)
+        }
+        
+        if previouslyFocusedView.contains("UIButton") {
+            setButtonPrevioulyFocusedUI(context)
+        } else {
+            setPrevioulyFocusedUI(context)
         }
 
         
