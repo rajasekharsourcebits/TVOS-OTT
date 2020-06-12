@@ -561,7 +561,7 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
         </scene>
     </scenes>
     <resources>
-        <image name="Banner" width="1920" height="980"/>
+        <image name="Banner" width="1920" height="516"/>
         <image name="dark" width="759" height="422"/>
         <image name="demo" width="674" height="1000"/>
     </resources>
