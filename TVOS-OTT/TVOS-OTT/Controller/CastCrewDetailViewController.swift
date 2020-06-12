@@ -1,50 +1,30 @@
 //
-//  DetailsViewController.swift
+//  CastCrewDetailViewController.swift
 //  TVOS-OTT
 //
-//  Created by Souvik on 10/06/20.
+//  Created by Souvik on 12/06/20.
 //  Copyright © 2020 Sourcebits. All rights reserved.
 //
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class CastCrewDetailViewController: UIViewController {
     
-    @IBOutlet weak var watchNowBtn: UIButton!
-    @IBOutlet weak var favouriteBtn: UIButton!
-    @IBOutlet weak var transparentView: UIView!
+    @IBOutlet weak var focusBtn: UIButton!
     
-    var viewModel = DetailViewModel()
-    var focusGuide = UIFocusGuide()
-    var preferredFocusView: UIView?
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //initalSetup()
-        focusConstraint()
         
+        // Do any additional setup after loading the view.
     }
     
-    func focusConstraint() {
-        focusGuide.preferredFocusEnvironments = [watchNowBtn]
-
-        view.addLayoutGuide(focusGuide)
-
-        focusGuide.topAnchor.constraint(equalTo: transparentView.topAnchor).isActive = true
-        focusGuide.bottomAnchor.constraint(equalTo: transparentView.bottomAnchor).isActive = true
-        focusGuide.leadingAnchor.constraint(equalTo: transparentView.leadingAnchor).isActive = true
-        focusGuide.widthAnchor.constraint(equalTo: transparentView.widthAnchor).isActive = true
-    }
-
+    
 }
 
-extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
+extension CastCrewDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,49 +33,28 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.section {
-        case 0, 1, 3:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
-                
-                cell.set(withData: indexPath.section)
-                
-                return cell
-            } else {
-                return DetailTopTableViewCell()
-            }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
             
-        case 2:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "CastCrewTableViewCell", for: indexPath) as? CastCrewTableViewCell {
-                cell.referenceVC = self
-                return cell
-            } else {
-                return CastCrewTableViewCell()
-            }
-        default:
-            return ItemTableViewCell()
+            cell.set(withData: indexPath.section)
+            
+            return cell
+        } else {
+            return DetailTopTableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section == 2 {
-           return 400
-        } else {
-          return 426
-        }
+        return 426
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         switch section {
         case 0:
-            return "Season 1"
-        case 1:
-            return "Trailers"
-        case 2:
-            return "Cast & Crew"
+            return "Related Movies"
         default:
-            return "Related Show"
+            return "Shows"
         }
         //"Indian \(section)"
     }
@@ -115,7 +74,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension DetailsViewController {
+extension CastCrewDetailViewController {
     
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
         context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
@@ -138,11 +97,11 @@ extension DetailsViewController {
         context.nextFocusedView?.layer.shadowOpacity = 1
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
         context.nextFocusedView?.layer.shadowRadius = 5
-        context.nextFocusedView?.backgroundColor = #colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1)
+        context.nextFocusedView?.backgroundColor = .clear
         //let value = context.previouslyFocusedView?.subviews.first
         
         if let button = context.nextFocusedView as? UIButton {
-          button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         }
         //value?.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
@@ -153,7 +112,7 @@ extension DetailsViewController {
         context.previouslyFocusedView?.layer.shadowOpacity = 0
         context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
         context.previouslyFocusedView?.layer.shadowRadius = 0
-        context.previouslyFocusedView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        context.previouslyFocusedView?.backgroundColor = .clear
         //let value = context.previouslyFocusedView?.subviews.first
         if let button = context.previouslyFocusedView as? UIButton {
           button.setTitleColor(#colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1), for: .normal)
@@ -172,10 +131,6 @@ extension DetailsViewController {
             return
         }
         
-        if previouslyFocusedView.contains("UITabBarButton") {
-            setPreferredFocus(view: watchNowBtn)
-        }
-        
         if nextFocusedView.contains("UIButton") {
             setButtonNextFocusUI(context)
         } else {
@@ -187,19 +142,5 @@ extension DetailsViewController {
         } else {
             setPrevioulyFocusedUI(context)
         }
-    }
-    
-    override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        guard let focusView = preferredFocusView else { return [] }
-
-        return [focusView]
-    }
-
-    // Set the preferred focus view by value
-    func setPreferredFocus(view: UIView) {
-        preferredFocusView = view
-
-        setNeedsFocusUpdate()
-        updateFocusIfNeeded()
     }
 }
