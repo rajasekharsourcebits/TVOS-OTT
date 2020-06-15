@@ -34,8 +34,8 @@ class ItemTableViewCell: UITableViewCell {
 extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return model?.count ?? 0
-        return 10
+        return model?.count ?? 0
+//        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -78,17 +78,20 @@ extension ItemTableViewCell {
         }
         
         fileprivate func setImage(_ withIndex: Int, _ cell: ItemCollectionViewCell) {
-//            let path = getPath(withIndex)
-//            if path == "" {
-//               cell.itemImage.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
-//            } else {
-//                cell.itemImage.downloadImageFrom(url: path, contentMode: .scaleToFill)
-//            }
+            let path = getPath(withIndex)
+            if path == "" {
+               cell.itemImage.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
+            } else {
+                cell.itemImage.downloadImageFrom(url: path, contentMode: .scaleToFill)
+            }
             
-            cell.itemImage.image = UIImage(named: "demo")
+//            cell.itemImage.image = UIImage(named: "demo")
         }
         
         func configerCell(cell: ItemCollectionViewCell, withIndex: Int) {
-            setImage(withIndex, cell)
+            DispatchQueue.main.async {
+                self.setImage(withIndex, cell)
+            }
+           
         }
 }
