@@ -13,6 +13,8 @@ class CastCrewTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var referenceVC: UIViewController?
     
+    var list: [ActorList]?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,18 +29,55 @@ class CastCrewTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func refreshList() {
+        collectionView.reloadData()
+    }
 
+}
+
+extension CastCrewTableViewCell {
+    
+    @discardableResult
+    func set(withData sectionIndex: Int?, list: [ActorList]?) -> Self {
+        
+//        if let sectionIndex = sectionIndex {
+//            presetIndex = sectionIndex
+//        }
+        
+        if let list = list {
+            self.list = list
+        }
+        refreshList()
+        
+        return self
+    }
 }
 
 extension CastCrewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        if let list = list {
+            return list.count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCrewCollectionViewCell", for: indexPath) as? CastCrewCollectionViewCell {
-            cell.crewImage.layer.cornerRadius = 125
+            
+            if let image = list?[indexPath.row].image {
+                let imageUrl = URL.init(string: image)
+                if let imageUrl = imageUrl {
+                    cell.crewImage.sd_setImage(with: imageUrl,  placeholderImage:UIImage(named : "profile"), completed: nil)
+                    
+                }
+            } else {
+                cell.crewImage.image = UIImage(named: "profile")
+            }
+            cell.nameLbl.text = list?[indexPath.row].name
+            cell.crewImage.layer.cornerRadius = 81.5
             return cell
         } else {
             return CastCrewCollectionViewCell()
@@ -58,7 +97,7 @@ extension CastCrewTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         
         
         let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "CastCrewDetailViewController") as? CastCrewDetailViewController
-        //vc?.viewModel.detailID = "Hello"
+        vc?.viewModel.detailID = list?[indexPath.row].id
         if let vc = vc, let myVC = referenceVC {
             myVC.present(vc , animated: true, completion: nil)
         }

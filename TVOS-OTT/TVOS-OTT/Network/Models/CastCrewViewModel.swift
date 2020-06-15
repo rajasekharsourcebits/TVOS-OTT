@@ -1,18 +1,19 @@
 //
-//  DetailViewModel.swift
+//  CastCrewViewModel.swift
 //  TVOS-OTT
 //
-//  Created by Souvik on 12/06/20.
+//  Created by Souvik on 15/06/20.
 //  Copyright © 2020 Sourcebits. All rights reserved.
 //
 
 import Foundation
+
 import UIKit
-protocol DetailModelDelegate: class {
+protocol CastCrewDelegate: class {
     func updateUI()
 }
 
-class DetailViewModel {
+class CastCrewViewModel {
     
     // Variables
     var detailID: String?
@@ -20,8 +21,8 @@ class DetailViewModel {
     var reachable = ReachabilityHandler()
     var isReachable: Bool?
     var view: UIView?
-    weak var delegate: DetailModelDelegate?
-    var detailModel: DetailsModel? {
+    weak var delegate: CastCrewDelegate?
+    var model: castCrewModel? {
         willSet{
             
         }
@@ -33,12 +34,10 @@ class DetailViewModel {
         self.provider = provider
         reachable.reachableExposeDelegate = self
     }
-    
-    
 }
 
 //MARK:- Reachable Methods
-extension DetailViewModel: ReachableExpose {
+extension CastCrewViewModel: ReachableExpose {
     
     func callApi(view: UIView) {
        self.view = view
@@ -62,16 +61,16 @@ extension DetailViewModel: ReachableExpose {
 }
 
 //MARK:- Api Call
-extension DetailViewModel {
+extension CastCrewViewModel {
     private func callSearchData(view: UIView) {
         
         Constants.expression = detailID ?? ""
         view.showSpinner(onView: view)
-        provider.load(service: .DetailsData, decodeType: DetailsModel.self) { result in
+        provider.load(service: .CastCrewDetail, decodeType: castCrewModel.self) { result in
             view.removeSpinner()
             switch result {
             case .success(let resp):
-                self.detailModel = resp
+                self.model = resp
             case .failure(let error):
                 print(error.localizedDescription)
                 self.view?.showToast(message: error.localizedDescription, font:  UIFont(name: "GillSans-SemiBold", size: 16) ?? UIFont.systemFont(ofSize: 9))

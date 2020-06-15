@@ -58,7 +58,7 @@ extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("hello")
         let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-        //        vc?.viewModel.detailID = model?[indexPath.item].id
+            vc?.viewModel.detailID = model?[indexPath.item].id
         if let vc = vc {
             if let myVC = myVC {
                 myVC.present(vc , animated: true, completion: nil)

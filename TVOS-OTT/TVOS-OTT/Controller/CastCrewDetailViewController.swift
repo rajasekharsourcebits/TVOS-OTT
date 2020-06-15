@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CastCrewDetailViewController: UIViewController {
     
     @IBOutlet weak var focusBtn: UIButton!
+    @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var castName: UILabel!
+    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    var viewModel = CastCrewViewModel(provider: ServiceProvider<UserService>())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel.callApi(view: self.view)
+        viewModel.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -24,7 +31,7 @@ class CastCrewDetailViewController: UIViewController {
 extension CastCrewDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,7 +42,7 @@ extension CastCrewDetailViewController: UITableViewDelegate, UITableViewDataSour
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
             
-            cell.set(withData: indexPath.section)
+            cell.set(withData: indexPath.section, list: viewModel.model?.knownFors, myVC: self)
             
             return cell
         } else {
@@ -50,12 +57,13 @@ extension CastCrewDetailViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        switch section {
-        case 0:
-            return "Related Movies"
-        default:
-            return "Shows"
-        }
+        return "Related Movies/Shows"
+//        switch section {
+//        case 0:
+//            return "Related Movies/Shows"
+//        default:
+//            return "Shows"
+//        }
         //"Indian \(section)"
     }
     
@@ -144,3 +152,24 @@ extension CastCrewDetailViewController {
         }
     }
 }
+
+extension CastCrewDetailViewController: CastCrewDelegate {
+    func updateUI() {
+        
+        if let model = viewModel.model {
+            castName.text = model.name ?? ""
+            descLbl.text = model.summary
+            if let image = model.image {
+                let imageUrl = URL.init(string: image)
+                if let imageUrl = imageUrl {
+                    profileImg.sd_setImage(with: imageUrl, completed: nil)
+                    
+                }
+            }
+            tableView.reloadData()
+        }
+    }
+}
+
+
+

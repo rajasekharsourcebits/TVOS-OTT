@@ -18,6 +18,8 @@ enum UserService {
     case top250movies
     case top250tvShow
     case searchAll
+    case DetailsData
+    case CastCrewDetail
 }
 
 extension UserService: Service {
@@ -53,6 +55,10 @@ extension UserService: Service {
             return Constants.tvshow250 + Constants.key
         case .searchAll:
             return Constants.searchAll + Constants.key
+        case .DetailsData:
+            return Constants.detail + Constants.key
+        case .CastCrewDetail:
+            return Constants.castcrew + Constants.key
         }
         //return Constants.Holder.path
     }
@@ -60,6 +66,10 @@ extension UserService: Service {
     var expression: String {
         switch self {
         case .searchAll:
+            return Constants.expression
+        case .DetailsData:
+            return Constants.expression
+        case .CastCrewDetail:
             return Constants.expression
         default:
             return ""

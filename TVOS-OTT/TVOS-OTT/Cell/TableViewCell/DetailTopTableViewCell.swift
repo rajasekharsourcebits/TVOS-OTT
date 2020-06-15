@@ -12,6 +12,10 @@ class DetailTopTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var myVC: UIViewController?
+    
+    var list: [Similar]?
+    
     var presetIndex: Int?
     
     override func awakeFromNib() {
@@ -33,11 +37,21 @@ class DetailTopTableViewCell: UITableViewCell {
 extension DetailTopTableViewCell {
     
     @discardableResult
-    func set(withData sectionIndex: Int?) -> Self {
+    func set(withData sectionIndex: Int?, list: [Similar]?, myVC: UIViewController?) -> Self {
         
         if let sectionIndex = sectionIndex {
             presetIndex = sectionIndex
         }
+        
+        if let list = list {
+            self.list = list
+            collectionView.reloadData()
+        }
+        
+        if let myVC = myVC {
+            self.myVC = myVC
+        }
+        
         return self
     }
 }
@@ -45,15 +59,8 @@ extension DetailTopTableViewCell {
 extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if let value = presetIndex {
-            switch  value{
-            case 0:
-                return 10
-            case 1:
-                return 1
-            default:
-                return 9
-            }
+        if let value = list {
+            return value.count
         }
         return 0
     }
@@ -61,11 +68,29 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as? ItemCollectionViewCell {
-            cell.itemImage.layer.cornerRadius = 10.0
-            cell.itemImage.clipsToBounds = true
+            cell.itemImage.layer.cornerRadius = 20
+            if let image = list?[indexPath.row].image {
+                let imageUrl = URL.init(string: image)
+                if let imageUrl = imageUrl {
+                    cell.itemImage.sd_setImage(with: imageUrl, completed: nil)
+                    
+                }
+            }
             return cell
         } else {
             return ItemCollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("hello")
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+            vc?.viewModel.detailID = list?[indexPath.item].id
+        if let vc = vc {
+            if let myVC = myVC {
+                myVC.present(vc , animated: true, completion: nil)
+            }
+            
         }
     }
     

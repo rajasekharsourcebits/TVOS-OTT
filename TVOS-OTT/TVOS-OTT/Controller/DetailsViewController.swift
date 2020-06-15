@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailsViewController: UIViewController {
     
     @IBOutlet weak var watchNowBtn: UIButton!
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var transparentView: UIView!
+    @IBOutlet weak var tilteLbl: UILabel!
+    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var yerLbl: UILabel!
+    @IBOutlet weak var posterImgView: UIImageView!
+    @IBOutlet weak var bacGroundImgView: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
-    var viewModel = DetailViewModel()
+    var viewModel = DetailViewModel(provider: ServiceProvider<UserService>())
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
     
@@ -24,6 +32,11 @@ class DetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         //initalSetup()
+        yerLbl.layer.borderWidth = 1.0
+        yerLbl.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        yerLbl.layer.cornerRadius = 8
+        viewModel.callApi(view: self.view)
+        viewModel.delegate = self
         focusConstraint()
         
     }
@@ -44,7 +57,15 @@ class DetailsViewController: UIViewController {
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        
+        if let type = viewModel.detailModel?.type {
+            if type == "Movie" {
+               return 3
+            } else  {
+               return 4
+            }
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,50 +74,120 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.section {
-        case 0, 1, 3:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
+        if let model = viewModel.detailModel {
+            if model.type == "Movie" {
+                if indexPath.section == 1 {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "CastCrewTableViewCell", for: indexPath) as? CastCrewTableViewCell {
+                        cell.referenceVC = self
+                        cell.set(withData: indexPath.section, list: model.actorList)
+                        return cell
+                    } else {
+                        return CastCrewTableViewCell()
+                    }
+                } else {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
+                        if indexPath.section == 0 {
+                            let item = model.similars?.first
+                            var items = [Similar]()
+                            if let item = item {
+                                items.append(item)
+                                cell.set(withData: indexPath.section, list: items, myVC: self)
+                            }
+                            
+                        } else {
+                            cell.set(withData: indexPath.section, list: model.similars, myVC: self)
+                        }
+                        
+                        
+                        return cell
+                    } else {
+                        return DetailTopTableViewCell()
+                    }
+                }
                 
-                cell.set(withData: indexPath.section)
+            } else  {
+                if indexPath.section == 2 {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "CastCrewTableViewCell", for: indexPath) as? CastCrewTableViewCell {
+                        cell.referenceVC = self
+                        return cell
+                    } else {
+                        return CastCrewTableViewCell()
+                    }
+                } else {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
+                        if indexPath.row == 1 {
+                            let item = model.similars?.first
+                            var items: [Similar]?
+                            if let item = item {
+                                items?.append(item)
+                                cell.set(withData: indexPath.section, list: items, myVC: self)
+                            }
+                            
+                        } else {
+                            cell.set(withData: indexPath.section, list: model.similars, myVC: self)
+                        }
+                        
+                        
+                        return cell
+                    } else {
+                        return DetailTopTableViewCell()
+                    }
+                }
                 
-                return cell
-            } else {
-                return DetailTopTableViewCell()
             }
-            
-        case 2:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "CastCrewTableViewCell", for: indexPath) as? CastCrewTableViewCell {
-                cell.referenceVC = self
-                return cell
-            } else {
-                return CastCrewTableViewCell()
-            }
-        default:
-            return ItemTableViewCell()
         }
+        
+        return DetailTopTableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section == 2 {
-           return 400
-        } else {
-          return 426
+        if let type = viewModel.detailModel?.type {
+            if type == "Movie" {
+                if indexPath.section == 1 {
+                   return 340
+                } else {
+                   return 350
+                }
+            } else  {
+                if indexPath.section == 2 {
+                   return 340
+                } else {
+                  return 350
+                }
+            }
         }
+        return 0
+        
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        switch section {
-        case 0:
-            return "Season 1"
-        case 1:
-            return "Trailers"
-        case 2:
-            return "Cast & Crew"
-        default:
-            return "Related Show"
+        if let type = viewModel.detailModel?.type {
+            if type == "Movie" {
+                switch section {
+                case 0:
+                    return "Trailers"
+                case 1:
+                    return "Cast & Crew"
+                default:
+                    return "Related Movies"
+                }
+            } else  {
+                switch section {
+                case 0:
+                    return "Season 1"
+                case 1:
+                    return "Trailers"
+                case 2:
+                    return "Cast & Crew"
+                default:
+                    return "Related Show"
+                }
+            }
         }
+        return ""
         //"Indian \(section)"
     }
     
@@ -202,4 +293,27 @@ extension DetailsViewController {
         setNeedsFocusUpdate()
         updateFocusIfNeeded()
     }
+}
+
+extension DetailsViewController: DetailModelDelegate {
+    func updateUI() {
+        
+        if let model = viewModel.detailModel {
+            tilteLbl.text = model.fullTitle ?? ""
+            descLbl.text = model.plot
+            timeLbl.text = model.runtimeStr
+            yerLbl.text = model.imDbRating
+            if let image = model.image {
+                let imageUrl = URL.init(string: image)
+                if let imageUrl = imageUrl {
+                    posterImgView.sd_setImage(with: imageUrl, completed: nil)
+                    bacGroundImgView.sd_setImage(with: imageUrl, completed: nil)
+                    
+                }
+            }
+            tableView.reloadData()
+        }
+    }
+    
+    
 }

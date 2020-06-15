@@ -273,19 +273,20 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-Gv-f83">
-                                            <rect key="frame" x="1424" y="10" width="456" height="637"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-Gv-f83">
+                                            <rect key="frame" x="1460" y="10" width="420" height="562"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="456" id="Uuq-bn-iB6"/>
+                                                <constraint firstAttribute="height" constant="562" id="8Ho-FU-jSw"/>
+                                                <constraint firstAttribute="width" constant="420" id="Uuq-bn-iB6"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
+                                                    <integer key="value" value="15"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHAWSHANK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noS-LC-Yce">
-                                            <rect key="frame" x="80" y="80" width="394" height="80"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noS-LC-Yce">
+                                            <rect key="frame" x="80" y="80" width="0.0" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="X1o-q5-ukW"/>
                                             </constraints>
@@ -293,34 +294,30 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfV-gh-ehp">
-                                            <rect key="frame" x="80" y="168" width="1009" height="207"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfV-gh-ehp">
+                                            <rect key="frame" x="80" y="168" width="1009" height="94"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="94" id="1BH-IU-Vd6"/>
                                                 <constraint firstAttribute="width" constant="1009" id="LaU-ZL-92H"/>
                                             </constraints>
-                                            <string key="text">The Descent is a 2005 British adventure horror thriller movie written and directed by Neil Marshall. The film follows six women who, having entered a cave system, struggle to survive against the humanoid creatures inside.
-
-Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridge Park, Hertfordshire, and in Scotland.</string>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 h 33 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voC-VP-hAp">
-                                            <rect key="frame" x="504" y="97" width="100" height="46"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voC-VP-hAp">
+                                            <rect key="frame" x="110" y="97" width="0.0" height="46"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="XKO-gy-b4A"/>
                                                 <constraint firstAttribute="height" constant="46" id="jW2-Sk-Fxb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJM-HW-oX4">
-                                            <rect key="frame" x="614" y="97" width="74" height="46"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJM-HW-oX4">
+                                            <rect key="frame" x="120" y="97" width="46" height="46"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="46" id="3Hr-RL-ecJ"/>
-                                                <constraint firstAttribute="width" constant="74" id="juU-fh-NRp"/>
+                                                <constraint firstAttribute="width" constant="46" id="cxI-74-6lo"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -357,7 +354,6 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                         <constraint firstAttribute="trailing" secondItem="xDw-Gv-f83" secondAttribute="trailing" constant="40" id="0RJ-o5-jdS"/>
                                         <constraint firstItem="voC-VP-hAp" firstAttribute="leading" secondItem="noS-LC-Yce" secondAttribute="trailing" constant="30" id="2ip-56-W5y"/>
                                         <constraint firstAttribute="trailing" secondItem="skb-nl-oxq" secondAttribute="trailing" id="5rh-Nm-fu6"/>
-                                        <constraint firstAttribute="bottom" secondItem="xDw-Gv-f83" secondAttribute="bottom" constant="10" id="6Cd-G9-YgY"/>
                                         <constraint firstItem="z0L-D8-bsN" firstAttribute="leading" secondItem="EN1-j3-nF1" secondAttribute="leading" id="8iG-Xc-b9J"/>
                                         <constraint firstItem="xDw-Gv-f83" firstAttribute="top" secondItem="EN1-j3-nF1" secondAttribute="top" constant="10" id="BZt-YK-Gs5"/>
                                         <constraint firstItem="nfV-gh-ehp" firstAttribute="leading" secondItem="EN1-j3-nF1" secondAttribute="leading" constant="80" id="Fra-h9-bL3"/>
@@ -375,15 +371,16 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                         <constraint firstAttribute="bottom" secondItem="skb-nl-oxq" secondAttribute="bottom" id="elR-5l-u0g"/>
                                         <constraint firstItem="jJM-HW-oX4" firstAttribute="leading" secondItem="voC-VP-hAp" secondAttribute="trailing" constant="10" id="imp-hK-hOA"/>
                                         <constraint firstItem="voC-VP-hAp" firstAttribute="centerY" secondItem="noS-LC-Yce" secondAttribute="centerY" id="lFa-hC-PRd"/>
+                                        <constraint firstItem="z0L-D8-bsN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nfV-gh-ehp" secondAttribute="bottom" constant="10" id="tzy-uM-fsp"/>
                                         <constraint firstAttribute="trailing" secondItem="z0L-D8-bsN" secondAttribute="trailing" id="xuI-eS-6ft"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTopTableViewCell" rowHeight="426" id="Jad-l7-JaS" customClass="DetailTopTableViewCell" customModule="TVOS_OTT" customModuleProvider="target">
-                                        <rect key="frame" x="90" y="723" width="1740" height="426"/>
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTopTableViewCell" rowHeight="350" id="Jad-l7-JaS" customClass="DetailTopTableViewCell" customModule="TVOS_OTT" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="723" width="1740" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jad-l7-JaS" id="tj4-VF-pN6">
-                                            <rect key="frame" x="0.0" y="0.0" width="1740" height="426"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1740" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krD-ZK-NyN">
@@ -402,24 +399,24 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zhC-uZ-bWd">
-                                                    <rect key="frame" x="0.0" y="20" width="1740" height="406"/>
+                                                    <rect key="frame" x="0.0" y="20" width="1740" height="330"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="60" id="EGB-s6-E7D">
-                                                        <size key="itemSize" width="500" height="341"/>
+                                                        <size key="itemSize" width="450" height="300"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="6wf-Z3-r09" customClass="ItemCollectionViewCell" customModule="TVOS_OTT" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="32.5" width="500" height="341"/>
+                                                            <rect key="frame" x="0.0" y="15" width="450" height="300"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="500" height="341"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="LC8-KU-MiI">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="470" height="341"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="420" height="300"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
                                                                                 <integer key="value" value="10"/>
@@ -457,11 +454,11 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                             <outlet property="collectionView" destination="zhC-uZ-bWd" id="Viv-xb-dhe"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CastCrewTableViewCell" rowHeight="400" id="Isq-40-yDN" customClass="CastCrewTableViewCell" customModule="TVOS_OTT" customModuleProvider="target">
-                                        <rect key="frame" x="90" y="1163" width="1740" height="400"/>
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CastCrewTableViewCell" rowHeight="300" id="Isq-40-yDN" customClass="CastCrewTableViewCell" customModule="TVOS_OTT" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="1087" width="1740" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Isq-40-yDN" id="wSs-Uo-jMa">
-                                            <rect key="frame" x="0.0" y="0.0" width="1740" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1740" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE9-3P-kTk">
@@ -480,7 +477,7 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b9I-Iw-Awf">
-                                                    <rect key="frame" x="0.0" y="20" width="1720" height="380"/>
+                                                    <rect key="frame" x="0.0" y="20" width="1720" height="280"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MOL-AK-zbK">
                                                         <size key="itemSize" width="250" height="316"/>
@@ -490,38 +487,42 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CastCrewCollectionViewCell" id="d5g-Nk-RsU" customClass="CastCrewCollectionViewCell" customModule="TVOS_OTT" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="32" width="250" height="316"/>
+                                                            <rect key="frame" x="0.0" y="-18" width="250" height="316"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MRj-A5-LIW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="316"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="SJS-fW-8X3">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SJS-fW-8X3">
+                                                                        <rect key="frame" x="43.5" y="76.5" width="163" height="163"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="250" id="Vsx-T8-wle"/>
+                                                                            <constraint firstAttribute="width" constant="163" id="hRW-iB-vHG"/>
+                                                                            <constraint firstAttribute="height" constant="163" id="nM0-Oh-n9c"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bel Powly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llD-8v-uc4">
-                                                                        <rect key="frame" x="0.0" y="250" width="250" height="66"/>
-                                                                        <fontDescription key="fontDescription" name="Helvetica-LightOblique" family="Helvetica" pointSize="30"/>
+                                                                        <rect key="frame" x="0.0" y="258" width="250" height="58"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="58" id="AYO-OA-eUL"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Helvetica-LightOblique" family="Helvetica" pointSize="26"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="SJS-fW-8X3" secondAttribute="trailing" id="9Po-dp-M4I"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="llD-8v-uc4" secondAttribute="trailing" id="DVT-OY-NYi"/>
-                                                                    <constraint firstItem="llD-8v-uc4" firstAttribute="leading" secondItem="MRj-A5-LIW" secondAttribute="leading" id="S0f-Ol-4Ft"/>
-                                                                    <constraint firstItem="SJS-fW-8X3" firstAttribute="leading" secondItem="MRj-A5-LIW" secondAttribute="leading" id="UGO-Pb-Ia6"/>
-                                                                    <constraint firstItem="SJS-fW-8X3" firstAttribute="top" secondItem="MRj-A5-LIW" secondAttribute="top" id="Z0X-fk-hrh"/>
-                                                                    <constraint firstItem="llD-8v-uc4" firstAttribute="top" secondItem="SJS-fW-8X3" secondAttribute="bottom" id="c1P-83-mBk"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="llD-8v-uc4" secondAttribute="bottom" id="gtn-jv-gi2"/>
+                                                                    <constraint firstItem="llD-8v-uc4" firstAttribute="leading" secondItem="MRj-A5-LIW" secondAttribute="leading" id="13p-kd-1Or"/>
+                                                                    <constraint firstItem="SJS-fW-8X3" firstAttribute="centerY" secondItem="MRj-A5-LIW" secondAttribute="centerY" id="1sQ-HA-4DL"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="llD-8v-uc4" secondAttribute="bottom" id="6VV-t5-Ep7"/>
+                                                                    <constraint firstItem="SJS-fW-8X3" firstAttribute="centerX" secondItem="MRj-A5-LIW" secondAttribute="centerX" id="Ga2-ja-CZ3"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="llD-8v-uc4" secondAttribute="trailing" id="X6x-l1-LS0"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="250" height="316"/>
                                                             <connections>
                                                                 <outlet property="crewImage" destination="SJS-fW-8X3" id="6wy-Cy-mLY"/>
+                                                                <outlet property="nameLbl" destination="llD-8v-uc4" id="9Dv-Eq-X9e"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -561,9 +562,16 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                     <navigationItem key="navigationItem" id="63n-Vf-IEn"/>
                     <size key="freeformSize" width="1920" height="1800"/>
                     <connections>
+                        <outlet property="bacGroundImgView" destination="skb-nl-oxq" id="1wy-ui-Oja"/>
+                        <outlet property="descLbl" destination="nfV-gh-ehp" id="mpR-yQ-eeO"/>
                         <outlet property="favouriteBtn" destination="M6k-OM-qIU" id="mL7-nW-bkd"/>
+                        <outlet property="posterImgView" destination="xDw-Gv-f83" id="WD3-a6-koO"/>
+                        <outlet property="tableView" destination="Pl3-xR-BKj" id="mr9-qK-9Rv"/>
+                        <outlet property="tilteLbl" destination="noS-LC-Yce" id="y1u-xx-5He"/>
+                        <outlet property="timeLbl" destination="voC-VP-hAp" id="f82-o6-yYA"/>
                         <outlet property="transparentView" destination="z0L-D8-bsN" id="QMF-Rx-Db1"/>
                         <outlet property="watchNowBtn" destination="MJT-mn-5o6" id="6Te-1c-bcT"/>
+                        <outlet property="yerLbl" destination="jJM-HW-oX4" id="nxV-e9-lC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGI-29-4KC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -594,7 +602,7 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="lAW-MX-A1O">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lAW-MX-A1O">
                                             <rect key="frame" x="613" y="188.5" width="280" height="280"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="280" id="Qp8-Jv-x6V"/>
@@ -606,8 +614,8 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bel Powley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZv-sW-l8D">
-                                            <rect key="frame" x="1027" y="188.5" width="317" height="80"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZv-sW-l8D">
+                                            <rect key="frame" x="1027" y="188.5" width="0.0" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="qKb-n3-dAS"/>
                                             </constraints>
@@ -631,15 +639,12 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ip-NO-Fes">
-                                            <rect key="frame" x="1027" y="294" width="593" height="207"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ip-NO-Fes">
+                                            <rect key="frame" x="1027" y="294" width="593" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="593" id="lE2-CU-KB3"/>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="207" id="rYK-BJ-y1H"/>
                                             </constraints>
-                                            <string key="text">he Descent is a 2005 British adventure horror thriller movie written and directed by Neil Marshall. The film follows six women who, having entered a cave system, struggle to survive against the humanoid creatures inside.
-
-Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridge Park, Hertfordshire, and in Scotland.</string>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -757,19 +762,23 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LIJ-Ec-0Fq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Q2M-Z9-JBc"/>
                     <size key="freeformSize" width="1920" height="1400"/>
                     <connections>
+                        <outlet property="castName" destination="DZv-sW-l8D" id="rjb-8N-JLM"/>
+                        <outlet property="descLbl" destination="8Ip-NO-Fes" id="3Yg-bh-Lsp"/>
                         <outlet property="focusBtn" destination="F6M-ti-fPw" id="JhH-Im-eX0"/>
+                        <outlet property="profileImg" destination="lAW-MX-A1O" id="gfE-MQ-Tao"/>
+                        <outlet property="tableView" destination="VIU-mr-Aas" id="DJP-3X-Pg6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPW-gO-r2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4336" y="-287"/>
+            <point key="canvasLocation" x="2222" y="2135"/>
         </scene>
     </scenes>
     <resources>
         <image name="Banner" width="1920" height="516"/>
         <image name="demo" width="674" height="1000"/>
-        <image name="profile" width="492" height="492"/>
     </resources>
 </document>
