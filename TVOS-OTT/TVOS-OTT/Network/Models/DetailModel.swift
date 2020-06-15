@@ -15,7 +15,7 @@ struct DetailsModel: Codable {
     let image: String?
     let releaseDate, runtimeMins, runtimeStr, plot: String?
     let plotLocal: String?
-    let plotLocalIsRTL: Bool?
+    let plotLocalIsRtl: Bool?
     let awards, directors: String?
     let directorList: [CompanyListElement]?
     let writers: String?
@@ -31,7 +31,7 @@ struct DetailsModel: Codable {
     let countryList: [CountryListElement]?
     let languages: String?
     let languageList: [CountryListElement]?
-    let contentRating, imDBRating, imDBRatingVotes, metacriticRating: String?
+    let contentRating, imDbRating, imDbRatingVotes, metacriticRating: String?
     let ratings, wikipedia, posters, images: String?
     //let trailer: JSONNull?
     let boxOffice: BoxOffice?
@@ -70,4 +70,5 @@ struct Similar: Codable {
     let image: String?
     let plot, directors, stars, genres: String?
     let imDBRating: String?
+    let role: String?
 }

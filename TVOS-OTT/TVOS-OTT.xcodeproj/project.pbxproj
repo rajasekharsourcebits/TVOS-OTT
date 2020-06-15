@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		818CB7536086FE69669AD2A3 /* Pods_TVOS_OTTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527CD16CDF6F249DD540CA08 /* Pods_TVOS_OTTTests.framework */; };
 		9D0C64EC24975829005F9612 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C64EB24975829005F9612 /* DetailModel.swift */; };
+		9D0C64EE24978713005F9612 /* castCrewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C64ED24978713005F9612 /* castCrewModel.swift */; };
+		9D0C64F0249793C3005F9612 /* CastCrewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C64EF249793C3005F9612 /* CastCrewViewModel.swift */; };
 		9D1D02D224937F860050F09F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D02D124937F860050F09F /* DetailViewModel.swift */; };
 		9D1D02D424939D6A0050F09F /* CastCrewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D02D324939D6A0050F09F /* CastCrewDetailViewController.swift */; };
 		9D5A5B0D247CF11B008ABC33 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A5B0C247CF11B008ABC33 /* Reachability.swift */; };
@@ -79,6 +81,8 @@
 		5455FEE2FCA7377FA1EDFB69 /* Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig"; path = "Target Support Files/Pods-TVOS-OTT-TVOS-OTTUITests/Pods-TVOS-OTT-TVOS-OTTUITests.release.xcconfig"; sourceTree = "<group>"; };
 		54E7D63444E518E8E08A70EF /* Pods-TVOS-OTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOS-OTT.release.xcconfig"; path = "Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT.release.xcconfig"; sourceTree = "<group>"; };
 		9D0C64EB24975829005F9612 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		9D0C64ED24978713005F9612 /* castCrewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = castCrewModel.swift; sourceTree = "<group>"; };
+		9D0C64EF249793C3005F9612 /* CastCrewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CastCrewViewModel.swift; path = "TVOS-OTT/Network/Models/CastCrewViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		9D1D02D124937F860050F09F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = "TVOS-OTT/Cell/TableViewCell/DetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		9D1D02D324939D6A0050F09F /* CastCrewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCrewDetailViewController.swift; sourceTree = "<group>"; };
 		9D2E17ADAE2160E89621D48F /* Pods_TVOS_OTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVOS_OTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +257,7 @@
 				9FB9642E2490A70C007F042B /* TVShowsViewModel.swift */,
 				9FB9643024921A15007F042B /* CommonVCViewModel.swift */,
 				9D1D02D124937F860050F09F /* DetailViewModel.swift */,
+				9D0C64EF249793C3005F9612 /* CastCrewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 				9FB9642A2490A56E007F042B /* TVShowsModel.swift */,
 				9FB9643224921B94007F042B /* CommonVCModel.swift */,
 				9D0C64EB24975829005F9612 /* DetailModel.swift */,
+				9D0C64ED24978713005F9612 /* castCrewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,7 +415,7 @@
 				9DD25BE4246D7DB500427850 /* Sources */,
 				9DD25BE5246D7DB500427850 /* Frameworks */,
 				9DD25BE6246D7DB500427850 /* Resources */,
-				4BC9D364318DA1CBC5EB4AD3 /* [CP] Embed Pods Frameworks */,
+				A177E72A38669F655CC9526E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -447,7 +453,7 @@
 				9DD25C05246D7DB600427850 /* Sources */,
 				9DD25C06246D7DB600427850 /* Frameworks */,
 				9DD25C07246D7DB600427850 /* Resources */,
-				A80A088911C383DC7F946409 /* [CP] Embed Pods Frameworks */,
+				6F080591A6C94D2F81F97A68 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -553,24 +559,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4BC9D364318DA1CBC5EB4AD3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A80A088911C383DC7F946409 /* [CP] Embed Pods Frameworks */ = {
+		6F080591A6C94D2F81F97A68 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -585,6 +574,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TVOS-OTT-TVOS-OTTUITests/Pods-TVOS-OTT-TVOS-OTTUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A177E72A38669F655CC9526E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TVOS-OTT/Pods-TVOS-OTT-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AEA5D05FF0C25745C6906DCA /* [CP] Check Pods Manifest.lock */ = {
@@ -640,6 +646,7 @@
 			files = (
 				9FB9643124921A15007F042B /* CommonVCViewModel.swift in Sources */,
 				9D5A5B11247CF359008ABC33 /* ApiManager.swift in Sources */,
+				9D0C64EE24978713005F9612 /* castCrewModel.swift in Sources */,
 				9D1D02D424939D6A0050F09F /* CastCrewDetailViewController.swift in Sources */,
 				9D5A5B0D247CF11B008ABC33 /* Reachability.swift in Sources */,
 				9DDC92CD24920D8E00B249D1 /* FavouriteCollectionCell.swift in Sources */,
@@ -661,6 +668,7 @@
 				9D5A5B15247CF5A4008ABC33 /* Service.swift in Sources */,
 				9DDC92D32492364B00B249D1 /* DetailTopTableViewCell.swift in Sources */,
 				9D5A5B16247CF5A4008ABC33 /* ServiceProvider.swift in Sources */,
+				9D0C64F0249793C3005F9612 /* CastCrewViewModel.swift in Sources */,
 				9FF1E31C247412EF0033A291 /* HomeViewController.swift in Sources */,
 				9DDC92D724923C7F00B249D1 /* CastCrewTableViewCell.swift in Sources */,
 				9FF1E2C7247294740033A291 /* BannerCollectionViewCell.swift in Sources */,

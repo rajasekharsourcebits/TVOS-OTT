@@ -37,6 +37,7 @@ extension Constants {
     static var searchAll: String = "SearchAll"
     static var expression: String = ""
     static var detail: String = "Title"
+    static var castcrew: String = "Name"
     static var noImageUrl: String = "https://imdb-api.com/images/original/nopicture.jpg"
 }
 
