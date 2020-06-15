@@ -11,6 +11,7 @@ import UIKit
 class ItemTableViewCell: UITableViewCell {
     var viewModel = CommonVCViewModel(provider: ServiceProvider<UserService>())
     var model: [ListItems]?
+    var myVC: UIViewController?
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -34,6 +35,7 @@ extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return model?.count ?? 0
+//        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,7 +51,19 @@ extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 400, height: 250)
+            return CGSize(width: 400, height: 300)
+    }
+    
+   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("hello")
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+//        vc?.viewModel.detailID = model?[indexPath.item].id
+        if let vc = vc {
+            if let myVC = myVC {
+               myVC.present(vc , animated: true, completion: nil)
+            }
+            
+        }
     }
     
 }
@@ -70,9 +84,14 @@ extension ItemTableViewCell {
             } else {
                 cell.itemImage.downloadImageFrom(url: path, contentMode: .scaleToFill)
             }
+            
+//            cell.itemImage.image = UIImage(named: "demo")
         }
         
         func configerCell(cell: ItemCollectionViewCell, withIndex: Int) {
-            setImage(withIndex, cell)
+            DispatchQueue.main.async {
+                self.setImage(withIndex, cell)
+            }
+           
         }
 }

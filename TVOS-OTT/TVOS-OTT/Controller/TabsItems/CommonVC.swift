@@ -13,6 +13,12 @@ class CommonVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var viewModel = CommonVCViewModel(provider: ServiceProvider<UserService>())
     var delegate: CommonVCModelDelegate?
+    var data1: [ListItems]?
+    var data2: [ListItems]?
+    var data3: [ListItems]?
+    var data4: [ListItems]?
+    var data5: [ListItems]?
+    var data6: [ListItems]?
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.commonVCModelDelegate = self
@@ -23,7 +29,7 @@ class CommonVC: UIViewController {
 extension CommonVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,20 +41,21 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell {
             
             if  indexPath.section == 0 {
-                cell.model = viewModel.data?.items
+                cell.model = data1
             } else if  indexPath.section == 1 {
-                cell.model = viewModel.data?.items?.shuffled()
+                cell.model = data2
             } else if  indexPath.section == 2 {
-                cell.model = viewModel.data?.items?.shuffled()
+                cell.model = data3
             } else if  indexPath.section == 3 {
-                cell.model = viewModel.data?.items?.shuffled()
+                cell.model = data4
             } else if  indexPath.section == 4 {
-                cell.model = viewModel.data?.items?.shuffled()
+                cell.model = data5
             } else if  indexPath.section == 5 {
-                cell.model = viewModel.data?.items?.shuffled()
+                cell.model = data6
             } else  {
-                cell.model = viewModel.data?.items
+                cell.model = data1
             }
+            cell.myVC = self
             cell.collectionView.reloadData()
             return cell
         } else {
@@ -73,17 +80,17 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
         myLabel.font = UIFont(name: "Helvetica", size: 35)
         switch section {
         case 0:
-            myLabel.text = "Most Popular Movies"
+            myLabel.text = "MOST POPULAR MOVIES"
         case 1:
-            myLabel.text = "Most Popular TVShows"
+            myLabel.text = "MOST POPULAR TVSHOWS"
         case 2:
-            myLabel.text = "Coming Soon"
+            myLabel.text = "COMING SOON"
         case 3:
-            myLabel.text = "Hollywood Movies"
+            myLabel.text = "HOLLYWOOD MOVIES"
         case 4:
-            myLabel.text = "Bollywood Movies"
+            myLabel.text = "BOLLYWOOD MOVIES"
         case 5:
-            myLabel.text = "Box Office"
+            myLabel.text = "BOX OFFICE"
         default:
             myLabel.text = ""
         }
@@ -127,6 +134,12 @@ extension CommonVC {
 
 extension CommonVC: CommonVCModelDelegate {
     func updateUI() {
+        data1 = viewModel.data?.items
+        data2 = data1?.shuffled()
+        data3 = data2?.shuffled()
+        data4 = data3?.shuffled()
+        data5 = data4?.shuffled()
+        data6 = data5?.shuffled()
         tableView.reloadData()
     }
     
