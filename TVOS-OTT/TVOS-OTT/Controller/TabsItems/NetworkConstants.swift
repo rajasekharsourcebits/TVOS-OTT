@@ -36,6 +36,7 @@ extension Constants {
     static var tvshow250: String = "Top250TVs"
     static var searchAll: String = "SearchAll"
     static var expression: String = ""
+    static var detail: String = "Title"
     static var noImageUrl: String = "https://imdb-api.com/images/original/nopicture.jpg"
 }
 

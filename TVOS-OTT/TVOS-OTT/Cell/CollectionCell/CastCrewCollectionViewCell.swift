@@ -11,5 +11,6 @@ import UIKit
 class CastCrewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var crewImage: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
     
 }

@@ -522,6 +522,7 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                                                             <size key="customSize" width="250" height="316"/>
                                                             <connections>
                                                                 <outlet property="crewImage" destination="SJS-fW-8X3" id="6wy-Cy-mLY"/>
+                                                                <outlet property="nameLbl" destination="llD-8v-uc4" id="9Dv-Eq-X9e"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -561,9 +562,15 @@ Filming took place in the United Kingdom. Exterior scenes were filmed at Ashridg
                     <navigationItem key="navigationItem" id="63n-Vf-IEn"/>
                     <size key="freeformSize" width="1920" height="1800"/>
                     <connections>
+                        <outlet property="bacGroundImgView" destination="skb-nl-oxq" id="1wy-ui-Oja"/>
+                        <outlet property="descLbl" destination="nfV-gh-ehp" id="mpR-yQ-eeO"/>
                         <outlet property="favouriteBtn" destination="M6k-OM-qIU" id="mL7-nW-bkd"/>
+                        <outlet property="posterImgView" destination="xDw-Gv-f83" id="WD3-a6-koO"/>
+                        <outlet property="tilteLbl" destination="noS-LC-Yce" id="y1u-xx-5He"/>
+                        <outlet property="timeLbl" destination="voC-VP-hAp" id="f82-o6-yYA"/>
                         <outlet property="transparentView" destination="z0L-D8-bsN" id="QMF-Rx-Db1"/>
                         <outlet property="watchNowBtn" destination="MJT-mn-5o6" id="6Te-1c-bcT"/>
+                        <outlet property="yerLbl" destination="jJM-HW-oX4" id="nxV-e9-lC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGI-29-4KC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

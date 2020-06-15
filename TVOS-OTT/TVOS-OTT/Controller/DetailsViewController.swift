@@ -13,8 +13,14 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var watchNowBtn: UIButton!
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var transparentView: UIView!
+    @IBOutlet weak var tilteLbl: UILabel!
+    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var yerLbl: UILabel!
+    @IBOutlet weak var posterImgView: UIImageView!
+    @IBOutlet weak var bacGroundImgView: UIImageView!
     
-    var viewModel = DetailViewModel()
+    var viewModel = DetailViewModel(provider: ServiceProvider<UserService>())
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
     
@@ -24,6 +30,8 @@ class DetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         //initalSetup()
+        viewModel.callApi(view: self.view)
+        viewModel.delegate = self
         focusConstraint()
         
     }
@@ -202,4 +210,16 @@ extension DetailsViewController {
         setNeedsFocusUpdate()
         updateFocusIfNeeded()
     }
+}
+
+extension DetailsViewController: DetailModelDelegate {
+    func updateUI() {
+        
+        if let model = viewModel.detailModel {
+            timeLbl.text = model.fullTitle ?? ""
+            descLbl.text = model.plot
+        }
+    }
+    
+    
 }

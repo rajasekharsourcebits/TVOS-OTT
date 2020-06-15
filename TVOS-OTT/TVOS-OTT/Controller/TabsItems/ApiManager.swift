@@ -18,6 +18,7 @@ enum UserService {
     case top250movies
     case top250tvShow
     case searchAll
+    case DetailsData
 }
 
 extension UserService: Service {
@@ -53,6 +54,8 @@ extension UserService: Service {
             return Constants.tvshow250 + Constants.key
         case .searchAll:
             return Constants.searchAll + Constants.key
+        case .DetailsData:
+            return Constants.detail + Constants.key
         }
         //return Constants.Holder.path
     }
