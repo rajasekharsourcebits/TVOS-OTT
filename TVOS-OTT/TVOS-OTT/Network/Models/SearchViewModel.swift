@@ -37,7 +37,7 @@ class SearchViewModel {
 extension SearchViewModel: ReachableExpose {
     
     func callApi(view: UIView) {
-       self.view = view
+        self.view = view
         if isReachable ?? true {
             callSearchData(view: view)
         } else {
@@ -47,12 +47,12 @@ extension SearchViewModel: ReachableExpose {
     
     func reachabilityChanged(_ isReachable: Bool) {
         if isReachable {
-           // print("Internet connection available...")
+            // print("Internet connection available...")
             self.isReachable = isReachable
             
         } else {
-             self.isReachable = isReachable
-           // print("No internet connection")
+            self.isReachable = isReachable
+            // print("No internet connection")
         }
     }
 }
@@ -73,13 +73,14 @@ extension SearchViewModel {
                 print("No Data")
                 self.view?.showToast(message: "No Data", font:  UIFont(name: "GillSans-SemiBold", size: 16) ?? UIFont.systemFont(ofSize: 9))
             }
+            Constants.expression = ""
         }
     }
 }
 //MARK:- Helper Methods
 extension SearchViewModel {
     func numbareOfSessions() -> Int {
-         return searchModel?.results?.count ?? 0
+        return searchModel?.results?.count ?? 0
     }
     func setSessionTitle(index: Int) -> String {
         return searchModel?.results?[index].title ?? "--"
@@ -102,7 +103,7 @@ extension SearchViewModel {
     
     fileprivate func getPath(_ withIndex: Int) -> String{
         if let path = searchModel?.results?[withIndex].image {
-             return path
+            return path
         } else {
             return Constants.noImageUrl
         }
@@ -111,9 +112,12 @@ extension SearchViewModel {
     fileprivate func setImage(_ withIndex: Int, _ cell: SearchCollectionViewCell) {
         let path = getPath(withIndex)
         if path == "" {
-           cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleAspectFit)
+            cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
         } else {
-            cell.banner.downloadImageFrom(url: path, contentMode: .scaleAspectFit)
+            let imageUrl = URL.init(string: path)
+            if let imageUrl = imageUrl {
+                cell.banner.sd_setImage(with: imageUrl, completed: nil)
+            }
         }
     }
     
