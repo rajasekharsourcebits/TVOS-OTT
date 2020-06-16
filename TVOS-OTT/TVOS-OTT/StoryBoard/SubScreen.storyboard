@@ -83,8 +83,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V92-MP-KUY">
                                         <rect key="frame" x="0.0" y="0.0" width="1920" height="476"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHAWSHANK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haY-WN-AAT">
-                                                <rect key="frame" x="53" y="103" width="394" height="89"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haY-WN-AAT">
+                                                <rect key="frame" x="53" y="103" width="0.0" height="89"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="89" id="mZX-wJ-0eY"/>
                                                 </constraints>
@@ -92,13 +92,12 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDi-hf-V2I">
-                                                <rect key="frame" x="53" y="200" width="1014" height="104"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDi-hf-V2I">
+                                                <rect key="frame" x="53" y="200" width="1014" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="153" id="ULi-2a-wpi"/>
                                                     <constraint firstAttribute="width" constant="1014" id="Z3q-A6-jx8"/>
                                                 </constraints>
-                                                <string key="text">The Descent is a 2005 British adventure horror thriller movie written and directed by Neil Marshall. The film follows six women who, having entered a cave system, struggle to survive against the humanoid creatures inside.</string>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -196,18 +195,28 @@
                                             <constraint firstItem="fQG-DQ-0lj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yDi-hf-V2I" secondAttribute="bottom" constant="10" id="rxT-tH-sfO"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No item added in Favourite List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyZ-Wn-gjm">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="a3M-b1-Plq" secondAttribute="trailing" constant="8" id="BlE-1C-Vjv"/>
+                                    <constraint firstAttribute="bottom" secondItem="zyZ-Wn-gjm" secondAttribute="bottom" id="CNf-xR-YlR"/>
                                     <constraint firstAttribute="bottom" secondItem="RaC-oS-l0f" secondAttribute="bottom" id="ELX-wA-cBi"/>
                                     <constraint firstItem="RaC-oS-l0f" firstAttribute="top" secondItem="8qR-2r-M1c" secondAttribute="top" id="ERI-m3-jwJ"/>
                                     <constraint firstItem="V92-MP-KUY" firstAttribute="top" secondItem="8qR-2r-M1c" secondAttribute="top" id="LG7-ri-y2Z"/>
+                                    <constraint firstItem="zyZ-Wn-gjm" firstAttribute="leading" secondItem="8qR-2r-M1c" secondAttribute="leading" id="PUO-0w-wrN"/>
                                     <constraint firstAttribute="trailing" secondItem="RaC-oS-l0f" secondAttribute="trailing" id="Sal-2d-VXM"/>
                                     <constraint firstItem="a3M-b1-Plq" firstAttribute="top" secondItem="V92-MP-KUY" secondAttribute="bottom" constant="28" id="Trn-rR-fbq"/>
+                                    <constraint firstItem="zyZ-Wn-gjm" firstAttribute="top" secondItem="8qR-2r-M1c" secondAttribute="top" id="WJb-Ou-nHY"/>
                                     <constraint firstAttribute="trailing" secondItem="V92-MP-KUY" secondAttribute="trailing" id="Wi9-Bf-KYn"/>
                                     <constraint firstItem="V92-MP-KUY" firstAttribute="leading" secondItem="8qR-2r-M1c" secondAttribute="leading" id="auA-8x-R0o"/>
                                     <constraint firstAttribute="bottom" secondItem="a3M-b1-Plq" secondAttribute="bottom" id="f9V-UQ-ixd"/>
+                                    <constraint firstAttribute="trailing" secondItem="zyZ-Wn-gjm" secondAttribute="trailing" id="fLX-B8-3Km"/>
                                     <constraint firstItem="RaC-oS-l0f" firstAttribute="leading" secondItem="8qR-2r-M1c" secondAttribute="leading" id="hyg-bh-mJ9"/>
                                     <constraint firstItem="a3M-b1-Plq" firstAttribute="leading" secondItem="8qR-2r-M1c" secondAttribute="leading" constant="20" id="roh-EB-dkc"/>
                                 </constraints>
@@ -225,6 +234,7 @@
                         <outlet property="muyCollectionView" destination="a3M-b1-Plq" id="hAx-lI-GFC"/>
                         <outlet property="myView" destination="V92-MP-KUY" id="gML-VY-Bay"/>
                         <outlet property="nameLbl" destination="haY-WN-AAT" id="wbe-1E-LB3"/>
+                        <outlet property="noDataLbl" destination="zyZ-Wn-gjm" id="3l1-ZK-u01"/>
                         <outlet property="playBtn" destination="TIR-wM-KCu" id="OL4-TN-eBR"/>
                         <outlet property="posterImage" destination="9YU-i9-uf1" id="6N0-pp-gcM"/>
                         <outlet property="removeItemBtn" destination="rGU-p9-ZVG" id="AOy-ox-5pZ"/>

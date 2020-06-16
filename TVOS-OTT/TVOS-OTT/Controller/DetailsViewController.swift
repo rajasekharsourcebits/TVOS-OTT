@@ -251,11 +251,12 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
 extension DetailsViewController {
     
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 1
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
+        context.nextFocusedView?.layer.cornerRadius = 10
         context.nextFocusedView?.layer.shadowRadius = 5
-        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
     }
     
     fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {

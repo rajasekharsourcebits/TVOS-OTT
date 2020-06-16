@@ -22,6 +22,7 @@ class FavouritesViewController: UIViewController {
     @IBOutlet weak var descLbl: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     var currentselectedIndex = 0
+    @IBOutlet weak var noDataLbl: UILabel!
     
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
@@ -36,8 +37,6 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
         focusGuide.preferredFocusEnvironments = [playBtn]
 
         view.addLayoutGuide(focusGuide)
@@ -51,11 +50,12 @@ class FavouritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let favList = UserDefaults.getFavouriteList() {
+            
             self.favList = favList
             setInitalFocusData()
             muyCollectionView.reloadData()
         } else {
-            muyCollectionView.isHidden = true
+            
         }
     }
     
@@ -70,9 +70,12 @@ class FavouritesViewController: UIViewController {
 
     func setInitalFocusData() {
         if let favList = favList.first {
+            muyCollectionView.isHidden = false
+            myView.isHidden = false
+            noDataLbl.isHidden = true
             nameLbl.text = favList.name
             descLbl.text = favList.desc
-            
+            noDataLbl.isHidden = true
             if let image = favList.image {
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {
@@ -80,6 +83,10 @@ class FavouritesViewController: UIViewController {
                 }
             }
             
+        } else {
+            muyCollectionView.isHidden = true
+            myView.isHidden = true
+            noDataLbl.isHidden = false
         }
     }
 
@@ -118,8 +125,8 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
         if let value = context.nextFocusedIndexPath {
            // let item = lis[value.first ?? 0].cards?[value.last ?? 0]
             print(value)
-            let item = favList[value.last ?? 0]
-            currentselectedIndex = value.last ?? 0
+            let item = favList[value.first ?? 0]
+            currentselectedIndex = value.first ?? 0
             nameLbl.text = item.name
             descLbl.text = item.desc
             
