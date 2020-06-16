@@ -25,6 +25,7 @@ class DetailsViewController: UIViewController {
     var viewModel = DetailViewModel(provider: ServiceProvider<UserService>())
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
+    var favList = [FavouriteModel]()
     
 
     override func viewDidLoad() {
@@ -37,8 +38,49 @@ class DetailsViewController: UIViewController {
         yerLbl.layer.cornerRadius = 8
         viewModel.callApi(view: self.view)
         viewModel.delegate = self
+        fetchFavList()
         focusConstraint()
         
+    }
+    
+    func fetchFavList() {
+        if let favList = UserDefaults.getFavouriteList() {
+            self.favList = favList
+        }
+    }
+    
+    func checkFavui() {
+        if let id = viewModel.detailModel?.id {
+        let bool = favList.contains {$0.id == id}
+            if bool {
+                favouriteBtn.setTitle("Remove Favourite", for: .normal)
+            } else {
+                favouriteBtn.setTitle("Add Favourite", for: .normal)
+            }
+        }
+    }
+    
+    @IBAction func addToFavourite(_ sender: Any) {
+        
+        if let id = viewModel.detailModel?.id {
+            let bool = favList.contains {$0.id == id}
+            if bool {
+                let indexOfA = favList.firstIndex{ $0.id == id}
+                if let indexofA = indexOfA {
+                    favList.remove(at: indexofA)
+                    favouriteBtn.setTitle("Add Favourite", for: .normal)
+                    UserDefaults.storeFavouriteList(programs: favList)
+                }
+                
+            } else {
+                if let model = viewModel.detailModel {
+                    let newItem = FavouriteModel(id: model.id, name: model.fullTitle, image: model.image, desc: model.plot)
+                    self.favList.append(newItem)
+                    favouriteBtn.setTitle("Remove Favourite", for: .normal)
+                    UserDefaults.storeFavouriteList(programs: self.favList)
+                }
+            }
+        }
     }
     
     func focusConstraint() {
@@ -209,11 +251,12 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
 extension DetailsViewController {
     
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 1
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
+        context.nextFocusedView?.layer.cornerRadius = 10
         context.nextFocusedView?.layer.shadowRadius = 5
-        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
     }
     
     fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
@@ -303,6 +346,7 @@ extension DetailsViewController: DetailModelDelegate {
             descLbl.text = model.plot
             timeLbl.text = model.runtimeStr
             yerLbl.text = model.imDbRating
+            checkFavui()
             if let image = model.image {
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {
