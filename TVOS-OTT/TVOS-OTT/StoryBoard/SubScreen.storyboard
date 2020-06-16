@@ -84,7 +84,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1920" height="476"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHAWSHANK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haY-WN-AAT">
-                                                <rect key="frame" x="53" y="93" width="394" height="89"/>
+                                                <rect key="frame" x="53" y="103" width="394" height="89"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="89" id="mZX-wJ-0eY"/>
                                                 </constraints>
@@ -93,7 +93,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDi-hf-V2I">
-                                                <rect key="frame" x="53" y="190" width="1014" height="104"/>
+                                                <rect key="frame" x="53" y="200" width="1014" height="104"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="153" id="ULi-2a-wpi"/>
                                                     <constraint firstAttribute="width" constant="1014" id="Z3q-A6-jx8"/>
@@ -141,6 +141,9 @@
                                                                 <integer key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="REviveFormList:" destination="poN-c3-uzX" eventType="primaryActionTriggered" id="unt-Rn-k7T"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,7 +179,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="haY-WN-AAT" firstAttribute="top" secondItem="9YU-i9-uf1" secondAttribute="top" id="45L-LB-imf"/>
+                                            <constraint firstItem="haY-WN-AAT" firstAttribute="top" secondItem="9YU-i9-uf1" secondAttribute="top" constant="10" id="45L-LB-imf"/>
                                             <constraint firstAttribute="bottom" secondItem="fQG-DQ-0lj" secondAttribute="bottom" constant="25" id="5oE-LW-x4E"/>
                                             <constraint firstAttribute="height" constant="476" id="CNA-5X-R3u"/>
                                             <constraint firstItem="yDi-hf-V2I" firstAttribute="leading" secondItem="V92-MP-KUY" secondAttribute="leading" constant="53" id="CWF-3H-9wa"/>
@@ -190,6 +193,7 @@
                                             <constraint firstItem="yDi-hf-V2I" firstAttribute="top" secondItem="haY-WN-AAT" secondAttribute="bottom" constant="8" id="igH-TD-r5a"/>
                                             <constraint firstItem="9YU-i9-uf1" firstAttribute="top" secondItem="V92-MP-KUY" secondAttribute="top" constant="93" id="itY-qf-TFY"/>
                                             <constraint firstAttribute="trailing" secondItem="dwt-Dh-gTW" secondAttribute="trailing" id="oHZ-qC-cKe"/>
+                                            <constraint firstItem="fQG-DQ-0lj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yDi-hf-V2I" secondAttribute="bottom" constant="10" id="rxT-tH-sfO"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -216,10 +220,14 @@
                     <tabBarItem key="tabBarItem" title="Favourites" id="3uZ-rL-6c7"/>
                     <simulatedTabBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="descLbl" destination="yDi-hf-V2I" id="eCk-im-YbX"/>
                         <outlet property="imgView" destination="9YU-i9-uf1" id="Jdv-3G-iec"/>
                         <outlet property="muyCollectionView" destination="a3M-b1-Plq" id="hAx-lI-GFC"/>
                         <outlet property="myView" destination="V92-MP-KUY" id="gML-VY-Bay"/>
+                        <outlet property="nameLbl" destination="haY-WN-AAT" id="wbe-1E-LB3"/>
                         <outlet property="playBtn" destination="TIR-wM-KCu" id="OL4-TN-eBR"/>
+                        <outlet property="posterImage" destination="9YU-i9-uf1" id="6N0-pp-gcM"/>
+                        <outlet property="removeItemBtn" destination="rGU-p9-ZVG" id="AOy-ox-5pZ"/>
                         <outlet property="supersubView" destination="fQG-DQ-0lj" id="yjQ-jY-Yk6"/>
                     </connections>
                 </viewController>
@@ -335,17 +343,20 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6k-OM-qIU">
-                                            <rect key="frame" x="460" y="501" width="320" height="110"/>
+                                            <rect key="frame" x="460" y="501" width="380" height="110"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="110" id="CMO-eS-cJ3"/>
-                                                <constraint firstAttribute="width" constant="320" id="lgx-Xm-LlM"/>
+                                                <constraint firstAttribute="width" constant="380" id="lgx-Xm-LlM"/>
                                             </constraints>
                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                            <state key="normal" title="Add Favourite">
+                                            <state key="normal" title="Remove Favourite">
                                                 <color key="titleColor" red="0.047889091070000001" green="0.45302027459999999" blue="0.66277140379999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="titleShadowColor" red="0.25098425149999998" green="0.25097340350000003" blue="0.25098079439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
+                                            <connections>
+                                                <action selector="addToFavourite:" destination="46T-y8-NIl" eventType="primaryActionTriggered" id="DiN-6t-LaA"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -774,7 +785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPW-gO-r2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2222" y="2135"/>
+            <point key="canvasLocation" x="2120" y="2122"/>
         </scene>
     </scenes>
     <resources>

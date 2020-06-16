@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FavouritesViewController: UIViewController {
     
@@ -17,9 +18,15 @@ class FavouritesViewController: UIViewController {
     @IBOutlet weak var muyCollectionView: UICollectionView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var removeItemBtn: UIButton!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var posterImage: UIImageView!
+    var currentselectedIndex = 0
     
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
+    
+    var favList = [FavouriteModel]()
     
 //    override var preferredFocusEnvironments: [UIFocusEnvironment] {
 //        return [playBtn]
@@ -28,11 +35,8 @@ class FavouritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//                guard let watchNow = view.watchNowButton,
-//            let transparentView = bannerView.transparentView else { return }
-        //muyCollectionView.remembersLastFocusedIndexPath = false
+        
+        
 
         focusGuide.preferredFocusEnvironments = [playBtn]
 
@@ -43,22 +47,47 @@ class FavouritesViewController: UIViewController {
         focusGuide.leadingAnchor.constraint(equalTo: supersubView.leadingAnchor).isActive = true
         focusGuide.widthAnchor.constraint(equalTo: supersubView.widthAnchor).isActive = true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let favList = UserDefaults.getFavouriteList() {
+            self.favList = favList
+            setInitalFocusData()
+            muyCollectionView.reloadData()
+        } else {
+            muyCollectionView.isHidden = true
+        }
     }
-    */
+    
+    @IBAction func REviveFormList(_ sender: Any) {
+        
+        favList.remove(at: currentselectedIndex)
+        UserDefaults.storeFavouriteList(programs: favList)
+        setInitalFocusData()
+        muyCollectionView.reloadData()
+    }
+    
+
+    func setInitalFocusData() {
+        if let favList = favList.first {
+            nameLbl.text = favList.name
+            descLbl.text = favList.desc
+            
+            if let image = favList.image {
+                let imageUrl = URL.init(string: image)
+                if let imageUrl = imageUrl {
+                    posterImage.sd_setImage(with: imageUrl, completed: nil)
+                }
+            }
+            
+        }
+    }
 
 }
 
 extension FavouritesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return favList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,10 +97,40 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
             cell.imgView.layer.cornerRadius = 10
             //cell.clipsToBounds = true
             //cell.layer.masksToBounds = true
+            if let image = favList[indexPath.row].image {
+                let imageUrl = URL.init(string: image)
+                if let imageUrl = imageUrl {
+                    cell.imgView.sd_setImage(with: imageUrl, completed: nil)
+                }
+            }
             return cell
         } else {
             return FavouriteCollectionCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+
+        // test
+        //print("Previous Focused Path: \(context.previouslyFocusedIndexPath)")
+        //print("Next Focused Path: \(context.nextFocusedIndexPath)")
+        
+        if let value = context.nextFocusedIndexPath {
+           // let item = lis[value.first ?? 0].cards?[value.last ?? 0]
+            print(value)
+            let item = favList[value.last ?? 0]
+            currentselectedIndex = value.last ?? 0
+            nameLbl.text = item.name
+            descLbl.text = item.desc
+            
+            if let image = item.image {
+                let imageUrl = URL.init(string: image)
+                if let imageUrl = imageUrl {
+                    posterImage.sd_setImage(with: imageUrl, completed: nil)
+                }
+            }
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -85,7 +144,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("hello")
         let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-        vc?.viewModel.detailID = "Hello"
+        vc?.viewModel.detailID = favList[indexPath.row].id
         if let vc = vc {
             self.present(vc , animated: true, completion: nil)
         }
