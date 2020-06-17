@@ -9,7 +9,6 @@
 import UIKit
 
 class FavouritesViewController: UIViewController {
-    
     //Property
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var myView: UIView!

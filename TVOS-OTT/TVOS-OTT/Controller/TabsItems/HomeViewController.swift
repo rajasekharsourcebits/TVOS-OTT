@@ -9,9 +9,17 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-        
+    var temp: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FromHome" {
+            if let vc = segue.destination as? CommonVC {
+                vc.testVar = temp
+            }
+        }
     }
 }
 

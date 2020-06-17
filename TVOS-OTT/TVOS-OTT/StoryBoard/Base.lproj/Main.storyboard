@@ -23,7 +23,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LG2-6n-DvU">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <connections>
-                                    <segue destination="kYC-Ew-ndO" kind="embed" id="nDL-do-jpu"/>
+                                    <segue destination="kYC-Ew-ndO" kind="embed" identifier="FromHome" id="nDL-do-jpu"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -68,7 +68,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vd4-6y-dJB">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <connections>
-                                    <segue destination="kYC-Ew-ndO" kind="embed" id="E4H-IZ-Lu4"/>
+                                    <segue destination="kYC-Ew-ndO" kind="embed" identifier="FromTVShows" id="E4H-IZ-Lu4"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -106,7 +106,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-8r-Zdq">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <connections>
-                                    <segue destination="kYC-Ew-ndO" kind="embed" id="CXm-XR-sPk"/>
+                                    <segue destination="kYC-Ew-ndO" kind="embed" identifier="FromMovies" id="CXm-XR-sPk"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="2268" y="1225"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TabViewController" customModule="TVOS_OTT" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -156,7 +156,7 @@
             </objects>
             <point key="canvasLocation" x="5051" y="2826"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="EWb-hj-LfT">
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uZF-vQ-vfY" customClass="SearchViewController" customModule="TVOS_OTT" customModuleProvider="target" sceneMemberID="viewController">
@@ -249,7 +249,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QFc-ei-BTE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="8QS-Qn-kH6"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="8QS-Qn-kH6"/>
                     <simulatedTabBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="searchCollectionView" destination="PIm-bP-2q4" id="LKd-FJ-G6N"/>

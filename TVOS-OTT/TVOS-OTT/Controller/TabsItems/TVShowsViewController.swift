@@ -9,9 +9,16 @@
 import UIKit
 
 class TVShowsViewController: UIViewController {
-    let viewModel = TVShowsViewModel(provider: ServiceProvider<UserService>())
+    var temp: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewModel.callApi(view: self.view)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FromTVShows" {
+            if let vc = segue.destination as? CommonVC {
+                vc.testVar = temp
+            }
+        }
     }
 }

@@ -9,22 +9,19 @@
 import UIKit
 
 class MoviesViewController: UIViewController {
-    let moviesViewModel = MoviesViewModel(provider: ServiceProvider<UserService>())
-    
-    var commonVC = CommonVC()
-    
+    var temp: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        moviesViewModel.moviesViewModelDelegate = self
-//        moviesViewModel.callApi(view: self.view)
-
-    }
-}
-
-extension MoviesViewController: MoviesViewModelDelegate {
-    func updateUI() {
-//        commonVC.viewModel.bannerList = moviesViewModel.moviesModel?.items
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FromMovies" {
+            if let vc = segue.destination as? CommonVC {
+                vc.testVar = temp
+            }
+        }
+    }
 }
+    
+    
+
