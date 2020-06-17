@@ -19,24 +19,25 @@ class CommonVC: UIViewController {
     var data4: [ListItems]?
     var data5: [ListItems]?
     var data6: [ListItems]?
-    var testVar: String = ""
-    
+    var tabSelected: String = ""
+    var sectionTitle: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.commonVCModelDelegate = self
-        viewModel.callApi(view: self.view, serviceType: .top250movies)
+      //  viewModel.callApi(view: self.view, serviceType: .top250movies)
     }
     
-    func allocateSectionCount(_ title: String)  -> Int {
-        switch testVar {
+    func allocateSectionCount(_ title: String)  -> [String] {
+        switch tabSelected {
         case "Home":
-            return 5
+            return homeTitleArray
         case "TVShows":
-            return 1
+            return tvShowsTitleArray
         case "Movies":
-            return 1
+            return moviesTitleArray
         default:
-            return 1
+            return homeTitleArray
         }
     }
 }
@@ -44,7 +45,7 @@ class CommonVC: UIViewController {
 extension CommonVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return allocateSectionCount(testVar)
+        return sectionTitle.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,35 +92,9 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let myLabel = UILabel()
-        myLabel.frame = CGRect(x: 0, y: 10, width: 500, height: 50)
-        myLabel.font = UIFont(name: "Helvetica", size: 35)
-        switch testVar {
-        case "Home":
-            switch section {
-            case 0:
-                myLabel.text = "MOST POPULAR MOVIES"
-            case 1:
-                myLabel.text = "MOST POPULAR TVSHOWS"
-            case 2:
-                myLabel.text = "COMING SOON"
-            case 3:
-                myLabel.text = "HOLLYWOOD MOVIES"
-            case 4:
-                myLabel.text = "BOLLYWOOD MOVIES"
-            case 5:
-                myLabel.text = "BOX OFFICE"
-            default:
-                myLabel.text = ""
-            }
-        case "TVShows":
-            myLabel.text = "MOST POPULAR TVSHOWS"
-        case "Movies":
-            myLabel.text = "MOST POPULAR MOVIES"
-        default:
-            myLabel.text = "MOST POPULAR MOVIES"
-        }
-        
-        
+        myLabel.frame = CGRect(x: 0, y: 10, width: 1000, height: 50)
+        myLabel.font = UIFont(name: "HelveticaNeue - Bold", size: 35)
+        myLabel.text = sectionTitle[section]
         myLabel.textColor = UIColor.white
         let headerView = UIView()
         headerView.addSubview(myLabel)
@@ -160,6 +135,7 @@ extension CommonVC {
 
 extension CommonVC: CommonVCModelDelegate {
     func updateUI() {
+        sectionTitle = allocateSectionCount(tabSelected)
         data1 = viewModel.data?.items
         data2 = data1?.shuffled()
         data3 = data2?.shuffled()

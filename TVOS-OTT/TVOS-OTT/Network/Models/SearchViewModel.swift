@@ -93,14 +93,6 @@ extension SearchViewModel {
         return searchModel?.results?.count ?? 0
     }
     
-    fileprivate func setTitle(_ withIndex: Int, _ cell: SearchCollectionViewCell) {
-        if let title = searchModel?.results?[withIndex].title {
-            cell.name.text = title
-        } else {
-            cell.name.text = "--"
-        }
-    }
-    
     fileprivate func getPath(_ withIndex: Int) -> String{
         if let path = searchModel?.results?[withIndex].image {
             return path
@@ -110,19 +102,20 @@ extension SearchViewModel {
     }
     
     fileprivate func setImage(_ withIndex: Int, _ cell: SearchCollectionViewCell) {
-        let path = getPath(withIndex)
-        if path == "" {
-            cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
-        } else {
-            let imageUrl = URL.init(string: path)
-            if let imageUrl = imageUrl {
-                cell.banner.sd_setImage(with: imageUrl, completed: nil)
-            }
-        }
+//        let path = getPath(withIndex)
+//        if path == "" {
+//            cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
+//        } else {
+//            let imageUrl = URL.init(string: path)
+//            if let imageUrl = imageUrl {
+//                cell.banner.sd_setImage(with: imageUrl, completed: nil)
+//            }
+//        }
+        
+        cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
     }
     
     func configerCell(cell: SearchCollectionViewCell, withIndex: Int) {
-        setTitle(withIndex, cell)
         setImage(withIndex, cell)
     }
     

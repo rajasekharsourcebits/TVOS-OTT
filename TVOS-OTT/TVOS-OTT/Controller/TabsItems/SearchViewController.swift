@@ -8,20 +8,13 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
+class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
     let viewModel = SearchViewModel(provider: ServiceProvider<UserService>())
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 20, right: 10)
-        layout.itemSize = CGSize(width: view.frame.size.width/5, height: 300)
-        layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 100
-        searchCollectionView.collectionViewLayout = layout
-//        view.layer.backgroundColor = UIColor.black.cgColor
         searchCollectionView.remembersLastFocusedIndexPath = true
     }
     
@@ -38,6 +31,10 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         } else {
             return SearchCollectionViewCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 300)
     }
 
     func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {

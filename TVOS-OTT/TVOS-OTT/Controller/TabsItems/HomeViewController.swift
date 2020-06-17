@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var temp: String = ""
+    var tabSelected: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FromHome" {
             if let vc = segue.destination as? CommonVC {
-                vc.testVar = temp
+                vc.tabSelected = tabSelected
             }
         }
     }

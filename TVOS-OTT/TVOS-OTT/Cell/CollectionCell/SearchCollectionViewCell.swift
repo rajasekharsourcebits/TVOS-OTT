@@ -11,5 +11,4 @@ import UIKit
 class SearchCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var banner: UIImageView!
-    @IBOutlet weak var name: UILabel!
 }

@@ -12,19 +12,19 @@ class TabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let homeVC = self.viewControllers![0] as? HomeViewController
-        homeVC?.temp = "Home"
+        homeVC?.tabSelected = "Home"
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
        
         let homeVC = self.viewControllers![0] as? HomeViewController
-        homeVC?.temp = "Home"
+        homeVC?.tabSelected = "Home"
         
         let tVShowsVC = self.viewControllers![1] as? TVShowsViewController
-        tVShowsVC?.temp = "TVShows"
+        tVShowsVC?.tabSelected = "TVShows"
         
         let moviesVC = self.viewControllers![2] as? MoviesViewController
-        moviesVC?.temp = "Movies"
+        moviesVC?.tabSelected = "Movies"
         
     }
     
