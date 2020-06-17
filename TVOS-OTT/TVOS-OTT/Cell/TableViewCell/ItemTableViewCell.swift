@@ -36,7 +36,7 @@ extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return model?.count ?? 0
-                //return 10
+//                return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,7 +52,7 @@ extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 300)
+        return CGSize(width: 300, height: 360)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -86,9 +86,10 @@ extension ItemTableViewCell {
             let imageUrl = URL.init(string: path)
             if let imageUrl = imageUrl {
                 cell.itemImage.sd_setImage(with: imageUrl, completed: nil)
+                cell.itemImage.adjustsImageWhenAncestorFocused = true
             }
         }
-        //cell.itemImage.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
+//        cell.itemImage.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
     }
     
     func configerCell(cell: ItemCollectionViewCell, withIndex: Int) {

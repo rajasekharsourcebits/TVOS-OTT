@@ -77,49 +77,6 @@ extension SearchViewModel {
         }
     }
 }
-//MARK:- Helper Methods
-extension SearchViewModel {
-    func numbareOfSessions() -> Int {
-        return searchModel?.results?.count ?? 0
-    }
-    func setSessionTitle(index: Int) -> String {
-        return searchModel?.results?[index].title ?? "--"
-    }
-}
-
-//MARK:- Helper Methods
-extension SearchViewModel {
-    func numbareOfItems() -> Int {
-        return searchModel?.results?.count ?? 0
-    }
-    
-    fileprivate func getPath(_ withIndex: Int) -> String{
-        if let path = searchModel?.results?[withIndex].image {
-            return path
-        } else {
-            return Constants.noImageUrl
-        }
-    }
-    
-    fileprivate func setImage(_ withIndex: Int, _ cell: SearchCollectionViewCell) {
-//        let path = getPath(withIndex)
-//        if path == "" {
-//            cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
-//        } else {
-//            let imageUrl = URL.init(string: path)
-//            if let imageUrl = imageUrl {
-//                cell.banner.sd_setImage(with: imageUrl, completed: nil)
-//            }
-//        }
-        
-        cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
-    }
-    
-    func configerCell(cell: SearchCollectionViewCell, withIndex: Int) {
-        setImage(withIndex, cell)
-    }
-    
-}
 
 
 
