@@ -109,6 +109,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
                     cell.imgView.sd_setImage(with: imageUrl, completed: nil)
                 }
             }
+            //cell.imgView.adjustsImageWhenAncestorFocused = true
             return cell
         } else {
             return FavouriteCollectionCell()
@@ -140,7 +141,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width/4) - 20, height: 340)
+        return CGSize(width: (collectionView.frame.size.width/4) - 20, height: 300)
     }
     
     func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
@@ -156,16 +157,22 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout
+        collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
+        return 50
+    }
     
 }
 
 extension FavouritesViewController {
     
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.lightGray.cgColor
-        context.nextFocusedView?.layer.shadowOpacity = 1
+        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
+        context.nextFocusedView?.layer.shadowOpacity = 0.6
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
-        context.nextFocusedView?.layer.shadowRadius = 5
+        context.nextFocusedView?.layer.shadowRadius = 3
        
         context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
     }
@@ -179,7 +186,7 @@ extension FavouritesViewController {
     }
     
     fileprivate func setButtonNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 1
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
         context.nextFocusedView?.layer.shadowRadius = 5
@@ -228,10 +235,6 @@ extension FavouritesViewController {
         } else {
             setPrevioulyFocusedUI(context)
         }
-
-        
-        setNextFocusUI(context)
-        setPrevioulyFocusedUI(context)
         //removeChildIfNead()
     }
     

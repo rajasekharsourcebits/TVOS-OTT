@@ -7,7 +7,8 @@
 //
 
 import UIKit
+import ParallaxView
 
-class ItemCollectionViewCell: UICollectionViewCell {
+class ItemCollectionViewCell: ParallaxCollectionViewCell {
     @IBOutlet weak var itemImage: UIImageView!
 }

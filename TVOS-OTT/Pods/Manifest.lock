@@ -1,22 +1,26 @@
 PODS:
+  - ParallaxView (3.0.0)
   - ReachabilitySwift (5.0.0)
   - SDWebImage (5.4.0):
     - SDWebImage/Core (= 5.4.0)
   - SDWebImage/Core (5.4.0)
 
 DEPENDENCIES:
+  - ParallaxView
   - ReachabilitySwift
   - SDWebImage
 
 SPEC REPOS:
   trunk:
+    - ParallaxView
     - ReachabilitySwift
     - SDWebImage
 
 SPEC CHECKSUMS:
+  ParallaxView: 41fd29ccf917e9790ea28e2b5a94527cc33a2b3b
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
 
-PODFILE CHECKSUM: dbbedf93f45085d7488be790910cff9d7fa565f3
+PODFILE CHECKSUM: 663e7678438b1867fd7811e492eb90a2b0b240f1
 
 COCOAPODS: 1.8.4

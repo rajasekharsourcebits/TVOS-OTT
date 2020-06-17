@@ -76,6 +76,7 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
                     
                 }
             }
+            //cell.itemImage.adjustsImageWhenAncestorFocused = true
             return cell
         } else {
             return ItemCollectionViewCell()

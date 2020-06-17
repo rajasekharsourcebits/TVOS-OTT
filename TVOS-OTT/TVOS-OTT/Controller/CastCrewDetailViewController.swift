@@ -85,7 +85,7 @@ extension CastCrewDetailViewController: UITableViewDelegate, UITableViewDataSour
 extension CastCrewDetailViewController {
     
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 1
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
         context.nextFocusedView?.layer.shadowRadius = 5
@@ -101,7 +101,7 @@ extension CastCrewDetailViewController {
     }
     
     fileprivate func setButtonNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 1
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
         context.nextFocusedView?.layer.shadowRadius = 5
