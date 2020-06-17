@@ -25,7 +25,7 @@ class CommonVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.commonVCModelDelegate = self
-      //  viewModel.callApi(view: self.view, serviceType: .top250movies)
+        //viewModel.callApi(view: self.view, serviceType: .top250movies)
     }
     
     func allocateSectionCount(_ title: String)  -> [String] {

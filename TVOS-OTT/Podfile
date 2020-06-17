@@ -6,6 +6,7 @@ target 'TVOS-OTT' do
   use_frameworks!
   pod 'ReachabilitySwift'
   pod 'SDWebImage'
+  pod 'ParallaxView'
 
   # Pods for TVOS-OTT
 

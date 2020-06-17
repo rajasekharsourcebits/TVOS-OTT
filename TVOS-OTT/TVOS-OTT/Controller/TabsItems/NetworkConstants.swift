@@ -25,7 +25,7 @@ struct Constants {
 
 extension Constants {
     
-    static var key: String = "/k_Q0iHYBj6"
+    static var key: String = "/k_l3228Cbz"
     static var mostPopularMovies: String = "MostPopularMovies"
     static var mostPopularTVs: String = "MostPopularTVs"
     static var inTheaters: String = "InTheaters"

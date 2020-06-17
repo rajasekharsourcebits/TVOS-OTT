@@ -27,10 +27,10 @@ class DetailsViewController: UIViewController {
     var preferredFocusView: UIView?
     var favList = [FavouriteModel]()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         //initalSetup()
         yerLbl.layer.borderWidth = 1.0
@@ -51,7 +51,7 @@ class DetailsViewController: UIViewController {
     
     func checkFavui() {
         if let id = viewModel.detailModel?.id {
-        let bool = favList.contains {$0.id == id}
+            let bool = favList.contains {$0.id == id}
             if bool {
                 favouriteBtn.setTitle("Remove Favourite", for: .normal)
             } else {
@@ -85,15 +85,15 @@ class DetailsViewController: UIViewController {
     
     func focusConstraint() {
         focusGuide.preferredFocusEnvironments = [watchNowBtn]
-
+        
         view.addLayoutGuide(focusGuide)
-
+        
         focusGuide.topAnchor.constraint(equalTo: transparentView.topAnchor).isActive = true
         focusGuide.bottomAnchor.constraint(equalTo: transparentView.bottomAnchor).isActive = true
         focusGuide.leadingAnchor.constraint(equalTo: transparentView.leadingAnchor).isActive = true
         focusGuide.widthAnchor.constraint(equalTo: transparentView.widthAnchor).isActive = true
     }
-
+    
 }
 
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -102,9 +102,9 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let type = viewModel.detailModel?.type {
             if type == "Movie" {
-               return 3
+                return 3
             } else  {
-               return 4
+                return 4
             }
         }
         return 0
@@ -187,15 +187,15 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         if let type = viewModel.detailModel?.type {
             if type == "Movie" {
                 if indexPath.section == 1 {
-                   return 340
+                    return 340
                 } else {
-                   return 350
+                    return 350
                 }
             } else  {
                 if indexPath.section == 2 {
-                   return 340
+                    return 340
                 } else {
-                  return 350
+                    return 350
                 }
             }
         }
@@ -252,11 +252,11 @@ extension DetailsViewController {
     
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
         context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
-        context.nextFocusedView?.layer.shadowOpacity = 1
+        context.nextFocusedView?.layer.shadowOpacity = 0.6
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
+        context.nextFocusedView?.layer.shadowRadius = 3
         context.nextFocusedView?.layer.cornerRadius = 10
-        context.nextFocusedView?.layer.shadowRadius = 5
-        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
+        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
     }
     
     fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
@@ -268,7 +268,7 @@ extension DetailsViewController {
     }
     
     fileprivate func setButtonNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 1
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
         context.nextFocusedView?.layer.shadowRadius = 5
@@ -276,7 +276,7 @@ extension DetailsViewController {
         //let value = context.previouslyFocusedView?.subviews.first
         
         if let button = context.nextFocusedView as? UIButton {
-          button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         }
         //value?.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
@@ -290,7 +290,7 @@ extension DetailsViewController {
         context.previouslyFocusedView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         //let value = context.previouslyFocusedView?.subviews.first
         if let button = context.previouslyFocusedView as? UIButton {
-          button.setTitleColor(#colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1), for: .normal)
+            button.setTitleColor(#colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1), for: .normal)
         }
         //value?.setTitleColor(#colorLiteral(red: 0.1824023128, green: 0.4893192053, blue: 0.9649513364, alpha: 1), for: .normal)
         context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
@@ -313,7 +313,7 @@ extension DetailsViewController {
         if nextFocusedView.contains("UIButton") {
             setButtonNextFocusUI(context)
         } else {
-           setNextFocusUI(context)
+            setNextFocusUI(context)
         }
         
         if previouslyFocusedView.contains("UIButton") {
@@ -325,14 +325,14 @@ extension DetailsViewController {
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         guard let focusView = preferredFocusView else { return [] }
-
+        
         return [focusView]
     }
-
+    
     // Set the preferred focus view by value
     func setPreferredFocus(view: UIView) {
         preferredFocusView = view
-
+        
         setNeedsFocusUpdate()
         updateFocusIfNeeded()
     }
