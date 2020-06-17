@@ -25,7 +25,7 @@ class CommonVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.commonVCModelDelegate = self
-      //  viewModel.callApi(view: self.view, serviceType: .top250movies)
+        viewModel.callApi(view: self.view, serviceType: .top250movies)
     }
     
     func allocateSectionCount(_ title: String)  -> [String] {
@@ -81,7 +81,7 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 416
+        return 450
         
     }
     
@@ -107,11 +107,11 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
 extension CommonVC {
     
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.black.cgColor
+        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 1
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
         context.nextFocusedView?.layer.shadowRadius = 5
-        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
     }
     
     fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
