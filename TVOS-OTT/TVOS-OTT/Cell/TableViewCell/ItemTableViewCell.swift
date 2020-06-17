@@ -35,8 +35,8 @@ class ItemTableViewCell: UITableViewCell {
 extension ItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model?.count ?? 0
-        //        return 10
+//        return model?.count ?? 0
+                return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -79,15 +79,16 @@ extension ItemTableViewCell {
     }
     
     fileprivate func setImage(_ withIndex: Int, _ cell: ItemCollectionViewCell) {
-        let path = getPath(withIndex)
-        if path == "" {
-            cell.itemImage.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
-        } else {
-            let imageUrl = URL.init(string: path)
-            if let imageUrl = imageUrl {
-                cell.itemImage.sd_setImage(with: imageUrl, completed: nil)
-            }
-        }
+//        let path = getPath(withIndex)
+//        if path == "" {
+//            cell.itemImage.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
+//        } else {
+//            let imageUrl = URL.init(string: path)
+//            if let imageUrl = imageUrl {
+//                cell.itemImage.sd_setImage(with: imageUrl, completed: nil)
+//            }
+//        }
+        cell.itemImage.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
     }
     
     func configerCell(cell: ItemCollectionViewCell, withIndex: Int) {

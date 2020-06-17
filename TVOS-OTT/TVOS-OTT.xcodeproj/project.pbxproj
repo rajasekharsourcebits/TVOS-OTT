@@ -33,6 +33,8 @@
 		9DDC92D32492364B00B249D1 /* DetailTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC92D22492364B00B249D1 /* DetailTopTableViewCell.swift */; };
 		9DDC92D524923C1800B249D1 /* CastCrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC92D424923C1800B249D1 /* CastCrewCollectionViewCell.swift */; };
 		9DDC92D724923C7F00B249D1 /* CastCrewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC92D624923C7F00B249D1 /* CastCrewTableViewCell.swift */; };
+		9F5993EA2498A6C600AD27CF /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5993E92498A6C600AD27CF /* TabViewController.swift */; };
+		9F9B2A372499DD0700731CCF /* HomeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B2A362499DD0700731CCF /* HomeConstants.swift */; };
 		9FADC2A32486589A00E3FE3A /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FADC2A22486589A00E3FE3A /* SearchCollectionViewCell.swift */; };
 		9FADC2A62487718F00E3FE3A /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FADC2A52487718F00E3FE3A /* SearchModel.swift */; };
 		9FADC2A8248771FD00E3FE3A /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FADC2A7248771FD00E3FE3A /* ResponseProtocol.swift */; };
@@ -114,6 +116,8 @@
 		9DDC92D22492364B00B249D1 /* DetailTopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTopTableViewCell.swift; sourceTree = "<group>"; };
 		9DDC92D424923C1800B249D1 /* CastCrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCrewCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DDC92D624923C7F00B249D1 /* CastCrewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCrewTableViewCell.swift; sourceTree = "<group>"; };
+		9F5993E92498A6C600AD27CF /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		9F9B2A362499DD0700731CCF /* HomeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeConstants.swift; path = "TVOS-OTT/Controller/TabsItems/HomeConstants.swift"; sourceTree = SOURCE_ROOT; };
 		9FADC2A22486589A00E3FE3A /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		9FADC2A52487718F00E3FE3A /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		9FADC2A7248771FD00E3FE3A /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				9D5A5B0E247CF17F008ABC33 /* NetworkConstants.swift */,
+				9F9B2A362499DD0700731CCF /* HomeConstants.swift */,
 			);
 			path = UrlConstant;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				9FF1E318247412EF0033A291 /* FavouritesViewController.swift */,
 				9FF1E319247412EF0033A291 /* TVShowsViewController.swift */,
 				9DD93C9F247BB04F001B710C /* CommonVC.swift */,
+				9F5993E92498A6C600AD27CF /* TabViewController.swift */,
 			);
 			path = TabsItems;
 			sourceTree = "<group>";
@@ -676,12 +682,14 @@
 				9DDC92D32492364B00B249D1 /* DetailTopTableViewCell.swift in Sources */,
 				9D5A5B16247CF5A4008ABC33 /* ServiceProvider.swift in Sources */,
 				9D0C64F0249793C3005F9612 /* CastCrewViewModel.swift in Sources */,
+				9F9B2A372499DD0700731CCF /* HomeConstants.swift in Sources */,
 				9FF1E31C247412EF0033A291 /* HomeViewController.swift in Sources */,
 				9D4B28712498B01D00EAD041 /* FavouriteModel.swift in Sources */,
 				9DDC92D724923C7F00B249D1 /* CastCrewTableViewCell.swift in Sources */,
 				9FF1E2C7247294740033A291 /* BannerCollectionViewCell.swift in Sources */,
 				9FADC2AA2487730700E3FE3A /* SearchViewModel.swift in Sources */,
 				9D5A5B0F247CF17F008ABC33 /* NetworkConstants.swift in Sources */,
+				9F5993EA2498A6C600AD27CF /* TabViewController.swift in Sources */,
 				9DDC92D524923C1800B249D1 /* CastCrewCollectionViewCell.swift in Sources */,
 				9FF1E31D247412EF0033A291 /* FavouritesViewController.swift in Sources */,
 				9FADC2A62487718F00E3FE3A /* SearchModel.swift in Sources */,

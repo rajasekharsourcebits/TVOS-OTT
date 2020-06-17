@@ -18,6 +18,7 @@ class CommonVCViewModel {
     var reachable = ReachabilityHandler()
     var isReachable: Bool?
     var view: UIView?
+    var listingType: String?
     weak var commonVCModelDelegate: CommonVCModelDelegate?
 
     var data: HomeResult? {
