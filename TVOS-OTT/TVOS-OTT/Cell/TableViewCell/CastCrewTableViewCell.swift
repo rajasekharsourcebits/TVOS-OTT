@@ -70,11 +70,12 @@ extension CastCrewTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
             if let image = list?[indexPath.row].image {
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {
-                    cell.crewImage.sd_setImage(with: imageUrl,  placeholderImage:UIImage(named : "profile"), completed: nil)
+                    cell.crewImage.sd_setImage(with: imageUrl,  placeholderImage:UIImage(named : ""), completed: nil)
                     
                 }
             } else {
-                cell.crewImage.image = UIImage(named: "profile")
+                cell.crewImage.adjustsImageWhenAncestorFocused = true
+                cell.crewImage.image = UIImage(named: "")
             }
             cell.nameLbl.text = list?[indexPath.row].name
             cell.crewImage.layer.cornerRadius = 81.5

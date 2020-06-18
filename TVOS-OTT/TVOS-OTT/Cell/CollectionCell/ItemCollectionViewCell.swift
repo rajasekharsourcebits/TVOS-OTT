@@ -11,6 +11,7 @@ import ParallaxView
 
 class ItemCollectionViewCell: ParallaxCollectionViewCell {
     @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var playImageView: UIImageView!
     
     fileprivate var widthToHeightRatio = CGFloat(0)
     
