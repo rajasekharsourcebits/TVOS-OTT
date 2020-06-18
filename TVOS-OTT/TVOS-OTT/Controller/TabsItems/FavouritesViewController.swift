@@ -127,6 +127,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
                     cell.imgView.sd_setImage(with: imageUrl, completed: nil)
                 }
             }
+            cell.backgroundColor = .red
             //cell.imgView.adjustsImageWhenAncestorFocused = true
             return cell
         } else {
@@ -147,7 +148,6 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
             currentselectedIndex = value.last ?? 0
             nameLbl.text = item.name
             descLbl.text = item.desc
-            
             if let image = item.image {
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {
@@ -203,7 +203,7 @@ extension FavouritesViewController {
     
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
         context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
-        context.nextFocusedView?.layer.shadowOpacity = 0.6
+        context.nextFocusedView?.layer.shadowOpacity = 0.2
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
         context.nextFocusedView?.layer.shadowRadius = 3
         context.nextFocusedView?.layer.cornerRadius = 10

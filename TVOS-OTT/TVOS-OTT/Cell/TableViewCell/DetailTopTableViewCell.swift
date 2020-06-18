@@ -28,11 +28,11 @@ class DetailTopTableViewCell: UITableViewCell {
         
         let layout = UICollectionViewFlowLayout()
         
-        let inset = CGFloat(430) * 0.1
+        let inset = CGFloat(400) * 0.1
         
         layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         layout.itemSize = CGSize(width: 430, height: 250)
-        layout.minimumInteritemSpacing = 20
+        layout.minimumInteritemSpacing = 0
         layout.headerReferenceSize = CGSize(width: 0, height: 0)
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
