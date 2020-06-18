@@ -27,6 +27,9 @@ class DetailsViewController: UIViewController {
     var preferredFocusView: UIView?
     var favList = [FavouriteModel]()
     
+    let tvSectionIndex = ["Series", "Trailers", "Cast & Crew", "Related Shows"]
+    let movieSectionIndex = ["Trailers", "Cast & Crew", "Related Movies"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,6 +154,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
                 if indexPath.section == 2 {
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "CastCrewTableViewCell", for: indexPath) as? CastCrewTableViewCell {
                         cell.referenceVC = self
+                        cell.set(withData: indexPath.section, list: model.actorList)
                         return cell
                     } else {
                         return CastCrewTableViewCell()
@@ -204,42 +208,30 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        let myLabel = UILabel()
+        myLabel.frame = CGRect(x: 20, y: 10, width: 1000, height: 50)
+        myLabel.font = UIFont(name: "HelveticaNeue - Bold", size: 35)
         if let type = viewModel.detailModel?.type {
             if type == "Movie" {
-                switch section {
-                case 0:
-                    return "Trailers"
-                case 1:
-                    return "Cast & Crew"
-                default:
-                    return "Related Movies"
-                }
-            } else  {
-                switch section {
-                case 0:
-                    return "Season 1"
-                case 1:
-                    return "Trailers"
-                case 2:
-                    return "Cast & Crew"
-                default:
-                    return "Related Show"
-                }
+              myLabel.text = movieSectionIndex[section]
+            } else {
+               myLabel.text = tvSectionIndex[section]
             }
         }
-        return ""
-        //"Indian \(section)"
+        
+        myLabel.textColor = UIColor.white
+        let headerView = UIView()
+        headerView.addSubview(myLabel)
+        
+        
+        
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         45
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor.clear //UIColor.lightGray.withAlphaComponent(0.3)
-        (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor.white
     }
     
     func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {

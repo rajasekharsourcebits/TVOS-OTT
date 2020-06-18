@@ -100,6 +100,42 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        print(context.nextFocusedIndexPath?.item ?? 0)
+        
+        
+        if let type = type {
+            if type == "Movie" {
+                if sectionIndex == 0 {
+                    if let cell = context.previouslyFocusedView as? ItemCollectionViewCell {
+                        cell.playImageView.isHidden = true
+                        cell.playImageView.alpha = 0
+                    }
+                    
+                    if let cell = context.nextFocusedView as? ItemCollectionViewCell {
+                        cell.playImageView.isHidden = false
+                        cell.playImageView.alpha = 0.6
+                    }
+                    
+                }
+            } else {
+                if sectionIndex == 1 {
+                    if let cell = context.previouslyFocusedView as? ItemCollectionViewCell {
+                        cell.playImageView.isHidden = true
+                        cell.playImageView.alpha = 0
+                    }
+                    
+                    if let cell = context.nextFocusedView as? ItemCollectionViewCell {
+                        cell.playImageView.isHidden = false
+                        cell.playImageView.alpha = 0.6
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("hello")
         
