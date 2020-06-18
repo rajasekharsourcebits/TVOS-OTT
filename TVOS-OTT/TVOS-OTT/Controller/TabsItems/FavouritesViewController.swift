@@ -23,23 +23,26 @@ class FavouritesViewController: UIViewController {
     var currentselectedIndex = 0
     @IBOutlet weak var noDataLbl: UILabel!
     
+    //var numberOfRows = 3
+    var numberOfItemsPerRow = 4
+    
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
     
     var favList = [FavouriteModel]()
     
-//    override var preferredFocusEnvironments: [UIFocusEnvironment] {
-//        return [playBtn]
-//    }
+    //    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+    //        return [playBtn]
+    //    }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         focusGuide.preferredFocusEnvironments = [playBtn]
-
+        
         view.addLayoutGuide(focusGuide)
-
+        
         focusGuide.topAnchor.constraint(equalTo: supersubView.topAnchor).isActive = true
         focusGuide.bottomAnchor.constraint(equalTo: supersubView.bottomAnchor).isActive = true
         focusGuide.leadingAnchor.constraint(equalTo: supersubView.leadingAnchor).isActive = true
@@ -52,9 +55,21 @@ class FavouritesViewController: UIViewController {
             
             self.favList = favList
             setInitalFocusData()
+            configureFlowLayoutSpacing()
             muyCollectionView.reloadData()
         } else {
             
+        }
+    }
+    
+    func configureFlowLayoutSpacing() {
+        if let flowLayout = muyCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let maxWidthOfOneItem = muyCollectionView.frame.width / CGFloat(numberOfItemsPerRow)
+            let inset = maxWidthOfOneItem * 0.1
+            
+            flowLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+            flowLayout.minimumLineSpacing = inset
+            flowLayout.minimumInteritemSpacing = inset
         }
     }
     
@@ -66,7 +81,7 @@ class FavouritesViewController: UIViewController {
         muyCollectionView.reloadData()
     }
     
-
+    
     func setInitalFocusData() {
         if let favList = favList.first {
             muyCollectionView.isHidden = false
@@ -88,7 +103,7 @@ class FavouritesViewController: UIViewController {
             noDataLbl.isHidden = false
         }
     }
-
+    
 }
 
 extension FavouritesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -117,13 +132,13 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-
+        
         // test
         //print("Previous Focused Path: \(context.previouslyFocusedIndexPath)")
         //print("Next Focused Path: \(context.nextFocusedIndexPath)")
         
         if let value = context.nextFocusedIndexPath {
-           // let item = lis[value.first ?? 0].cards?[value.last ?? 0]
+            // let item = lis[value.first ?? 0].cards?[value.last ?? 0]
             print(value)
             let item = favList[value.first ?? 0]
             currentselectedIndex = value.first ?? 0
@@ -141,7 +156,21 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width/4) - 20, height: 300)
+        if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
+            let totalSpaceWidth = flowLayout.sectionInset.left
+                + flowLayout.sectionInset.right
+                + (flowLayout.minimumInteritemSpacing * CGFloat(numberOfItemsPerRow - 1))
+            let width = Int((collectionView.bounds.width - totalSpaceWidth) / CGFloat(numberOfItemsPerRow))
+            
+            //            let totalSpaceHeight = flowLayout.sectionInset.top
+            //                + flowLayout.sectionInset.bottom
+            //                + (flowLayout.minimumLineSpacing * CGFloat(numberOfRows - 1))
+            //            let height = Int((collectionView.bounds.height - totalSpaceHeight) / CGFloat(numberOfRows))
+            
+            return CGSize(width: width, height: 300)
+        }
+        
+        fatalError("collectionViewLayout is not UICollectionViewFlowLayout")
     }
     
     func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
@@ -160,7 +189,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout
         collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-
+        
         return 50
     }
     
@@ -173,7 +202,7 @@ extension FavouritesViewController {
         context.nextFocusedView?.layer.shadowOpacity = 0.6
         context.nextFocusedView?.layer.shadowOffset = CGSize.zero
         context.nextFocusedView?.layer.shadowRadius = 3
-       
+        context.nextFocusedView?.layer.cornerRadius = 10
         context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
     }
     
@@ -194,7 +223,7 @@ extension FavouritesViewController {
         //let value = context.previouslyFocusedView?.subviews.first
         
         if let button = context.nextFocusedView as? UIButton {
-          button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         }
         //value?.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
@@ -208,7 +237,7 @@ extension FavouritesViewController {
         context.previouslyFocusedView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         //let value = context.previouslyFocusedView?.subviews.first
         if let button = context.previouslyFocusedView as? UIButton {
-          button.setTitleColor(#colorLiteral(red: 0.1824023128, green: 0.4893192053, blue: 0.9649513364, alpha: 1), for: .normal)
+            button.setTitleColor(#colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1), for: .normal)
         }
     }
     
@@ -227,7 +256,7 @@ extension FavouritesViewController {
         if nextFocusedView.contains("UIButton") {
             setButtonNextFocusUI(context)
         } else {
-           setNextFocusUI(context)
+            setNextFocusUI(context)
         }
         
         if previouslyFocusedView.contains("UIButton") {
@@ -240,14 +269,14 @@ extension FavouritesViewController {
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         guard let focusView = preferredFocusView else { return [] }
-
+        
         return [focusView]
     }
-
+    
     // Set the preferred focus view by value
     func setPreferredFocus(view: UIView) {
         preferredFocusView = view
-
+        
         setNeedsFocusUpdate()
         updateFocusIfNeeded()
     }
