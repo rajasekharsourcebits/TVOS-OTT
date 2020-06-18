@@ -43,41 +43,41 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("hello")
         let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-            vc?.viewModel.detailID = data?[indexPath.item].id
+        vc?.viewModel.detailID = data?[indexPath.item].id
         if let vc = vc {
             self.present(vc , animated: true, completion: nil)
         }
     }
     
-     func getPath(_ withIndex: Int) -> String{
+    func getPath(_ withIndex: Int) -> String{
         if let path = data?[withIndex].image {
-               return path
-           } else {
-               return Constants.noImageUrl
-           }
-       }
-       
-    func setImage(_ withIndex: Int, _ cell: SearchCollectionViewCell) {
-           let path = getPath(withIndex)
-           if path == "" {
-               cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
-           } else {
-               let imageUrl = URL.init(string: path)
-               if let imageUrl = imageUrl {
-                    cell.banner.sd_setImage(with: imageUrl, completed: nil)
-                    cell.banner.adjustsImageWhenAncestorFocused = true
-               }
-           }
-       }
-       
-       func configerCell(cell: SearchCollectionViewCell, withIndex: Int) {
-           setImage(withIndex, cell)
-       }
+            return path
+        } else {
+            return Constants.noImageUrl
+        }
+    }
     
-   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: 250, height: 300)
-       }
-
+    func setImage(_ withIndex: Int, _ cell: SearchCollectionViewCell) {
+        let path = getPath(withIndex)
+        if path == "" {
+            cell.banner.downloadImageFrom(url: Constants.noImageUrl, contentMode: .scaleToFill)
+        } else {
+            let imageUrl = URL.init(string: path)
+            if let imageUrl = imageUrl {
+                cell.banner.sd_setImage(with: imageUrl, completed: nil)
+                cell.banner.adjustsImageWhenAncestorFocused = true
+            }
+        }
+    }
+    
+    func configerCell(cell: SearchCollectionViewCell, withIndex: Int) {
+        setImage(withIndex, cell)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 250, height: 300)
+    }
+    
     func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
         return IndexPath(item: 0, section: 0)
     }
