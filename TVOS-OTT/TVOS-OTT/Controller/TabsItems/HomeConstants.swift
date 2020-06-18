@@ -8,6 +8,6 @@
 
 import Foundation
 
-let homeTitleArray: [String] = ["MOST POPULAR MOVIES", "MOST POPULAR TVSHOWS", "COMING SOON", "HOLLYWOOD MOVIES", "BOLLYWOOD MOVIES", "BOX OFFICE"]
-let tvShowsTitleArray: [String] = ["MOST POPULAR TVSHOWS", "LATEST TVSHOWS", "COMEDY TVSHOWS", "THRILLER TVSHOWS"]
-let moviesTitleArray: [String] =  ["MOST POPULAR MOVIES", "LATEST MOVIES", "COMEDY MOVIES", "THRILLER MOVIES"]
+let homeTitleArray: [String] = ["Most Popular Movies", "Most Popular TV Shows", "Coming Soon", "Hollywood Movies", "Bollywood Movies", "Box Office"]
+let tvShowsTitleArray: [String] = ["Most Popular TV Shows", "Latest TV Shows", "Comedy TV Shows", "Thriller TV Shows"]
+let moviesTitleArray: [String] =  ["Most Popular Movies", "Latest Movies", "Comedy Movies", "Thriller Movies"]

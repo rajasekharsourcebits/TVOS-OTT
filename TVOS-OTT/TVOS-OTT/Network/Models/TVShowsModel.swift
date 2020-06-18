@@ -20,6 +20,4 @@ class TVShowsItem: Codable {
     let year: String?
     let image: String?
     let crew, imDBRating, imDBRatingCount: String?
-
-   
 }
