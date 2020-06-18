@@ -198,7 +198,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="vvb-Fp-djp">
-                                                    <rect key="frame" x="8" y="13" width="414" height="259"/>
+                                                    <rect key="frame" x="2" y="2" width="426" height="276"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
                                                             <integer key="value" value="10"/>
@@ -209,10 +209,10 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="vvb-Fp-djp" secondAttribute="trailing" id="8iH-gc-ibO"/>
-                                            <constraint firstItem="vvb-Fp-djp" firstAttribute="leading" secondItem="c3H-aU-Kic" secondAttribute="leadingMargin" id="9sJ-Jl-9t7"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="vvb-Fp-djp" secondAttribute="bottom" id="MUf-EV-1yT"/>
-                                            <constraint firstItem="vvb-Fp-djp" firstAttribute="top" secondItem="c3H-aU-Kic" secondAttribute="topMargin" constant="5" id="et9-nw-97g"/>
+                                            <constraint firstAttribute="trailing" secondItem="vvb-Fp-djp" secondAttribute="trailing" constant="2" id="Yhp-W6-aLT"/>
+                                            <constraint firstItem="vvb-Fp-djp" firstAttribute="leading" secondItem="c3H-aU-Kic" secondAttribute="leading" constant="2" id="g5t-0H-DgA"/>
+                                            <constraint firstAttribute="bottom" secondItem="vvb-Fp-djp" secondAttribute="bottom" constant="2" id="lUi-yX-Lyp"/>
+                                            <constraint firstItem="vvb-Fp-djp" firstAttribute="top" secondItem="c3H-aU-Kic" secondAttribute="top" constant="2" id="xFW-EC-Rc5"/>
                                         </constraints>
                                         <size key="customSize" width="430" height="280"/>
                                         <connections>

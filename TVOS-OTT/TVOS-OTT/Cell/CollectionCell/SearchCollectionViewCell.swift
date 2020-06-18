@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import ParallaxView
 
-class SearchCollectionViewCell: UICollectionViewCell {
+class SearchCollectionViewCell: ParallaxCollectionViewCell {
     
-    @IBOutlet weak var banner: UIImageView!
+    @IBOutlet weak var banner: UIImageView!    
 }
