@@ -20,7 +20,14 @@ class CommonVCViewModel {
     var view: UIView?
     var listingType: String?
     weak var commonVCModelDelegate: CommonVCModelDelegate?
-
+    var tvShowsData: ResultTVShows? {
+        willSet{
+            
+        }
+        didSet {
+            commonVCModelDelegate?.updateUI()
+        }
+    }
     var data: HomeResult? {
         willSet{
             
@@ -43,7 +50,12 @@ extension CommonVCViewModel: ReachableExpose {
     func callApi(view: UIView, serviceType: UserService) {
        self.view = view
         if isReachable ?? true {
-            callTop250Movies(view: view, serviceType: serviceType)
+            if serviceType == .top250movies {
+                callTop250Movies(view: view, serviceType: serviceType)
+            } else if serviceType == .top250tvShow {
+                callTop250TVShows(view: view, serviceType: serviceType)
+            }
+            
         } else {
             view.showToast(message: "oops it seems you are offline", font:  UIFont(name: "GillSans-SemiBold", size: 16) ?? UIFont.systemFont(ofSize: 9))
         }
@@ -79,6 +91,23 @@ extension CommonVCViewModel {
             }
         }
     }
+    
+    private func callTop250TVShows(view: UIView, serviceType: UserService) {
+           view.showSpinner(onView: view)
+           provider.load(service: serviceType, decodeType: ResultTVShows.self) { result in
+               view.removeSpinner()
+               switch result {
+               case .success(let resp):
+                   self.tvShowsData = resp
+               case .failure(let error):
+                   print(error.localizedDescription)
+                   self.view?.showToast(message: error.localizedDescription, font:  UIFont(name: "GillSans-SemiBold", size: 16) ?? UIFont.systemFont(ofSize: 9))
+               case .empty:
+                   print("No Data")
+                   self.view?.showToast(message: "No Data", font:  UIFont(name: "GillSans-SemiBold", size: 16) ?? UIFont.systemFont(ofSize: 9))
+               }
+           }
+       }
 }
 
 

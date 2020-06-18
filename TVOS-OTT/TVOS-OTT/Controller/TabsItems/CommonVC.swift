@@ -14,13 +14,19 @@ class CommonVC: UIViewController {
     var viewModel = CommonVCViewModel(provider: ServiceProvider<UserService>())
     var delegate: CommonVCModelDelegate?
     var data: [ListItems]?
+    var tvData: [TVShowsItem]?
+    
     var tabSelected: String = ""
     var sectionTitle: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.commonVCModelDelegate = self
-        viewModel.callApi(view: self.view, serviceType: .top250movies)
+        if tabSelected == "TVShows" {
+            viewModel.callApi(view: self.view, serviceType: .top250tvShow)
+        } else {
+            viewModel.callApi(view: self.view, serviceType: .top250movies)
+        }
     }
     
     func allocateSectionCount(_ title: String)  -> [String] {
@@ -50,22 +56,43 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell {
-            
-            if  indexPath.section == 0 {
-                cell.model = data
-            } else if  indexPath.section == 1 {
-                cell.model = data?.shuffled()
-            } else if  indexPath.section == 2 {
-                cell.model = data?.shuffled()
-            } else if  indexPath.section == 3 {
-                cell.model = data?.shuffled()
-            } else if  indexPath.section == 4 {
-                cell.model = data?.shuffled()
-            } else if  indexPath.section == 5 {
-                cell.model = data?.shuffled()
-            } else  {
-                cell.model = data
+            if tabSelected == "TVShows" {
+                if  indexPath.section == 0 {
+                    cell.tvModelData = tvData
+                } else if  indexPath.section == 1 {
+                    cell.tvModelData = tvData?.shuffled()
+                } else if  indexPath.section == 2 {
+                    cell.tvModelData = tvData?.shuffled()
+                } else if  indexPath.section == 3 {
+                    cell.tvModelData = tvData?.shuffled()
+                } else if  indexPath.section == 4 {
+                    cell.tvModelData = tvData?.shuffled()
+                } else if  indexPath.section == 5 {
+                    cell.tvModelData = tvData?.shuffled()
+                } else  {
+                    cell.model = data
+                }
+            } else {
+                
+                if  indexPath.section == 0 {
+                    cell.model = data
+                } else if  indexPath.section == 1 {
+                    cell.model = data?.shuffled()
+                } else if  indexPath.section == 2 {
+                    cell.model = data?.shuffled()
+                } else if  indexPath.section == 3 {
+                    cell.model = data?.shuffled()
+                } else if  indexPath.section == 4 {
+                    cell.model = data?.shuffled()
+                } else if  indexPath.section == 5 {
+                    cell.model = data?.shuffled()
+                } else  {
+                    cell.model = data
+                }
+                
             }
+            
+            cell.tabSelected = tabSelected
             cell.myVC = self
             cell.collectionView.reloadData()
             return cell
@@ -131,7 +158,11 @@ extension CommonVC {
 extension CommonVC: CommonVCModelDelegate {
     func updateUI() {
         sectionTitle = allocateSectionCount(tabSelected)
-        data = viewModel.data?.items
+        if tabSelected == "TVShows" {
+            tvData = viewModel.tvShowsData?.items
+        } else {
+            data = viewModel.data?.items
+        }
         tableView.reloadData()
     }
     
