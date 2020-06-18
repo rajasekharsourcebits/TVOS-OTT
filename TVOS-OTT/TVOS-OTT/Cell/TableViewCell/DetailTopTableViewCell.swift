@@ -24,6 +24,17 @@ class DetailTopTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.remembersLastFocusedIndexPath = true
+        
+        let layout = UICollectionViewFlowLayout()
+        
+        let inset = CGFloat(430) * 0.1
+
+        layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        layout.itemSize = CGSize(width: 430, height: 250)
+        layout.minimumInteritemSpacing = 20
+        layout.headerReferenceSize = CGSize(width: 0, height: 0)
+        layout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = layout
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -56,7 +67,7 @@ extension DetailTopTableViewCell {
     }
 }
 
-extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if let value = list {
@@ -69,6 +80,7 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as? ItemCollectionViewCell {
             cell.itemImage.layer.cornerRadius = 20
+            cell.layer.cornerRadius = 20
             if let image = list?[indexPath.row].image {
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {
@@ -76,7 +88,7 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
                     
                 }
             }
-            //cell.itemImage.adjustsImageWhenAncestorFocused = true
+            
             return cell
         } else {
             return ItemCollectionViewCell()
@@ -86,7 +98,7 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("hello")
         let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-            vc?.viewModel.detailID = list?[indexPath.item].id
+        vc?.viewModel.detailID = list?[indexPath.item].id
         if let vc = vc {
             if let myVC = myVC {
                 myVC.present(vc , animated: true, completion: nil)
@@ -94,6 +106,5 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
             
         }
     }
-    
     
 }
