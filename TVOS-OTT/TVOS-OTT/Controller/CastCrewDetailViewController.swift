@@ -42,7 +42,7 @@ extension CastCrewDetailViewController: UITableViewDelegate, UITableViewDataSour
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
             
-            cell.set(withData: indexPath.section, list: viewModel.model?.knownFors, myVC: self)
+            cell.set(withData: indexPath.section, list: viewModel.model?.knownFors, myVC: self, type: nil)
             
             return cell
         } else {

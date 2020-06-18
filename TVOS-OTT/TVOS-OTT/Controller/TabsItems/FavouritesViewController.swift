@@ -90,10 +90,12 @@ class FavouritesViewController: UIViewController {
             nameLbl.text = favList.name
             descLbl.text = favList.desc
             noDataLbl.isHidden = true
+            imgView.isHidden = false
             if let image = favList.image {
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {
                     posterImage.sd_setImage(with: imageUrl, completed: nil)
+                    imgView.sd_setImage(with: imageUrl, completed: nil)
                 }
             }
             
@@ -101,6 +103,7 @@ class FavouritesViewController: UIViewController {
             muyCollectionView.isHidden = true
             myView.isHidden = true
             noDataLbl.isHidden = false
+            imgView.isHidden = true
         }
     }
     
@@ -140,8 +143,8 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
         if let value = context.nextFocusedIndexPath {
             // let item = lis[value.first ?? 0].cards?[value.last ?? 0]
             print(value)
-            let item = favList[value.first ?? 0]
-            currentselectedIndex = value.first ?? 0
+            let item = favList[value.last ?? 0]
+            currentselectedIndex = value.last ?? 0
             nameLbl.text = item.name
             descLbl.text = item.desc
             
@@ -149,6 +152,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {
                     posterImage.sd_setImage(with: imageUrl, completed: nil)
+                    imgView.sd_setImage(with: imageUrl, completed: nil)
                 }
             }
         }
@@ -225,7 +229,6 @@ extension FavouritesViewController {
         if let button = context.nextFocusedView as? UIButton {
             button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         }
-        //value?.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
     }
     
@@ -235,7 +238,6 @@ extension FavouritesViewController {
         context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
         context.previouslyFocusedView?.layer.shadowRadius = 0
         context.previouslyFocusedView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        //let value = context.previouslyFocusedView?.subviews.first
         if let button = context.previouslyFocusedView as? UIButton {
             button.setTitleColor(#colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1), for: .normal)
         }
