@@ -16,7 +16,8 @@ class DetailTopTableViewCell: UITableViewCell {
     
     var list: [Similar]?
     
-    var presetIndex: Int?
+    var sectionIndex: Int?
+    var type: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +29,7 @@ class DetailTopTableViewCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         
         let inset = CGFloat(430) * 0.1
-
+        
         layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         layout.itemSize = CGSize(width: 430, height: 250)
         layout.minimumInteritemSpacing = 20
@@ -48,10 +49,14 @@ class DetailTopTableViewCell: UITableViewCell {
 extension DetailTopTableViewCell {
     
     @discardableResult
-    func set(withData sectionIndex: Int?, list: [Similar]?, myVC: UIViewController?) -> Self {
+    func set(withData sectionIndex: Int?, list: [Similar]?, myVC: UIViewController?, type: String?) -> Self {
         
         if let sectionIndex = sectionIndex {
-            presetIndex = sectionIndex
+            self.sectionIndex = sectionIndex
+        }
+        
+        if let type = type {
+            self.type = type
         }
         
         if let list = list {
@@ -97,13 +102,56 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("hello")
-        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-        vc?.viewModel.detailID = list?[indexPath.item].id
-        if let vc = vc {
-            if let myVC = myVC {
-                myVC.present(vc , animated: true, completion: nil)
+        
+        if let type = type {
+            if type == "Movie" {
+                if sectionIndex == 0 {
+                    let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
+                    if let vc = vc {
+                        if let myVC = myVC {
+                            myVC.present(vc , animated: true, completion: nil)
+                        }
+                        
+                    }
+                } else {
+                    let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+                    vc?.viewModel.detailID = list?[indexPath.item].id
+                    if let vc = vc {
+                        if let myVC = myVC {
+                            myVC.present(vc , animated: true, completion: nil)
+                        }
+                        
+                    }
+                }
+            } else {
+                if sectionIndex == 1 {
+                    let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
+                    if let vc = vc {
+                        if let myVC = myVC {
+                            myVC.present(vc , animated: true, completion: nil)
+                        }
+                        
+                    }
+                } else {
+                    let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+                    vc?.viewModel.detailID = list?[indexPath.item].id
+                    if let vc = vc {
+                        if let myVC = myVC {
+                            myVC.present(vc , animated: true, completion: nil)
+                        }
+                        
+                    }
+                }
             }
-            
+        } else {
+            let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+            vc?.viewModel.detailID = list?[indexPath.item].id
+            if let vc = vc {
+                if let myVC = myVC {
+                    myVC.present(vc , animated: true, completion: nil)
+                }
+                
+            }
         }
     }
     

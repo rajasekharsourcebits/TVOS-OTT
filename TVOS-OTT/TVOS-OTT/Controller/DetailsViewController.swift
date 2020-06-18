@@ -133,11 +133,11 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
                             var items = [Similar]()
                             if let item = item {
                                 items.append(item)
-                                cell.set(withData: indexPath.section, list: items, myVC: self)
+                                cell.set(withData: indexPath.section, list: items, myVC: self, type: model.type)
                             }
                             
                         } else {
-                            cell.set(withData: indexPath.section, list: model.similars, myVC: self)
+                            cell.set(withData: indexPath.section, list: model.similars, myVC: self, type: model.type)
                         }
                         
                         
@@ -162,11 +162,11 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
                             var items: [Similar]?
                             if let item = item {
                                 items?.append(item)
-                                cell.set(withData: indexPath.section, list: items, myVC: self)
+                                cell.set(withData: indexPath.section, list: items, myVC: self, type: model.type)
                             }
                             
                         } else {
-                            cell.set(withData: indexPath.section, list: model.similars, myVC: self)
+                            cell.set(withData: indexPath.section, list: model.similars, myVC: self, type: model.type)
                         }
                         
                         
