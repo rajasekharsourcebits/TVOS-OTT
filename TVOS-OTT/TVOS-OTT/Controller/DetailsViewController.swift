@@ -161,11 +161,11 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 } else {
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
-                        if indexPath.row == 1 {
+                        if indexPath.section == 1 {
                             let item = model.similars?.first
-                            var items: [Similar]?
+                            var items = [Similar]()
                             if let item = item {
-                                items?.append(item)
+                                items.append(item)
                                 cell.set(withData: indexPath.section, list: items, myVC: self, type: model.type)
                             }
                             
