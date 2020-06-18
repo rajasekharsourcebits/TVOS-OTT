@@ -253,9 +253,9 @@ extension DetailsViewController {
     fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
         context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 0.6
-        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
-        context.nextFocusedView?.layer.shadowRadius = 3
-        context.nextFocusedView?.layer.cornerRadius = 10
+        context.nextFocusedView?.layer.shadowOffset = .zero
+        context.nextFocusedView?.layer.shadowRadius = 5
+        //context.nextFocusedView?.layer.cornerRadius = 10
         context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
     }
     

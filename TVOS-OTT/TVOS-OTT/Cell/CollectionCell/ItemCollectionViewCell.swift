@@ -11,4 +11,20 @@ import ParallaxView
 
 class ItemCollectionViewCell: ParallaxCollectionViewCell {
     @IBOutlet weak var itemImage: UIImageView!
+    
+    fileprivate var widthToHeightRatio = CGFloat(0)
+    
+    func setSelected(_ selected: Bool, animated: Bool) {
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        widthToHeightRatio = round(((bounds.width * 0.08 + bounds.height)/bounds.height)*100)/100
+    }
+    
+    override var canBecomeFocused: Bool {
+        return true
+    }
 }
