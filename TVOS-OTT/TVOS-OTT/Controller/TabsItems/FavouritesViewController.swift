@@ -62,6 +62,17 @@ class FavouritesViewController: UIViewController {
         }
     }
     
+    @IBAction func playBtn(_ sender: Any) {
+        
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
+        if let vc = vc {
+            vc.pushFrom = "full"
+            self.present(vc , animated: true, completion: nil)
+            
+        }
+    }
+    
+    
     func configureFlowLayoutSpacing() {
         if let flowLayout = muyCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             let maxWidthOfOneItem = muyCollectionView.frame.width / CGFloat(numberOfItemsPerRow)
@@ -127,7 +138,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
                     cell.imgView.sd_setImage(with: imageUrl, completed: nil)
                 }
             }
-            cell.backgroundColor = .red
+            //cell.backgroundColor = .red
             //cell.imgView.adjustsImageWhenAncestorFocused = true
             return cell
         } else {

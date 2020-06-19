@@ -12,10 +12,24 @@ class MinimizedPlayerVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var viewHeightConstant: NSLayoutConstraint!
+    
+    var list: [Similar]?
+    var pushFrom: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if pushFrom == "full" {
+            viewHeightConstant.constant = 0
+        } else {
+            viewHeightConstant.constant = 344
+        }
+        
+        if let list = list {
+            let item = list.first
+            titleLbl.text = item?.fullTitle
+        }
         configureFlowLayoutSpacing()
     }
     
@@ -38,7 +52,7 @@ class MinimizedPlayerVC: UIViewController {
 
 extension MinimizedPlayerVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return list?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -46,13 +60,17 @@ extension MinimizedPlayerVC: UICollectionViewDataSource, UICollectionViewDelegat
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouriteCollectionCell", for: indexPath) as? FavouriteCollectionCell {
             cell.imgView.layer.cornerRadius = 10
+            
+            if let list = list {
+                if let image = list[indexPath.row].image {
+                    let imageUrl = URL.init(string: image)
+                    if let imageUrl = imageUrl {
+                        cell.imgView.sd_setImage(with: imageUrl, completed: nil)
+                    }
+                }
+            }
 
-//            if let image = favList[indexPath.row].image {
-//                let imageUrl = URL.init(string: image)
-//                if let imageUrl = imageUrl {
-//                    cell.imgView.sd_setImage(with: imageUrl, completed: nil)
-//                }
-//            }
+            
             //cell.imgView.adjustsImageWhenAncestorFocused = true
             return cell
         } else {
@@ -66,22 +84,16 @@ extension MinimizedPlayerVC: UICollectionViewDataSource, UICollectionViewDelegat
         //print("Previous Focused Path: \(context.previouslyFocusedIndexPath)")
         //print("Next Focused Path: \(context.nextFocusedIndexPath)")
         
-//        if let value = context.nextFocusedIndexPath {
-//            // let item = lis[value.first ?? 0].cards?[value.last ?? 0]
-//            print(value)
-//            let item = favList[value.last ?? 0]
-//            currentselectedIndex = value.last ?? 0
-//            nameLbl.text = item.name
-//            descLbl.text = item.desc
-//
-//            if let image = item.image {
-//                let imageUrl = URL.init(string: image)
-//                if let imageUrl = imageUrl {
-//                    posterImage.sd_setImage(with: imageUrl, completed: nil)
-//                    imgView.sd_setImage(with: imageUrl, completed: nil)
-//                }
-//            }
-//        }
+        if let value = context.nextFocusedIndexPath {
+            // let item = lis[value.first ?? 0].cards?[value.last ?? 0]
+            print(value)
+            if let list = list {
+                let item = list[value.first ?? 0]
+                titleLbl.text = item.fullTitle
+            }
+            
+
+        }
         
     }
     

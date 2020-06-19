@@ -63,6 +63,16 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func WatchNow(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
+        if let vc = vc {
+            vc.pushFrom = "full"
+            self.present(vc , animated: true, completion: nil)
+            
+        }
+    }
+    
+    
     @IBAction func addToFavourite(_ sender: Any) {
         
         if let id = viewModel.detailModel?.id {
@@ -160,7 +170,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
                         return CastCrewTableViewCell()
                     }
                 } else {
-                    if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as? DetailTopTableViewCell {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTopTableViewCell", for: indexPath) as?  DetailTopTableViewCell {
                         if indexPath.section == 1 {
                             let item = model.similars?.first
                             var items = [Similar]()
@@ -215,9 +225,9 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         myLabel.font = UIFont(name: "HelveticaNeue - Bold", size: 35)
         if let type = viewModel.detailModel?.type {
             if type == "Movie" {
-              myLabel.text = movieSectionIndex[section]
+                myLabel.text = movieSectionIndex[section]
             } else {
-               myLabel.text = tvSectionIndex[section]
+                myLabel.text = tvSectionIndex[section]
             }
         }
         
