@@ -145,6 +145,7 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
                     let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
                     if let vc = vc {
                         if let myVC = myVC {
+                            vc.list = list
                             myVC.present(vc , animated: true, completion: nil)
                         }
                         
@@ -163,6 +164,7 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
                 if sectionIndex == 1 {
                     let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
                     if let vc = vc {
+                        vc.list = list
                         if let myVC = myVC {
                             myVC.present(vc , animated: true, completion: nil)
                         }
