@@ -15,7 +15,7 @@ class BannerViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     var index:Int = 0
     var bannerTimer: Timer?
-    var dataCount: Int = 10
+    var dataCount: Int = 5
     
     @IBAction func scrollToNext(_ sender: Any) {
         if index < bannerPageControl.numberOfPages - 1 {
@@ -59,6 +59,8 @@ class BannerViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: indexPath) as! BannerCollectionViewCell
+        cell.bannerImage.image = UIImage(named: "\(bannerImageArray[indexPath.item])")
+        cell.bannerImage.adjustsImageWhenAncestorFocused = true
         return cell
     }
     

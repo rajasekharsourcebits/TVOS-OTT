@@ -446,7 +446,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1920" height="516"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner" translatesAutoresizingMaskIntoConstraints="NO" id="wh9-M9-F1O">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner2" translatesAutoresizingMaskIntoConstraints="NO" id="wh9-M9-F1O">
                                                     <rect key="frame" x="0.0" y="0.0" width="1920" height="516"/>
                                                 </imageView>
                                             </subviews>
@@ -509,7 +509,7 @@
         <segue reference="CXm-XR-sPk"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Banner" width="1920" height="516"/>
+        <image name="Banner2" width="300" height="168"/>
         <image name="demo" width="674" height="1000"/>
     </resources>
 </document>
