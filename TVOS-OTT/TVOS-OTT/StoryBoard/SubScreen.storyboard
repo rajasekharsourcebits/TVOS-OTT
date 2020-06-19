@@ -664,7 +664,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neon Genesis Evangelion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3za-ie-T2a">
-                                <rect key="frame" x="10" y="736" width="425" height="46"/>
+                                <rect key="frame" x="30" y="736" width="425" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="ubH-EZ-DHN"/>
                                 </constraints>
@@ -681,7 +681,7 @@
                             <constraint firstAttribute="trailing" secondItem="wtc-Il-7sg" secondAttribute="trailing" id="fYm-TF-6zJ"/>
                             <constraint firstItem="wtc-Il-7sg" firstAttribute="top" secondItem="ot6-uY-xyM" secondAttribute="top" id="gFK-oO-TWl"/>
                             <constraint firstItem="3za-ie-T2a" firstAttribute="top" secondItem="wtc-Il-7sg" secondAttribute="bottom" constant="8" id="hXO-b8-mB0"/>
-                            <constraint firstItem="3za-ie-T2a" firstAttribute="leading" secondItem="ot6-uY-xyM" secondAttribute="leading" constant="10" id="tpg-i9-Yia"/>
+                            <constraint firstItem="3za-ie-T2a" firstAttribute="leading" secondItem="ot6-uY-xyM" secondAttribute="leading" constant="30" id="tpg-i9-Yia"/>
                             <constraint firstItem="wtc-Il-7sg" firstAttribute="leading" secondItem="ot6-uY-xyM" secondAttribute="leading" id="vWI-Cy-EdA"/>
                             <constraint firstAttribute="bottom" secondItem="TR2-7H-Rfh" secondAttribute="bottom" id="yoD-Wp-mKg"/>
                         </constraints>
@@ -689,6 +689,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="TR2-7H-Rfh" id="MXm-X8-0T1"/>
+                        <outlet property="titleLbl" destination="3za-ie-T2a" id="utk-rH-MaT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gk7-vq-dcE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

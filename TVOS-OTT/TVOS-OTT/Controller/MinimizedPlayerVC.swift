@@ -11,6 +11,7 @@ import UIKit
 class MinimizedPlayerVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var titleLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
