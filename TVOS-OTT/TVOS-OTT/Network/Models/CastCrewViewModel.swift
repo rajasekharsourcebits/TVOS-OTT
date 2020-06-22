@@ -48,6 +48,7 @@ extension CastCrewViewModel: ReachableExpose {
         }
     }
     
+    //Network Avability check
     func reachabilityChanged(_ isReachable: Bool) {
         if isReachable {
            // print("Internet connection available...")

@@ -11,6 +11,7 @@ import SDWebImage
 
 class DetailsViewController: UIViewController {
     
+    //UI Property
     @IBOutlet weak var watchNowBtn: UIButton!
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var transparentView: UIView!
@@ -22,6 +23,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var bacGroundImgView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
+    // Variables and Constants
     var viewModel = DetailViewModel(provider: ServiceProvider<UserService>())
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
@@ -46,13 +48,14 @@ class DetailsViewController: UIViewController {
         
     }
     
+    // Get item from userDefaults
     func fetchFavList() {
         if let favList = UserDefaults.getFavouriteList() {
             self.favList = favList
         }
     }
     
-    func checkFavui() {
+    func checkFavouriteItem() {
         if let id = viewModel.detailModel?.id {
             let bool = favList.contains {$0.id == id}
             if bool {
@@ -72,7 +75,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    
+    // Add or Remove item to favourite.
     @IBAction func addToFavourite(_ sender: Any) {
         
         if let id = viewModel.detailModel?.id {
@@ -96,6 +99,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    //Set default focus using custom focusGide.
     func focusConstraint() {
         focusGuide.preferredFocusEnvironments = [watchNowBtn]
         
@@ -111,6 +115,7 @@ class DetailsViewController: UIViewController {
 
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    // Add number of section Count.
     func numberOfSections(in tableView: UITableView) -> Int {
         
         if let type = viewModel.detailModel?.type {
@@ -123,12 +128,14 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
     
+    // Add number of Row Count.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Allocate Cell
         if let model = viewModel.detailModel {
             if model.type == "Movie" {
                 if indexPath.section == 1 {
@@ -196,6 +203,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         return DetailTopTableViewCell()
     }
     
+    // Set UITableView Cell Height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if let type = viewModel.detailModel?.type {
@@ -218,6 +226,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    // Add UITableView Custom Header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let myLabel = UILabel()
@@ -240,10 +249,12 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         return headerView
     }
     
+    // Add section Header Height
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         45
     }
     
+    //** Disable Row focus to set focus on collectionView item cell.
     func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
         return false
     }
@@ -251,7 +262,8 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DetailsViewController {
-
+    
+    // on focus change default func didUpdateFocus
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         let nextFocusedView = String(describing: context.nextFocusedView)
@@ -293,6 +305,7 @@ extension DetailsViewController {
     }
 }
 
+// Delegate to refresh data onces get Data from api.
 extension DetailsViewController: DetailModelDelegate {
     func updateUI() {
         
@@ -301,7 +314,7 @@ extension DetailsViewController: DetailModelDelegate {
             descLbl.text = model.plot
             timeLbl.text = model.runtimeStr
             yerLbl.text = model.imDbRating
-            checkFavui()
+            checkFavouriteItem()
             if let image = model.image {
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {

@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+// Common extention to update next and previous focused item.
 extension UIViewController {
     
+    // For uiView
     func setNextFocusUI(_ context: UIFocusUpdateContext) {
         context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 0.2
@@ -28,6 +30,7 @@ extension UIViewController {
         context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
     }
     
+    // For UIButton
     func setButtonNextFocusUI(_ context: UIFocusUpdateContext) {
         context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.shadowOpacity = 1

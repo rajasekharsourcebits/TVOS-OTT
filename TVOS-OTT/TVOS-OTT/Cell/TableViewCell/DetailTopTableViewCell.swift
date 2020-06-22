@@ -90,7 +90,6 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
                 let imageUrl = URL.init(string: image)
                 if let imageUrl = imageUrl {
                     cell.itemImage.sd_setImage(with: imageUrl, completed: nil)
-                    
                 }
             }
             
@@ -142,54 +141,43 @@ extension DetailTopTableViewCell: UICollectionViewDelegate, UICollectionViewData
         if let type = type {
             if type == "Movie" {
                 if sectionIndex == 0 {
-                    let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
-                    if let vc = vc {
-                        if let myVC = myVC {
-                            vc.list = list
-                            myVC.present(vc , animated: true, completion: nil)
-                        }
-                        
-                    }
+                    presentToPayer()
                 } else {
-                    let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-                    vc?.viewModel.detailID = list?[indexPath.item].id
-                    if let vc = vc {
-                        if let myVC = myVC {
-                            myVC.present(vc , animated: true, completion: nil)
-                        }
-                        
-                    }
+                    presentToDetailScreen(fromData: list?[indexPath.item].id)
                 }
             } else {
                 if sectionIndex == 1 {
-                    let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
-                    if let vc = vc {
-                        vc.list = list
-                        if let myVC = myVC {
-                            myVC.present(vc , animated: true, completion: nil)
-                        }
-                        
-                    }
+                    presentToPayer()
                 } else {
-                    let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-                    vc?.viewModel.detailID = list?[indexPath.item].id
-                    if let vc = vc {
-                        if let myVC = myVC {
-                            myVC.present(vc , animated: true, completion: nil)
-                        }
-                        
-                    }
+                    presentToDetailScreen(fromData: list?[indexPath.item].id)
                 }
             }
         } else {
-            let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
-            vc?.viewModel.detailID = list?[indexPath.item].id
-            if let vc = vc {
-                if let myVC = myVC {
-                    myVC.present(vc , animated: true, completion: nil)
-                }
-                
+            presentToDetailScreen(fromData: list?[indexPath.item].id)
+        }
+    }
+    
+    func presentToDetailScreen(fromData detailId: String?) {
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+        if let detailId = detailId {
+            vc?.viewModel.detailID = detailId
+        }
+        if let vc = vc {
+            if let myVC = myVC {
+                myVC.present(vc , animated: true, completion: nil)
             }
+            
+        }
+    }
+    
+    func presentToPayer() {
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
+        if let vc = vc {
+            vc.list = list
+            if let myVC = myVC {
+                myVC.present(vc , animated: true, completion: nil)
+            }
+            
         }
     }
     

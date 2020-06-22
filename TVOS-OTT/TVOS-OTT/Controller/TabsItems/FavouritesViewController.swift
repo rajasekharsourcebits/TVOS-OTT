@@ -23,7 +23,7 @@ class FavouritesViewController: UIViewController {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var noDataLbl: UILabel!
     
-    // dynamic property
+    // Variables and Constants
     var numberOfItemsPerRow = 4
     var currentselectedIndex = 0
     
@@ -231,29 +231,8 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
 
 extension FavouritesViewController {
     
-    //    fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-    //        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
-    //        context.nextFocusedView?.layer.shadowOpacity = 0.2
-    //        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
-    //        context.nextFocusedView?.layer.shadowRadius = 3
-    //        context.nextFocusedView?.layer.cornerRadius = 10
-    //        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
-    //    }
-    //
-    //    fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
-    //        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-    //        context.previouslyFocusedView?.layer.shadowOpacity = 0
-    //        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-    //        context.previouslyFocusedView?.layer.shadowRadius = 0
-    //        context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
-    //    }
-    
-    
-    //}
-    
+    // on focus change default func didUpdateFocus
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
-        // on focus change default func which call
         
         let nextFocusedView = String(describing: context.nextFocusedView)
         let previouslyFocusedView = String(describing: context.previouslyFocusedView)
