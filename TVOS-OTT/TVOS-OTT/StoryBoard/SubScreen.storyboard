@@ -130,7 +130,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="REviveFormList:" destination="poN-c3-uzX" eventType="primaryActionTriggered" id="unt-Rn-k7T"/>
+                                                            <action selector="RemoveFormList:" destination="poN-c3-uzX" eventType="primaryActionTriggered" id="M7t-1h-bxb"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -218,9 +218,9 @@
                     <tabBarItem key="tabBarItem" title="Favourites" id="3uZ-rL-6c7"/>
                     <simulatedTabBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="collectionView" destination="a3M-b1-Plq" id="war-Bx-QC7"/>
                         <outlet property="descLbl" destination="yDi-hf-V2I" id="eCk-im-YbX"/>
                         <outlet property="imgView" destination="RaC-oS-l0f" id="rOo-TY-YOW"/>
-                        <outlet property="muyCollectionView" destination="a3M-b1-Plq" id="hAx-lI-GFC"/>
                         <outlet property="myView" destination="V92-MP-KUY" id="gML-VY-Bay"/>
                         <outlet property="nameLbl" destination="haY-WN-AAT" id="wbe-1E-LB3"/>
                         <outlet property="noDataLbl" destination="zyZ-Wn-gjm" id="3l1-ZK-u01"/>

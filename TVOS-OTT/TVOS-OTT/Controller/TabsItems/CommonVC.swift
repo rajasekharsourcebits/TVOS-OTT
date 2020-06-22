@@ -126,35 +126,6 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension CommonVC {
-    
-    fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
-        context.nextFocusedView?.layer.shadowOpacity = 1
-        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
-        context.nextFocusedView?.layer.shadowRadius = 5
-        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
-    }
-    
-    fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
-        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-        context.previouslyFocusedView?.layer.shadowOpacity = 0
-        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-        context.previouslyFocusedView?.layer.shadowRadius = 0
-        context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
-    }
-    
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
-        guard context.nextFocusedView != nil else {
-            return
-        }
-        setNextFocusUI(context)
-        setPrevioulyFocusedUI(context)
-        //removeChildIfNead()
-    }
-}
-
 extension CommonVC: CommonVCModelDelegate {
     func updateUI() {
         sectionTitle = allocateSectionCount(tabSelected)

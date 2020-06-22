@@ -18,6 +18,7 @@
 		9D1A5F0D249B84C4000EBD5D /* LIstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1A5F0C249B84C4000EBD5D /* LIstTableViewCell.swift */; };
 		9D1D02D224937F860050F09F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D02D124937F860050F09F /* DetailViewModel.swift */; };
 		9D1D02D424939D6A0050F09F /* CastCrewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D02D324939D6A0050F09F /* CastCrewDetailViewController.swift */; };
+		9D24CB5E24A08CD100EAA0A7 /* UIViewcontroller+Extesnion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D24CB5D24A08CD100EAA0A7 /* UIViewcontroller+Extesnion.swift */; };
 		9D4B28712498B01D00EAD041 /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4B28702498B01D00EAD041 /* FavouriteModel.swift */; };
 		9D4B28732498B10800EAD041 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4B28722498B10800EAD041 /* AppUserDefaults.swift */; };
 		9D5A5B0D247CF11B008ABC33 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A5B0C247CF11B008ABC33 /* Reachability.swift */; };
@@ -98,6 +99,7 @@
 		9D1A5F0C249B84C4000EBD5D /* LIstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIstTableViewCell.swift; sourceTree = "<group>"; };
 		9D1D02D124937F860050F09F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = "TVOS-OTT/Cell/TableViewCell/DetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		9D1D02D324939D6A0050F09F /* CastCrewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCrewDetailViewController.swift; sourceTree = "<group>"; };
+		9D24CB5D24A08CD100EAA0A7 /* UIViewcontroller+Extesnion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewcontroller+Extesnion.swift"; path = "TVOS-OTT/UIViewcontroller+Extesnion.swift"; sourceTree = SOURCE_ROOT; };
 		9D2E17ADAE2160E89621D48F /* Pods_TVOS_OTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVOS_OTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4B28702498B01D00EAD041 /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
 		9D4B28722498B10800EAD041 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppUserDefaults.swift; path = "TVOS-OTT/Network/Models/AppUserDefaults.swift"; sourceTree = SOURCE_ROOT; };
@@ -317,6 +319,7 @@
 			children = (
 				9FADC2AB2488B7A000E3FE3A /* CommonExtension.swift */,
 				9D4B28722498B10800EAD041 /* AppUserDefaults.swift */,
+				9D24CB5D24A08CD100EAA0A7 /* UIViewcontroller+Extesnion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				9D5A5B0F247CF17F008ABC33 /* NetworkConstants.swift in Sources */,
 				9F5993EA2498A6C600AD27CF /* TabViewController.swift in Sources */,
 				9DDC92D524923C1800B249D1 /* CastCrewCollectionViewCell.swift in Sources */,
+				9D24CB5E24A08CD100EAA0A7 /* UIViewcontroller+Extesnion.swift in Sources */,
 				9FF1E31D247412EF0033A291 /* FavouritesViewController.swift in Sources */,
 				9FADC2A62487718F00E3FE3A /* SearchModel.swift in Sources */,
 				9FB964292490A4E4007F042B /* MoviesModel.swift in Sources */,

@@ -9,23 +9,16 @@
 import UIKit
 import ParallaxView
 
+// Adding parallex effect to uiview use collectionView sub Class.
+
 class ItemCollectionViewCell: ParallaxCollectionViewCell {
+    
+    //UI Property
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var playImageView: UIImageView!
-    
-    fileprivate var widthToHeightRatio = CGFloat(0)
     
     func setSelected(_ selected: Bool, animated: Bool) {
         
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        widthToHeightRatio = round(((bounds.width * 0.08 + bounds.height)/bounds.height)*100)/100
-    }
-    
-    override var canBecomeFocused: Bool {
-        return true
-    }
 }
