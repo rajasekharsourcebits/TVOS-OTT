@@ -119,25 +119,7 @@ extension MinimizedPlayerVC: UICollectionViewDataSource, UICollectionViewDelegat
     
 }
 
-extension MinimizedPlayerVC {
-    
-    fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
-        context.nextFocusedView?.layer.shadowOpacity = 0.6
-        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
-        context.nextFocusedView?.layer.shadowRadius = 3
-        context.nextFocusedView?.layer.cornerRadius = 10
-        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
-    }
-    
-    fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
-        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-        context.previouslyFocusedView?.layer.shadowOpacity = 0
-        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-        context.previouslyFocusedView?.layer.shadowRadius = 0
-        context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
-    }
-    
+extension MinimizedPlayerVC {    
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         

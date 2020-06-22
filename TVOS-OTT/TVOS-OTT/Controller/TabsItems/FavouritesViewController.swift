@@ -10,27 +10,31 @@ import UIKit
 import SDWebImage
 
 class FavouritesViewController: UIViewController {
-    //Property
+    
+    //UI Property
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var supersubView: UIView!
-    @IBOutlet weak var muyCollectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var removeItemBtn: UIButton!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
-    var currentselectedIndex = 0
     @IBOutlet weak var noDataLbl: UILabel!
     
-    //var numberOfRows = 3
+    // dynamic property
     var numberOfItemsPerRow = 4
+    var currentselectedIndex = 0
     
+    // custom focusguide property allocation
     var focusGuide = UIFocusGuide()
     var preferredFocusView: UIView?
     
+    // api data model array
     var favList = [FavouriteModel]()
     
+    // Using this declear property we can able to set our inital default focus.
     //    override var preferredFocusEnvironments: [UIFocusEnvironment] {
     //        return [playBtn]
     //    }
@@ -39,63 +43,48 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // calling custom focus function.
+        setConstraintToFocus()
+        
+    }
+    
+    func setConstraintToFocus() {
+        
         focusGuide.preferredFocusEnvironments = [playBtn]
         
         view.addLayoutGuide(focusGuide)
         
+        //custom focus set constraint for travel.
         focusGuide.topAnchor.constraint(equalTo: supersubView.topAnchor).isActive = true
         focusGuide.bottomAnchor.constraint(equalTo: supersubView.bottomAnchor).isActive = true
         focusGuide.leadingAnchor.constraint(equalTo: supersubView.leadingAnchor).isActive = true
         focusGuide.widthAnchor.constraint(equalTo: supersubView.widthAnchor).isActive = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        // Fetching data from userDefault.
         if let favList = UserDefaults.getFavouriteList() {
             
             self.favList = favList
+            
+            // Set inital banner, title, desc, poster image of first element.
             setInitalFocusData()
+            //collectionView horizontal and vertical spacing func
             configureFlowLayoutSpacing()
-            muyCollectionView.reloadData()
+            collectionView.reloadData()
         } else {
             
         }
     }
     
-    @IBAction func playBtn(_ sender: Any) {
-        
-        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
-        if let vc = vc {
-            vc.pushFrom = "full"
-            self.present(vc , animated: true, completion: nil)
-            
-        }
-    }
-    
-    
-    func configureFlowLayoutSpacing() {
-        if let flowLayout = muyCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let maxWidthOfOneItem = muyCollectionView.frame.width / CGFloat(numberOfItemsPerRow)
-            let inset = maxWidthOfOneItem * 0.1
-            
-            flowLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
-            flowLayout.minimumLineSpacing = inset
-            flowLayout.minimumInteritemSpacing = inset
-        }
-    }
-    
-    @IBAction func REviveFormList(_ sender: Any) {
-        
-        favList.remove(at: currentselectedIndex)
-        UserDefaults.storeFavouriteList(programs: favList)
-        setInitalFocusData()
-        muyCollectionView.reloadData()
-    }
-    
-    
+    // MARK:- Inital ui set and dataloading func.
     func setInitalFocusData() {
         if let favList = favList.first {
-            muyCollectionView.isHidden = false
+            collectionView.isHidden = false
             myView.isHidden = false
             noDataLbl.isHidden = true
             nameLbl.text = favList.name
@@ -111,12 +100,47 @@ class FavouritesViewController: UIViewController {
             }
             
         } else {
-            muyCollectionView.isHidden = true
+            collectionView.isHidden = true
             myView.isHidden = true
             noDataLbl.isHidden = false
             imgView.isHidden = true
         }
     }
+    
+    func configureFlowLayoutSpacing() {
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let maxWidthOfOneItem = collectionView.frame.width / CGFloat(numberOfItemsPerRow)
+            let inset = maxWidthOfOneItem * 0.1
+            
+            flowLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+            flowLayout.minimumLineSpacing = inset
+            flowLayout.minimumInteritemSpacing = inset
+        }
+    }
+    
+    // MARK:- UIButton Action
+    @IBAction func playBtn(_ sender: Any) {
+        
+        //presenting to player View controller.
+        let vc = UIStoryboard.init(name: "SubScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "MinimizedPlayerVC") as? MinimizedPlayerVC
+        if let vc = vc {
+            vc.pushFrom = "full"
+            self.present(vc , animated: true, completion: nil)
+            
+        }
+    }
+    
+    //Remove Item form userdefaults.
+    @IBAction func RemoveFormList(_ sender: Any) {
+        
+        favList.remove(at: currentselectedIndex)
+        UserDefaults.storeFavouriteList(programs: favList)
+        setInitalFocusData()
+        collectionView.reloadData()
+    }
+    
+    
+    
     
 }
 
@@ -138,7 +162,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
                     cell.imgView.sd_setImage(with: imageUrl, completed: nil)
                 }
             }
-            //cell.backgroundColor = .red
+            // enable it for focus parallex effect for image view or for cell go to cell class
             //cell.imgView.adjustsImageWhenAncestorFocused = true
             return cell
         } else {
@@ -148,7 +172,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
-        // test
+        // use this to get previous and next focused item.
         //print("Previous Focused Path: \(context.previouslyFocusedIndexPath)")
         //print("Next Focused Path: \(context.nextFocusedIndexPath)")
         
@@ -176,11 +200,6 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
                 + flowLayout.sectionInset.right
                 + (flowLayout.minimumInteritemSpacing * CGFloat(numberOfItemsPerRow - 1))
             let width = Int((collectionView.bounds.width - totalSpaceWidth) / CGFloat(numberOfItemsPerRow))
-            
-            //            let totalSpaceHeight = flowLayout.sectionInset.top
-            //                + flowLayout.sectionInset.bottom
-            //                + (flowLayout.minimumLineSpacing * CGFloat(numberOfRows - 1))
-            //            let height = Int((collectionView.bounds.height - totalSpaceHeight) / CGFloat(numberOfRows))
             
             return CGSize(width: width, height: 300)
         }
@@ -212,49 +231,29 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
 
 extension FavouritesViewController {
     
-    fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
-        context.nextFocusedView?.layer.shadowOpacity = 0.2
-        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
-        context.nextFocusedView?.layer.shadowRadius = 3
-        context.nextFocusedView?.layer.cornerRadius = 10
-        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
-    }
+    //    fileprivate func setNextFocusUI(_ context: UIFocusUpdateContext) {
+    //        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
+    //        context.nextFocusedView?.layer.shadowOpacity = 0.2
+    //        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
+    //        context.nextFocusedView?.layer.shadowRadius = 3
+    //        context.nextFocusedView?.layer.cornerRadius = 10
+    //        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+    //    }
+    //
+    //    fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
+    //        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
+    //        context.previouslyFocusedView?.layer.shadowOpacity = 0
+    //        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
+    //        context.previouslyFocusedView?.layer.shadowRadius = 0
+    //        context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
+    //    }
     
-    fileprivate func setPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
-        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-        context.previouslyFocusedView?.layer.shadowOpacity = 0
-        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-        context.previouslyFocusedView?.layer.shadowRadius = 0
-        context.previouslyFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
-    }
     
-    fileprivate func setButtonNextFocusUI(_ context: UIFocusUpdateContext) {
-        context.nextFocusedView?.layer.shadowColor = UIColor.white.cgColor
-        context.nextFocusedView?.layer.shadowOpacity = 1
-        context.nextFocusedView?.layer.shadowOffset = CGSize.zero
-        context.nextFocusedView?.layer.shadowRadius = 5
-        context.nextFocusedView?.backgroundColor = #colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1)
-        //let value = context.previouslyFocusedView?.subviews.first
-        
-        if let button = context.nextFocusedView as? UIButton {
-            button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        }
-        context.nextFocusedView?.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
-    }
-    
-    fileprivate func setButtonPrevioulyFocusedUI(_ context: UIFocusUpdateContext) {
-        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-        context.previouslyFocusedView?.layer.shadowOpacity = 0
-        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-        context.previouslyFocusedView?.layer.shadowRadius = 0
-        context.previouslyFocusedView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        if let button = context.previouslyFocusedView as? UIButton {
-            button.setTitleColor(#colorLiteral(red: 0, green: 0.3620362878, blue: 0.6688420177, alpha: 1), for: .normal)
-        }
-    }
+    //}
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        // on focus change default func which call
         
         let nextFocusedView = String(describing: context.nextFocusedView)
         let previouslyFocusedView = String(describing: context.previouslyFocusedView)
@@ -262,13 +261,17 @@ extension FavouritesViewController {
             return
         }
         
+        // From tab bar  to programatically move to playbtn
         if previouslyFocusedView.contains("UITabBarButton") {
             setPreferredFocus(view: playBtn)
         }
         
+        
+        // use to update ui for next and previous focused item.
         if nextFocusedView.contains("UIButton") {
             setButtonNextFocusUI(context)
         } else {
+            //self.setNextFocusUI(context)
             setNextFocusUI(context)
         }
         
@@ -277,7 +280,6 @@ extension FavouritesViewController {
         } else {
             setPrevioulyFocusedUI(context)
         }
-        //removeChildIfNead()
     }
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
