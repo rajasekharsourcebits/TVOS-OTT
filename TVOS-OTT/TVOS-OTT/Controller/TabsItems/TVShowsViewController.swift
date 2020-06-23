@@ -13,7 +13,7 @@ class TVShowsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+    // Pass selected tab title through segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FromTVShows" {
             if let vc = segue.destination as? CommonVC {

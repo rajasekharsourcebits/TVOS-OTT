@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+    // Pass selected tab title through segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FromHome" {
             if let vc = segue.destination as? CommonVC {
