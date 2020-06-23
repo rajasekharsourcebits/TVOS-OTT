@@ -9,12 +9,15 @@
 import UIKit
 
 class TabViewController: UITabBarController {
+    
     override func viewDidLoad() {
+        //Initial setup
         super.viewDidLoad()
         let homeVC = self.viewControllers![0] as? HomeViewController
         homeVC?.tabSelected = "Home"
     }
     
+    // Pass selected tab title
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
        
         let homeVC = self.viewControllers![0] as? HomeViewController

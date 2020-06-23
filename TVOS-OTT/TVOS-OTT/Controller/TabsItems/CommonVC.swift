@@ -9,18 +9,19 @@
 import UIKit
 
 class CommonVC: UIViewController {
-    
+    // UI element
     @IBOutlet weak var tableView: UITableView!
+    // Constants and Variables
     var viewModel = CommonVCViewModel(provider: ServiceProvider<UserService>())
     var delegate: CommonVCModelDelegate?
     var data: [ListItems]?
     var tvData: [TVShowsItem]?
-    
     var tabSelected: String = ""
     var sectionTitle: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Initial setup
         viewModel.commonVCModelDelegate = self
         if tabSelected == "TVShows" {
             viewModel.callApi(view: self.view, serviceType: .top250tvShow)
@@ -28,7 +29,7 @@ class CommonVC: UIViewController {
             viewModel.callApi(view: self.view, serviceType: .top250movies)
         }
     }
-    
+    // Modify section header title
     func allocateSectionCount(_ title: String)  -> [String] {
         switch tabSelected {
         case "Home":
@@ -44,17 +45,17 @@ class CommonVC: UIViewController {
 }
 
 extension CommonVC: UITableViewDelegate, UITableViewDataSource {
-    
+    // Set section count
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitle.count
     }
-    
+    // Set rows count
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        //Allocate cell and assign data to the cell
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell {
             if tabSelected == "TVShows" {
                 if  indexPath.section == 0 {
@@ -89,7 +90,6 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
                 } else  {
                     cell.model = data
                 }
-                
             }
             
             cell.tabSelected = tabSelected
@@ -101,18 +101,17 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //Define the tableview cell height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 450
-        
     }
     
     func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
+    //Custom view for tableview section header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let myLabel = UILabel()
         myLabel.frame = CGRect(x: 0, y: 10, width: 1000, height: 50)
         myLabel.font = UIFont(name: "HelveticaNeue - Bold", size: 35)
@@ -127,6 +126,7 @@ extension CommonVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension CommonVC: CommonVCModelDelegate {
+    // Delegate to update the UI with the response
     func updateUI() {
         sectionTitle = allocateSectionCount(tabSelected)
         if tabSelected == "TVShows" {
